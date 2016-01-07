@@ -7,11 +7,13 @@ public abstract class Unit{
     public int getArmour(){return armour;}
     public int getRange(){return range;}
     public int getDamage(){return damage;}
+    public String getRace(){return race;}
     
     public void setSpeed(int s){speed = s;}
     public void setArmour(int a){armour = a;}
     public void setRange(int r){range = r;}
     public void setDamage(int d){damage = d;}
+    public void setRace(String r){race = r;}
     
 
     public abstract void move();
