@@ -1,6 +1,6 @@
 public class Melee extends Unit{
 
-    // decided to convert spearman to melee so that we do not have to make many unncecessary reskins of same class. All close quarters enemies work the same but just have different values so this should work. 
+    // 
     public Melee(int speed, int armour, int range, int damage, String race, String name){
 	this.setSpeed(speed);
 	this.setArmour(armour);
@@ -10,8 +10,8 @@ public class Melee extends Unit{
 	this.setName(name);    
     }
 
-    public Melee(){
-	this(0, 0, 0, 0, "Men", "Spearman");
+    public Spearman(){
+	this(0, 0, 0, 0, "Men");
     }
 
     public void move(){
