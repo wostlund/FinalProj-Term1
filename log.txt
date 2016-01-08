@@ -1,4 +1,4 @@
 Log
 
 Person       logged in            logged out
-Jackson       6:32                
+Jackson       6:32                    7:03
