@@ -18,21 +18,20 @@ public abstract class Unit{
     public void setName(String n){name = n;}
     
 
-    public abstract void move();
+    public abstract int move();
 
 
     public void attack(Unit other){
-	other.takeDamage((int)(this.damage*.8)+(int)(Math.random()*this.damage*.2));
+  other.takeDamage((int)(this.damage*.8)+(int)(Math.random()*this.damage*.2));
     }
 
     public void takeDamage(int Damage){
-	armour-=Damage;
+  armour-=Damage;
     }
 
     public String toString(){
-	return race + " : " + name + " --" + " speed = " + speed + " armour = " + armour + " range = " + range + " damage = " + damage;
+  return race + " : " + name + " --" + " speed = " + speed + " armour = " + armour + " range = " + range + " damage = " + damage;
     }
 
-    public abstract void die();
     
 }
