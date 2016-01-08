@@ -1,6 +1,6 @@
-public class Range extends Unit{
+/*public class Range extends Unit{
 
-    public Range(int speed, int armour, int range, int damage, String race, String name){
+   public Range(int speed, int armour, int range, int damage, String race, String name){
   this.setSpeed(speed);
   this.setArmour(armour);
   this.setRange(range);
@@ -21,4 +21,4 @@ public class Range extends Unit{
     
 
    
-}
+}*/
