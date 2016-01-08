@@ -18,7 +18,7 @@ public abstract class Unit{
     public void setName(String n){name = n;}
     
 
-    public abstract void move();
+    public abstract int move();
 
 
     public void attack(Unit other){
@@ -33,6 +33,5 @@ public abstract class Unit{
 	return race + " : " + name + " --" + " speed = " + speed + " armour = " + armour + " range = " + range + " damage = " + damage;
     }
 
-    public abstract void die();
     
 }

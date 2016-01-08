@@ -16,13 +16,9 @@ public class Melee extends Unit{
 	this(0, 0, 0, 0, "Men", "Spearman");
     }
 
-    public void move(){
-	this.setSpeed(this.getSpeed());
-	//This is complete BS, we'll implement it when we start processing
+    public int move(){
+	return this.getSpeed();
     }
-
-    public void die(){
-	//more bs
-	this.setArmour(0);
-    }
+    
+    
 }

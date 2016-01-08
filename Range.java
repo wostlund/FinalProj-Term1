@@ -13,13 +13,12 @@ public class Range extends Unit{
 	this(0, 0, 0, 0, "Men", "Archer");
     }
 
-    public void move(){
-	this.setSpeed(this.getSpeed());
-	//This is complete BS too, we'll implement it when we start processing
+    public int move(){
+	return this.getSpeed();
     }
+	
+	
+    
 
-    public void die(){
-	//more bs
-	this.setArmour(0);
-    }
+   
 }
