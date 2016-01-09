@@ -1,4 +1,4 @@
-/*public class Range extends Unit{
+public class Range extends Unit{
 
    public Range(int speed, int armour, int range, int damage, String race, String name){
   this.setSpeed(speed);
@@ -21,4 +21,4 @@
     
 
    
-}*/
+}

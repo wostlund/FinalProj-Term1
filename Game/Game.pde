@@ -54,7 +54,7 @@ void setup(){
     public void spawn(){
     double pos = ((y / 80) + .5) -1 ; 
     if(keyPressed){
-      if(key == 13){ // for some reason the enter key is not triggerring 
+      if(key == ENTER){ // for some reason the enter key is not triggerring 
         Melee soldier = new Melee(5, 40, 130, 20, "Men", "Spearman");
         board[(int)pos][0] = (soldier);
       }
