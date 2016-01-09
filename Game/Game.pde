@@ -65,7 +65,7 @@ void setup(){
   public void displaySoldier(){
       for(int i = 0; i < board.length; i ++){
         if(board[i][0] instanceof Unit){
-        ellipse(40, ((i + 1) * 80), 15, 15); 
+        ellipse(40, ((i) * 80 + 160), 15, 15); 
       }
       }
   }
