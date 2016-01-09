@@ -5,7 +5,7 @@ Unit[][] board = new Unit[8][100];
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup(){
     background(132, 180, 10);
-    size(1080, 1080);
+    size(1440, 980);
   }
   
    /*void fillArray(){
