@@ -79,6 +79,7 @@ public class Range extends Unit{
     public int move(){
   return this.getSpeed();
     }
+}
   
   
     
