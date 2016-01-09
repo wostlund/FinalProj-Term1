@@ -1,4 +1,4 @@
-public abstract class Unit{
+public abstract class Unit extends PShape{
 
     private int speed, armour, range, damage;
     private String race, name;

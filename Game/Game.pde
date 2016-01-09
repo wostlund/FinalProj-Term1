@@ -6,6 +6,7 @@ Unit[][] board = new Unit[8][100];
 void setup(){
     background(132, 180, 10);
     size(1440, 980);
+    ellipse(40, 40, 20, 20);
   }
   
    /*void fillArray(){
@@ -73,18 +74,13 @@ void setup(){
   
   
     void draw(){
-    changeY();
-    spawn();
-    background(132, 180, 10);
-    rect(0,y, 80, 80);
-    displaySoldier();
-     if(keyPressed){
-      if(key == 13){
-         ellipse(100,100, 15, 15);
-      }
-     }
+      changeY();
+      spawn();
+      background(132, 180, 10);
+      rect(0,y, 80, 80);
+      displaySoldier();
+    }
 
-  }
   
   /*public static void main(String[]args){
     spawn();
