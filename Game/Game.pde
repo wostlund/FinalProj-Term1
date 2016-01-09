@@ -2,8 +2,7 @@ int y = 280;
 int yUp = 6, yDown = 6;
 int[][] board = new int[8][100];  
   void setup(){
-
-
+    background(132, 180, 10);
     size(1080, 720);
   }
   
@@ -41,7 +40,6 @@ int[][] board = new int[8][100];
   
   void draw(){
     changeY();
-    background(134);
     rect(0,y, 80, 80);
   }
     
