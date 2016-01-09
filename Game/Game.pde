@@ -1,11 +1,11 @@
-int y = 280;
+int y = 420;
 int yUp = 6, yDown = 6;
 Unit[][] board = new Unit[8][100];
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup(){
     background(132, 180, 10);
-    size(1080, 720);
+    size(1080, 1080);
   }
   
    /*void fillArray(){
@@ -36,11 +36,11 @@ void setup(){
         yDown = 0;
       }
     }
-    if(y > 600){
-      y = 40;
+    if(y > 740){
+      y = 180;
     }
-    if(y < 40){
-      y = 600;
+    if(y < 180){
+      y = 740;
     }
     
   }
@@ -52,7 +52,7 @@ void setup(){
   
   
     public void spawn(){
-    double pos = ((y / 80) + .5) -1 ; 
+    double pos = (y-180) / 80; 
     if(keyPressed){
       if(key == ENTER || key == RETURN){ // for some reason the enter key is not triggerring 
         Melee soldier = new Melee(5, 40, 130, 20, "Men", "Spearman");
@@ -63,9 +63,9 @@ void setup(){
   
   
   public void displaySoldier(){
-      for(int i = 0; i < board.length; i ++){
+      for(int i = 0; i < board.length; i++){
         if(board[i][0] instanceof Unit){
-        ellipse(40, ((i) * 80 + 160), 15, 15); 
+        ellipse(40, ((i) * 80 + 225), 15, 15); 
       }
       }
   }
