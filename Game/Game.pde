@@ -149,9 +149,10 @@ void setup(){
       for(int i = 0; i < board.length; i++){
         for(int k = 0; k < board[i].length; k ++){ //
         if(board[i][k] instanceof Unit){//
-          board[i][k].setYcor(i*80 + 220);//
-        board[i][k].display();//
-        board[i][k].move();//
+          board[i][k].setYcor(i*40+110);//
+          board[i][k].setupDisplay();
+          board[i][k].display();//
+          board[i][k].move();//
         if(board[i][k].getXcor() >= 1300){
           board[i][k] = null;
           playerScore ++;

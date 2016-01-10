@@ -1,4 +1,5 @@
 public class Range extends Unit{
+  private PShape avatar;
 
    public Range(float xcor, float ycor, int speed, int armour, int range, int damage, String race, String name){
   this.setSpeed(speed);
@@ -16,16 +17,22 @@ public class Range extends Unit{
     }
 
   
-  public void display(){
+  public void makeShape(){
      switch(this.getName()){
        case "Archer":
-         triangle(this.getXcor(), this.getYcor()+20, this.getXcor()-20, this.getYcor()-20, this.getXcor()+20, this.getYcor()-20);
+         avatar = createShape(TRIANGLE, this.getXcor(), this.getYcor()+20, this.getXcor()-20, this.getYcor()-20, this.getXcor()+20, this.getYcor()-20);
          break;
        default:
          triangle(this.getXcor(), this.getYcor()+20, this.getXcor()-20, this.getYcor()-20, this.getXcor()+20, this.getYcor()-20);
      }
   }
     
-
+  public void setupDisplay(){
+     this.makeShape(); 
+  }
+  
+  public void display(){
+     shape(avatar, this.getXcor(), this.getYcor());
+  }
    
 }

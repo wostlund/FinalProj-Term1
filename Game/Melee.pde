@@ -1,4 +1,5 @@
 public class Melee extends Unit{
+    private PShape avatar;
 
     // decided to convert spearman to melee so that we do not have to make many unncecessary reskins of same class. All close quarters enemies work the same but just have different values so this should work.
     //ok
@@ -18,29 +19,35 @@ public class Melee extends Unit{
   this(0, 80, 0, 0, 0, 0, "Men", "Spearman");
     }
     
-    public void display(){
+    public void makeShape(){
       switch(this.getName()){
         case "Spearman":
-          ellipse(this.getXcor(), this.getYcor(), 40, 40);
+          avatar = createShape(ELLIPSE ,this.getXcor(), this.getYcor(), 40, 40);
           break;
         case "Swordsman":
-          rect(this.getXcor()-20, this.getYcor()-20, 40, 40);
+          avatar = createShape(RECT,this.getXcor()-20, this.getYcor()-20, 40, 40);
           break;
         default:
-          beginShape(); //makes a triangle
-          vertex(this.getXcor(), this.getYcor()+20); //This doesn't work, I don't think we'll need that
-          vertex(this.getXcor() - 20, this.getYcor()-20);
-          vertex(this.getXcor() + 20, this.getYcor()-20);
-          endShape();
           break;
       }
-      switch(this.getRace()){
+    }
+      
+     public void setColor(){
+       switch(this.getRace()){
          case "Men":
-           this.setFill(color(0));
+           avatar.setFill(color(0,0,256));
            break;
          default:
-           this.setFill(color(0));
            break;
       }
+    }
+    
+    public void setupDisplay(){
+      this.makeShape();
+      this.setColor();
+    }
+    
+    public void display(){
+      shape(avatar, this.getXcor(), this.getYcor()); 
     }
 }

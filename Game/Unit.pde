@@ -1,4 +1,4 @@
-public abstract class Unit extends PShape{
+public abstract class Unit{
 
     private int speed, armour, range, damage; 
     private float ycor, xcor;
@@ -26,7 +26,8 @@ public abstract class Unit extends PShape{
     public void move(){
       xcor+= (speed / 4.0);  //
     }
-
+    
+    public abstract void setupDisplay();
 
     public void attack(Unit other){
   other.takeDamage((int)(this.damage*.8)+(int)(Math.random()*this.damage*.2));
