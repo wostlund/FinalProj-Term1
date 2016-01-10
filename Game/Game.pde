@@ -1,5 +1,5 @@
 public boolean playing=true;
-int y = 420, choice = 0;
+int y = 420, choice = 0, echoice;
 int timer = 0;
 boolean init = false;
 int yUp = 6, yDown = 6, ent = 6;
@@ -181,7 +181,78 @@ void setup(){
         }
         ent = 0;
       }
-    }    
+    }
+    
+    
+    /*public void enemySpawn(){
+    double pos = (y-180) / 80; 
+    if(keyPressed){
+      if(key == ENTER || key == RETURN){ 
+        ent += 1;}
+    }
+    if(ent >= 7){ // will improve delay later / vary based on unit
+        Unit soldier = new Melee();
+        switch(choice){ //this is like a cond statement in Scheme
+          case 0:
+            if(timer >= 80){
+              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", true);
+              init = true;
+              timer=0;
+            }
+            break;
+          case 1:
+            if(timer >= 120){
+              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", true);
+              init = true;
+              timer = 0;
+            }
+            break;
+          default:
+            if(timer >= 100){
+              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", true);
+              init = true;
+              timer = 0;
+            }
+            break;
+        }
+        //shape(soldier);
+        if(init){
+         int k = 0;
+          for(int i = 0; i < board[(int)pos].length; i++){
+           if(board[(int)pos][i] == null && k == 0){
+            board[(int)pos][i] = (soldier);
+          k += 1;
+           }
+          }
+         init = false;
+        }
+        ent = 0;
+      }
+    }    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   
   public void displaySoldier(){
       for(int i = 0; i < board.length; i++){

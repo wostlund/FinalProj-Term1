@@ -1,5 +1,4 @@
 public class Artificial{
-  Unit [][] retAry = new Unit [8] [1];
   Unit [][] ary = new Unit [8][100];
   Artificial(Unit [][] j){
     for(int i = 0; i < j.length; i ++){
@@ -20,8 +19,46 @@ public class Artificial{
       }
     }
     
+    for(int i = 0; i < lane.length -1; i ++){
+      if(lane [i] == 0){
+        lane[8] = i;
+      }
+    }
+    
     return lane; 
   }
+  
+  public int retMaxLane(int [] name){
+    int m = name[0];
+    int lane = 0;
+    for(int i = 0; i < name.length -1; i ++){
+      if(name[i] >= m){
+        lane = i;
+        m = name[i];
+      }
+    }
+    return lane;
+  }
+      
+    
+  
+  public int decide(){
+    int [] name  = viewField(); 
+    int lane = retMaxLane(viewField());
+    int fin = 0;
+    if(Math.random() * 100 <= 80){
+      fin = lane;
+    }
+    else{fin = name[7];}
+    return fin;
+    
+  }
+  
+  public int choseClass(){
+    return 0;// will do later 
+  }
+    
+ 
   
   
 }
