@@ -1,5 +1,7 @@
 public boolean playing=true;
 int y = 420, choice = 0;
+int timer = 0;
+boolean init = false;
 int yUp = 6, yDown = 6, ent = 6;
 int choiceR = 6, choiceL = 6;
 Unit[][] board = new Unit[8][100];
@@ -123,27 +125,43 @@ void setup(){
       if(key == ENTER || key == RETURN){ 
         ent += 1;}
     }
-    if(ent == 7){ // will improve delay later / vary based on unit
-        Unit soldier;
+    if(ent >= 7){ // will improve delay later / vary based on unit
+        Unit soldier = new Melee();
         switch(choice){ //this is like a cond statement in Scheme
           case 0:
-            soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman");
+            if(timer >= 80){
+              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman");
+              init = true;
+              timer=0;
+            }
             break;
           case 1:
-            soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman");
+            if(timer >= 120){
+              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman");
+              init = true;
+              timer = 0;
+            }
             break;
           default:
-            soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer");
+            if(timer >= 100){
+              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer");
+              init = true;
+              timer = 0;
+            }
+            break;
         }
         //shape(soldier);
+        if(init){
          int k = 0;
-        for(int i = 0; i < board[(int)pos].length; i++){
-          if(board[(int)pos][i] == null && k == 0){
-        board[(int)pos][i] = (soldier);
-        k += 1;
+          for(int i = 0; i < board[(int)pos].length; i++){
+           if(board[(int)pos][i] == null && k == 0){
+            board[(int)pos][i] = (soldier);
+          k += 1;
+           }
           }
-        }
+         init = false;
         ent = 0;
+        }
     }
     }
     
@@ -213,8 +231,18 @@ void setup(){
       displayScore();
       changeY();
       fillScore();
+      setChooserColor();
+      timer ++;
+      println(timer);
     }
 
+  public void setChooserColor(){
+    if ((choice == 0 && timer >= 80) || (choice == 1 && timer >= 120) || (choice == 2 && timer >= 100)){
+      chooser.setFill(color(0, 0, 256));
+    }else{
+      chooser.setFill(color(255)); 
+    }
+  }
   
   /*public static void main(String[]args){
     spawn();
