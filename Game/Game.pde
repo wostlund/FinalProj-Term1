@@ -20,7 +20,7 @@ chooser()          |     Checks the speed at which the variable "choice" changes
 colorIndicator()   |     Colors the selected unit based on the variable "choice"
 changeY()          |     Allows the user the change lanes to send units into
 keyReleased()      |     Makes the controls quick and responsive by setting variables to a given value
-spawn()            |     Created soldiers triggered by the enter button
+playerSpawn()            |     Created soldiers triggered by the enter button
 displaySoldier()   |     Allows the user to see each individual unit
 displayScore()     |     Fills in the colors of the scorebar
 mouseClicked()     |     Triggers the pause/play button
@@ -137,7 +137,7 @@ void setup(){
   }
   
   
-    public void spawn(){
+    public void playerSpawn(){
     double pos = (y-180) / 80; 
     if(keyPressed){
       if(key == ENTER || key == RETURN){ 
@@ -148,21 +148,21 @@ void setup(){
         switch(choice){ //this is like a cond statement in Scheme
           case 0:
             if(timer >= 80){
-              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman");
+              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", true);
               init = true;
               timer=0;
             }
             break;
           case 1:
             if(timer >= 120){
-              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman");
+              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", true);
               init = true;
               timer = 0;
             }
             break;
           default:
             if(timer >= 100){
-              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer");
+              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", true);
               init = true;
               timer = 0;
             }
@@ -241,7 +241,7 @@ void setup(){
       shape(choice3);
       shape(play);
       shape(chooser, 0, y);
-      spawn();
+      playerSpawn();
       displaySoldier();
       displayScore();
       changeY();

@@ -3,6 +3,7 @@ public abstract class Unit{
     private int speed, armour, range, damage; 
     private float ycor, xcor;
     private String race, name;
+    private boolean player;
 
     public int getSpeed(){return speed;}
     public int getArmour(){return armour;}
@@ -12,6 +13,7 @@ public abstract class Unit{
     public String getName(){return name;}
     public float getYcor(){return ycor;}
     public float getXcor(){return xcor;}
+    public boolean getPlayer(){return player;}
     
     public void setSpeed(int s){speed = s;}
     public void setArmour(int a){armour = a;}
@@ -21,10 +23,14 @@ public abstract class Unit{
     public void setName(String n){name = n;}
     public void setYcor(float n){ycor = n;}
     public void setXcor(float n){xcor = n;}
+    public void setPlayer(boolean k){player = k;}
     
 
     public void move(){
-      xcor+= (speed / 4.0);  //
+      if(player){
+      xcor+= (speed / 4.0);}
+      else{xcor -= (speed / 4.0);}
+        
     }
     
     public abstract void setupDisplay();
