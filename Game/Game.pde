@@ -4,8 +4,8 @@ int choiceR = 6, choiceL = 6;
 Unit[][] board = new Unit[8][100];
 PShape choice1, chooser, choice2, choice3; //we'll add more if implement the shop
 ArrayList<PShape> choices = new ArrayList<PShape>();
-int playerScore = 20, enemyScore = 20;
-int [] score = new int[40];
+int playerScore = 25, enemyScore = 25;
+int [] score = new int[50];
 
 
 //ArrayList[][] board = new ArrayList[8][100];  
@@ -165,10 +165,10 @@ void setup(){
     for(int i = 0; i < score.length; i ++){
       if(score[i] == 1){
         fill(0,0,256);
-        rect(250 + (i * 25),0,25,10);
+        rect(100 + (i * 25),0,25,10);
       }
       else{fill(256,0,0);
-           rect(250 + (i *25),0,25,10);}
+           rect(100 + (i *25),0,25,10);}
 
     }
   }

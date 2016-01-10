@@ -34,5 +34,13 @@ public class Melee extends Unit{
           endShape();
           break;
       }
+      switch(this.getRace()){
+         case "Men":
+           this.setFill(color(0));
+           break;
+         default:
+           this.setFill(color(0));
+           break;
+      }
     }
 }
