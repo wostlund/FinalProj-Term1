@@ -1,10 +1,11 @@
 public boolean playing=true;
 int y = 420, choice = 0, echoice;
-int timer = 0;
-boolean init = false;
+int timer = 0, etimer = 0;
+boolean init = false, einit = false;
 int yUp = 6, yDown = 6, ent = 6;
 int choiceR = 6, choiceL = 6;
 Unit[][] board = new Unit[8][100];
+Unit[][] eboard = new Unit[8][100];
 PShape choice1, chooser, play, choice2, choice3; //we'll add more if we implement the shop
 ArrayList<PShape> choices = new ArrayList<PShape>();
 int playerScore = 25, enemyScore = 25;
@@ -184,51 +185,48 @@ void setup(){
     }
     
     
-    /*public void enemySpawn(){
+    public void enemySpawn(){
     double pos = (y-180) / 80; 
-    if(keyPressed){
-      if(key == ENTER || key == RETURN){ 
-        ent += 1;}
-    }
-    if(ent >= 7){ // will improve delay later / vary based on unit
-        Unit soldier = new Melee();
-        switch(choice){ //this is like a cond statement in Scheme
+    echoice = (int)Math.random() * 3; // will robustify later
+    Artificial w = new Artificial(board);
+    
+    Unit soldier = new Melee();
+        switch(echoice){
           case 0:
-            if(timer >= 80){
-              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", true);
-              init = true;
-              timer=0;
+            if(etimer >= 80){
+              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", false);
+              einit = true;
+              etimer=0;
             }
             break;
           case 1:
-            if(timer >= 120){
-              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", true);
-              init = true;
-              timer = 0;
+            if(etimer >= 120){
+              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", false);
+              einit = true;
+              etimer = 0;
             }
             break;
           default:
             if(timer >= 100){
-              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", true);
-              init = true;
-              timer = 0;
+              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", false);
+              einit = true;
+              etimer = 0;
             }
             break;
         }
         //shape(soldier);
-        if(init){
+        if(einit){
          int k = 0;
-          for(int i = 0; i < board[(int)pos].length; i++){
-           if(board[(int)pos][i] == null && k == 0){
-            board[(int)pos][i] = (soldier);
+          for(int i = 0; i < eboard[w.decide()].length; i++){
+           if(eboard[w.decide()][i] == null && k == 0){
+            eboard[w.decide()][i] = (soldier);
           k += 1;
            }
           }
-         init = false;
+         einit = false;
         }
-        ent = 0;
-      }
-    }    */
+      
+    }    
     
     
     
@@ -313,12 +311,14 @@ void setup(){
       shape(play);
       shape(chooser, 0, y);
       playerSpawn();
+      enemySpawn();
       displaySoldier();
       displayScore();
       changeY();
       fillScore();
       setChooserColor();
       timer ++;
+      etimer ++;
       println(timer);
     }
 

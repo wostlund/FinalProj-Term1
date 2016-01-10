@@ -19,9 +19,9 @@ public class Artificial{
       }
     }
     
-    for(int i = 0; i < lane.length -1; i ++){
-      if(lane [i] == 0){
-        lane[8] = i;
+    for(int f = 0; f < lane.length - 1; f ++){
+      if(lane [f] == 0){
+        lane[7] = f;
       }
     }
     
