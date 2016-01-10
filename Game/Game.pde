@@ -1,13 +1,18 @@
 int y = 420, choice = 0;
 int yUp = 6, yDown = 6;
+int choiceR = 6, choiceL = 6;
 Unit[][] board = new Unit[8][100];
-PShape choice1, chooser, choice2, choice3;
+PShape choice1, chooser, choice2, choice3; //we'll add more if implement the shop
+PShape[]choices = new PShape[3];
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup(){
     choice1 = createShape(ELLIPSE, 40, 70, 60, 60);
     choice2 = createShape(ELLIPSE, 110, 70, 60, 60);
     choice3 = createShape(ELLIPSE, 180, 70, 60, 60);
+    choices[0] = choice1;
+    choices[1] = choice2;
+    choices[2] = choice3;
     chooser = createShape(RECT, 0, 0, 80, 80);
     background(132, 180, 10);
     size(1440, 980);
@@ -21,7 +26,38 @@ void setup(){
     }
   }*/
   
+  public void chooser(){
+    if (keyPressed){
+      if (key == CODED){
+        if (keyCode == RIGHT){
+          choiceR+=1;
+        }
+        if(keyCode == LEFT){
+          choiceL+=1;
+        }
+      }
+      if(choiceR == 7){
+        choice++;
+        choiceR = 0;
+      }else if (choiceL == 7){
+        choice--;
+        choiceL = 0;
+      }
+    }
+    if(choice == 3){
+      choice = 0;
+    }
+    if(choice == -1){
+      choice = 2;
+    }
+  }
   
+  public void colorIndicator(){
+    for(int i=0; i<choices.length; i++){
+      choices[i].setFill(color(255)); 
+    }
+    choices[choice].setFill(color(150, 150, 0));
+  }
   
   public void changeY(){
     if (keyPressed){
@@ -79,6 +115,8 @@ void setup(){
   
     void draw(){
       background(132, 180, 10);
+      chooser();
+      colorIndicator();
       shape(choice1);
       shape(choice2);
       shape(choice3);
