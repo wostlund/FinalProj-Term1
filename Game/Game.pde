@@ -10,6 +10,24 @@ ArrayList<PShape> choices = new ArrayList<PShape>();
 int playerScore = 25, enemyScore = 25;
 int [] score = new int[50];
 
+/*
+Our code got very cluttered so I'm going to make this glossary to make it easier for both of us
+Fuction            |     Purpose
+-------------------------------------------------
+setup()            |     "Sets up" the screen for the game to begin
+fillScore()        |     Fills the score bar based on the numerical enemy and player score
+chooser()          |     Checks the speed at which the variable "choice" changes and allows the color of the selector to warp
+colorIndicator()   |     Colors the selected unit based on the variable "choice"
+changeY()          |     Allows the user the change lanes to send units into
+keyReleased()      |     Makes the controls quick and responsive by setting variables to a given value
+spawn()            |     Created soldiers triggered by the enter button
+displaySoldier()   |     Allows the user to see each individual unit
+displayScore()     |     Fills in the colors of the scorebar
+mouseClicked()     |     Triggers the pause/play button
+draw()             |     Calls every function and displays the game into the processing graphics window
+setColorChooser()  |     Changes the color of the lane indicator when soldiers are ready to spawn
+*/
+
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup(){
@@ -162,11 +180,8 @@ void setup(){
          init = false;
         }
         ent = 0;
-    }
-    }
-    
-  
-  
+      }
+    }    
   
   public void displaySoldier(){
       for(int i = 0; i < board.length; i++){
