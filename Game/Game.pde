@@ -1,7 +1,7 @@
 int y = 420, choice = 0;
 int yUp = 6, yDown = 6;
 int choiceR = 6, choiceL = 6;
-Unit[][] board = new Unit[8][100];
+Unit[][] board = new Unit[8][105];
 PShape choice1, chooser, choice2, choice3; //we'll add more if implement the shop
 PShape[]choices = new PShape[3];
 
@@ -105,11 +105,35 @@ void setup(){
   
   public void displaySoldier(){
       for(int i = 0; i < board.length; i++){
-        if(board[i][0] instanceof Unit){
-        ellipse(40, ((i) * 80 + 225), 15, 15); 
+        for(int k = 0; k < board[i].length; k ++){ 
+        if(board[i][k] instanceof Unit){
+        ellipse(40 + (9.8 * k), ((i) * 80 + 225), 15, 15); 
       }
+        }
       }
   }
+  
+  
+  public void soldierMove(){
+    for(int i = 0; i < board.length; i++){
+        for(int k = 0; k < board[i].length; k ++){
+          if(k >= 100){
+            board[i][k] = null;
+          }
+          if(board[i][k] instanceof Unit){
+            Unit f = board[i][k];
+            if (f.getAction() == 0){
+            board[i][k] = null;
+            f.setAction(1);
+            board[i][k + f.move()] = f;
+            }
+            else{f.setAction(0);}
+          }
+        }
+    }
+  }
+            
+    
         
   
   
@@ -123,6 +147,7 @@ void setup(){
       shape(chooser, 0, y);
       changeY();
       spawn();
+      soldierMove();
       displaySoldier();
     }
 

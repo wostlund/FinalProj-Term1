@@ -1,12 +1,13 @@
 public abstract class Unit extends PShape{
 
-    private int speed, armour, range, damage;
+    private int speed, armour, range, damage, action;
     private String race, name;
 
     public int getSpeed(){return speed;}
     public int getArmour(){return armour;}
     public int getRange(){return range;}
     public int getDamage(){return damage;}
+    public int getAction(){return action;}
     public String getRace(){return race;}
     public String getName(){return name;}
     
@@ -14,6 +15,7 @@ public abstract class Unit extends PShape{
     public void setArmour(int a){armour = a;}
     public void setRange(int r){range = r;}
     public void setDamage(int d){damage = d;}
+    public void setAction(int a){action = a;}
     public void setRace(String r){race = r;}
     public void setName(String n){name = n;}
     
