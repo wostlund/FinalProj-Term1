@@ -160,8 +160,8 @@ void setup(){
            }
           }
          init = false;
-        ent = 0;
         }
+        ent = 0;
     }
     }
     
