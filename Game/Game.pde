@@ -1,18 +1,18 @@
 int y = 420, choice = 0;
 int yUp = 6, yDown = 6;
 int choiceR = 6, choiceL = 6;
-Unit[][] board = new Unit[8][105];
+Unit[][] board = new Unit[8][100];
 PShape choice1, chooser, choice2, choice3; //we'll add more if implement the shop
-PShape[]choices = new PShape[3];
+ArrayList<PShape> choices = new ArrayList<PShape>();
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup(){
     choice1 = createShape(ELLIPSE, 40, 70, 60, 60);
     choice2 = createShape(ELLIPSE, 110, 70, 60, 60);
     choice3 = createShape(ELLIPSE, 180, 70, 60, 60);
-    choices[0] = choice1;
-    choices[1] = choice2;
-    choices[2] = choice3;
+    choices.add(choice1);
+    choices.add(choice2);
+    choices.add(choice3);
     chooser = createShape(RECT, 0, 0, 80, 80);
     background(132, 180, 10);
     size(1440, 980);
@@ -53,10 +53,10 @@ void setup(){
   }
   
   public void colorIndicator(){
-    for(int i=0; i<choices.length; i++){
-      choices[i].setFill(color(255)); 
+    for(int i=0; i<choices.size(); i++){
+      choices.get(i).setFill(color(255)); 
     }
-    choices[choice].setFill(color(190, 90, 0));
+    choices.get(choice).setFill(color(190, 90, 0));
   }
   
   public void changeY(){
@@ -96,7 +96,18 @@ void setup(){
     double pos = (y-180) / 80; 
     if(keyPressed){
       if(key == ENTER || key == RETURN){ // for some reason the enter key is not triggerring 
-        Melee soldier = new Melee(5, 40, 130, 20, "Men", "Spearman");
+        Unit soldier;
+        switch(choice){ //this is like a cond statement in Scheme
+          case 0:
+            soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman");
+            break;
+          case 1:
+            soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman");
+            break;
+          default:
+            soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer");
+        }
+        //shape(soldier);
         board[(int)pos][0] = (soldier);
       }
     }
@@ -105,35 +116,13 @@ void setup(){
   
   public void displaySoldier(){
       for(int i = 0; i < board.length; i++){
-        for(int k = 0; k < board[i].length; k ++){ 
-        if(board[i][k] instanceof Unit){
-        ellipse(40 + (9.8 * k), ((i) * 80 + 225), 15, 15); 
+        if(board[i][0] instanceof Unit){
+          board[i][0].setYcor(i*80 + 220);
+        board[i][0].display();
+        board[i][0].move();
       }
-        }
       }
   }
-  
-  
-  public void soldierMove(){
-    for(int i = 0; i < board.length; i++){
-        for(int k = 0; k < board[i].length; k ++){
-          if(k >= 100){
-            board[i][k] = null;
-          }
-          if(board[i][k] instanceof Unit){
-            Unit f = board[i][k];
-            if (f.getAction() == 0){
-            board[i][k] = null;
-            f.setAction(1);
-            board[i][k + f.move()] = f;
-            }
-            else{f.setAction(0);}
-          }
-        }
-    }
-  }
-            
-    
         
   
   
@@ -147,7 +136,6 @@ void setup(){
       shape(chooser, 0, y);
       changeY();
       spawn();
-      soldierMove();
       displaySoldier();
     }
 
@@ -160,6 +148,10 @@ void setup(){
       i ++;
     }*/
       
+    
+  
+  
+  
     
   
   
