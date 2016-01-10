@@ -39,7 +39,9 @@ void setup(){
       if(i < playerScore){
         score[i] = 1;
       }
-      else{score[i] = 2;}
+      else{
+        score[i] = 2;
+      }
     }
   }
   
@@ -153,7 +155,7 @@ void setup(){
           board[i][k].setupDisplay();
           board[i][k].display();//
           board[i][k].move();//
-        if(board[i][k].getXcor() >= 1300){
+        if(board[i][k].getXcor() >= 750){ //I don't know why it's so low but it works
           board[i][k] = null;
           playerScore ++;
           enemyScore --;
@@ -177,7 +179,7 @@ void setup(){
   }
   
   
-    void draw(){ /////////////NOT SURE WHAT I DID TO CHANGE PLAYER CHARACTERS COLOR
+    void draw(){ //player colors are now controllable
       background(132, 180, 10);
       chooser();
       colorIndicator();
