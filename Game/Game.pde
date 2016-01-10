@@ -56,7 +56,7 @@ void setup(){
     for(int i=0; i<choices.length; i++){
       choices[i].setFill(color(255)); 
     }
-    choices[choice].setFill(color(150, 150, 0));
+    choices[choice].setFill(color(190, 90, 0));
   }
   
   public void changeY(){
