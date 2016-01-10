@@ -216,6 +216,7 @@ void setup(){
         }
         //shape(soldier);
         if(einit){
+          soldier.setXcor(500);
          int k = 0;
           for(int i = 0; i < eboard[w.decide()].length; i++){
            if(eboard[w.decide()][i] == null && k == 0){
@@ -233,25 +234,6 @@ void setup(){
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
   public void displaySoldier(){
       for(int i = 0; i < board.length; i++){
         for(int k = 0; k < board[i].length; k ++){ //
@@ -270,8 +252,27 @@ void setup(){
   }
   }
   
+  
+   public void displayEnemy(){
+      for(int i = 0; i < eboard.length; i++){
+        for(int k = 0; k < eboard[i].length; k ++){ //
+        if(eboard[i][k] instanceof Unit){//
+          eboard[i][k].setYcor(i*40+110);
+          eboard[i][k].setupDisplay();
+          eboard[i][k].display();//
+          eboard[i][k].move();//
+        if(eboard[i][k].getXcor() <= 0){ //I don't know why it's so low but it works
+          eboard[i][k] = null;
+          playerScore --;
+          enemyScore ++;
+      }
+        }//
+      }
+  }
+  }
+  
         
-  public void displayScore(){ // something appears to be wrong with this
+  public void displayScore(){ 
     for(int i = 0; i < score.length; i ++){
       if(score[i] == 1){
         fill(0,0,256);
@@ -313,6 +314,7 @@ void setup(){
       playerSpawn();
       enemySpawn();
       displaySoldier();
+      displayEnemy();
       displayScore();
       changeY();
       fillScore();
