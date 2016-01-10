@@ -1,8 +1,9 @@
+public boolean playing=true;
 int y = 420, choice = 0;
 int yUp = 6, yDown = 6, ent = 6;
 int choiceR = 6, choiceL = 6;
 Unit[][] board = new Unit[8][100];
-PShape choice1, chooser, choice2, choice3; //we'll add more if we implement the shop
+PShape choice1, chooser, play, choice2, choice3; //we'll add more if we implement the shop
 ArrayList<PShape> choices = new ArrayList<PShape>();
 int playerScore = 25, enemyScore = 25;
 int [] score = new int[50];
@@ -14,6 +15,8 @@ void setup(){
     choice1 = createShape(ELLIPSE, 40, 70, 60, 60);
     choice2 = createShape(ELLIPSE, 110, 70, 60, 60);
     choice3 = createShape(ELLIPSE, 180, 70, 60, 60);
+    play = createShape(ELLIPSE, 720, 70, 100, 100);
+    play.setFill(color(#11F51E));
     choices.add(choice1);
     choices.add(choice2);
     choices.add(choice3);
@@ -178,6 +181,23 @@ void setup(){
     }
   }
   
+  public void mouseClicked(){
+     if((mouseX-720)*(mouseX-720)+(mouseY-70)*(mouseY-70)<2500){
+       if(playing){
+         play.setFill(color(#F52811));
+         playing=false;
+       }else{
+         playing=true;
+       }
+       if(!playing){
+         noLoop(); 
+       }else{
+         play.setFill(color(#11F51E));
+         loop(); 
+         
+       }
+     }
+  }
   
     void draw(){ //player colors are now controllable
       background(132, 180, 10);
@@ -186,6 +206,7 @@ void setup(){
       shape(choice1);
       shape(choice2);
       shape(choice3);
+      shape(play);
       shape(chooser, 0, y);
       spawn();
       displaySoldier();
