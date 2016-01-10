@@ -4,9 +4,13 @@ int choiceR = 6, choiceL = 6;
 Unit[][] board = new Unit[8][100];
 PShape choice1, chooser, choice2, choice3; //we'll add more if implement the shop
 ArrayList<PShape> choices = new ArrayList<PShape>();
+int playerScore = 20, enemyScore = 20;
+int [] score = new int[40];
+
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup(){
+    fillScore();
     choice1 = createShape(ELLIPSE, 40, 70, 60, 60);
     choice2 = createShape(ELLIPSE, 110, 70, 60, 60);
     choice3 = createShape(ELLIPSE, 180, 70, 60, 60);
@@ -16,6 +20,10 @@ void setup(){
     chooser = createShape(RECT, 0, 0, 80, 80);
     background(132, 180, 10);
     size(1440, 980);
+    for(int i = 0; i <score.length; i++){
+      println(score[i]);
+      println(i);
+    }
   }
   
    /*void fillArray(){
@@ -25,6 +33,16 @@ void setup(){
       }
     }
   }*/
+  
+  public void fillScore(){
+    for(int i = 0; i < score.length; i++){
+      if(i < playerScore){
+        score[i] = 1;
+      }
+      else{score[i] = 2;}
+    }
+  }
+  
   
   public void chooser(){
     if (keyPressed){
@@ -98,7 +116,7 @@ void setup(){
       if(key == ENTER || key == RETURN){ 
         ent += 1;}
     }
-    if(ent == 7){
+    if(ent == 7){ // will improve delay later / vary based on unit
         Unit soldier;
         switch(choice){ //this is like a cond statement in Scheme
           case 0:
@@ -132,14 +150,31 @@ void setup(){
           board[i][k].setYcor(i*80 + 220);//
         board[i][k].display();//
         board[i][k].move();//
+        if(board[i][k].getXcor() >= 1300){
+          board[i][k] = null;
+          playerScore ++;
+          enemyScore --;
       }
         }//
       }
   }
+  }
+  
         
+  public void displayScore(){ // something appears to be wrong with this
+    for(int i = 0; i < score.length; i ++){
+      if(score[i] == 1){
+        fill(0,0,256);
+        rect(250 + (i * 25),0,25,10);
+      }
+      else{fill(256,0,0);
+           rect(250 + (i *25),0,25,10);}
+
+    }
+  }
   
   
-    void draw(){
+    void draw(){ /////////////NOT SURE WHAT I DID TO CHANGE PLAYER CHARACTERS COLOR
       background(132, 180, 10);
       chooser();
       colorIndicator();
@@ -147,9 +182,11 @@ void setup(){
       shape(choice2);
       shape(choice3);
       shape(chooser, 0, y);
-      changeY();
       spawn();
       displaySoldier();
+      displayScore();
+      changeY();
+      fillScore();
     }
 
   
