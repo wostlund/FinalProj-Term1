@@ -24,7 +24,7 @@ public abstract class Unit extends PShape{
     
 
     public void move(){
-      xcor+=speed;
+      xcor+= (speed / 4.0);  //
     }
 
 

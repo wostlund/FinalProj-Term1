@@ -1,5 +1,5 @@
 int y = 420, choice = 0;
-int yUp = 6, yDown = 6;
+int yUp = 6, yDown = 6, ent = 6;
 int choiceR = 6, choiceL = 6;
 Unit[][] board = new Unit[8][100];
 PShape choice1, chooser, choice2, choice3; //we'll add more if implement the shop
@@ -95,7 +95,10 @@ void setup(){
     public void spawn(){
     double pos = (y-180) / 80; 
     if(keyPressed){
-      if(key == ENTER || key == RETURN){ // for some reason the enter key is not triggerring 
+      if(key == ENTER || key == RETURN){ 
+        ent += 1;}
+    }
+    if(ent == 7){
         Unit soldier;
         switch(choice){ //this is like a cond statement in Scheme
           case 0:
@@ -108,19 +111,29 @@ void setup(){
             soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer");
         }
         //shape(soldier);
-        board[(int)pos][0] = (soldier);
-      }
+         int k = 0;
+        for(int i = 0; i < board[(int)pos].length; i++){
+          if(board[(int)pos][i] == null && k == 0){
+        board[(int)pos][i] = (soldier);
+        k += 1;
+          }
+        }
+        ent = 0;
     }
-  }
+    }
+    
+  
   
   
   public void displaySoldier(){
       for(int i = 0; i < board.length; i++){
-        if(board[i][0] instanceof Unit){
-          board[i][0].setYcor(i*80 + 220);
-        board[i][0].display();
-        board[i][0].move();
+        for(int k = 0; k < board[i].length; k ++){ //
+        if(board[i][k] instanceof Unit){//
+          board[i][k].setYcor(i*80 + 220);//
+        board[i][k].display();//
+        board[i][k].move();//
       }
+        }//
       }
   }
         
