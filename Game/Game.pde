@@ -216,7 +216,7 @@ void setup(){
         }
         //shape(soldier);
         if(einit){
-          soldier.setXcor(500);
+          soldier.setXcor(700);
          int k = 0;
           for(int i = 0; i < eboard[w.decide()].length; i++){
            if(eboard[w.decide()][i] == null && k == 0){
