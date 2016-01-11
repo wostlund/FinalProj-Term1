@@ -54,12 +54,33 @@ public class Artificial{
     
   }
   
-  public int choseClass(){
-    return 0;// will do later 
+  public int pickClass(){
+    int n = decide();
+    int mel = 0;
+    int range = 0;
+    for(int i = 0; i < ary[n].length; i ++){
+      if(ary[n][i] instanceof Melee){
+        mel ++;
+      }
+      if(ary[n][i] instanceof Range){
+        range ++;
+      }
+    }
+    if(mel > range){
+      return 0;
+    }
+    if(mel < range){
+      return 3;
+    }
+    else{return 2;}
   }
+        
+    
+    
+}
     
  
   
   
-}
+
     
