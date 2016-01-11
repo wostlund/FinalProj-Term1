@@ -44,10 +44,6 @@ void setup(){
     chooser = createShape(RECT, 0, 0, 80, 80);
     background(132, 180, 10);
     size(1440, 980);
-    for(int i = 0; i <score.length; i++){
-      println(score[i]);
-      println(i);
-    }
   }
   
    /*void fillArray(){
@@ -185,11 +181,9 @@ void setup(){
     }
     
     
-    public void enemySpawn(){
-    double pos = (y-180) / 80; 
+    public void enemySpawn(){ 
     echoice = (int)Math.random() * 3; // will robustify later
-    Artificial w = new Artificial(board);
-    
+    Artificial w = new Artificial(board);    
     Unit soldier = new Melee();
         switch(echoice){
           case 0:
@@ -218,8 +212,10 @@ void setup(){
         if(einit){
          int k = 0;
           for(int i = 0; i < eboard[w.decide()].length; i++){
-           if(eboard[w.decide()][i] == null && k == 0){
-            eboard[w.decide()][i] = (soldier);
+           int x = w.decide();
+           if(eboard[x][i] == null && k == 0){
+            eboard[x][i] = (soldier);
+            //println(w.decide());
           k += 1;
            }
           }
@@ -227,12 +223,7 @@ void setup(){
         }
       
     }    
-    
-    
-    
-    
-    
-    
+        
   public void displaySoldier(){
       for(int i = 0; i < board.length; i++){
         for(int k = 0; k < board[i].length; k ++){ //
@@ -320,7 +311,6 @@ void setup(){
       setChooserColor();
       timer ++;
       etimer ++;
-      println(timer);
     }
 
   public void setChooserColor(){
