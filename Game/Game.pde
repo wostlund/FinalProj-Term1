@@ -148,21 +148,21 @@ void setup(){
         Unit soldier = new Melee();
         switch(choice){ //this is like a cond statement in Scheme
           case 0:
-            if(timer >= 80){
+            if(timer >= 160){
               soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", true);
               init = true;
               timer=0;
             }
             break;
           case 1:
-            if(timer >= 120){
+            if(timer >= 240){
               soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", true);
               init = true;
               timer = 0;
             }
             break;
           default:
-            if(timer >= 100){
+            if(timer >= 200){
               soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", true);
               init = true;
               timer = 0;
@@ -193,22 +193,22 @@ void setup(){
     Unit soldier = new Melee();
         switch(echoice){
           case 0:
-            if(etimer >= 80){
-              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", false);
+            if(etimer >= 160){
+              soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false);
               einit = true;
               etimer=0;
             }
             break;
           case 1:
-            if(etimer >= 120){
-              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", false);
+            if(etimer >= 240){
+              soldier = new Melee(700, 420, 3, 100, 100, 35, "Men", "Swordsman", false);
               einit = true;
               etimer = 0;
             }
             break;
           default:
-            if(timer >= 100){
-              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", false);
+            if(timer >= 200){
+              soldier = new Range(700, 420, 3, 100, 100, 35, "Men", "Archer", false);
               einit = true;
               etimer = 0;
             }
@@ -216,7 +216,6 @@ void setup(){
         }
         //shape(soldier);
         if(einit){
-          soldier.setXcor(700);
          int k = 0;
           for(int i = 0; i < eboard[w.decide()].length; i++){
            if(eboard[w.decide()][i] == null && k == 0){
@@ -325,7 +324,7 @@ void setup(){
     }
 
   public void setChooserColor(){
-    if ((choice == 0 && timer >= 80) || (choice == 1 && timer >= 120) || (choice == 2 && timer >= 100)){
+    if ((choice == 0 && timer >= 160) || (choice == 1 && timer >= 240) || (choice == 2 && timer >= 200)){
       chooser.setFill(color(0, 0, 256));
     }else{
       chooser.setFill(color(255)); 
