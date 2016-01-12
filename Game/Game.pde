@@ -10,7 +10,7 @@ PShape choice1, chooser, play, choice2, choice3; //we'll add more if we implemen
 ArrayList<PShape> choices = new ArrayList<PShape>();
 int playerScore = 25, enemyScore = 25;
 int [] score = new int[50];
-PFont x;
+PFont f;
 /*
 Our code got very cluttered so I'm going to make this glossary to make it easier for both of us
 Fuction            |     Purpose
@@ -44,6 +44,7 @@ void setup(){
     chooser = createShape(RECT, 0, 0, 80, 80);
     background(132, 180, 10);
     size(1440, 980);
+    
   }
   
    /*void fillArray(){
