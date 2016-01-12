@@ -1,5 +1,6 @@
 public class Range extends Unit{
   private PShape avatar;
+  private int pause = 0;
 
    public Range(float xcor, float ycor, int speed, int armour, int range, int damage, String race, String name, boolean id){
   this.setSpeed(speed);
@@ -34,6 +35,18 @@ public class Range extends Unit{
   
   public void display(){
      shape(avatar, this.getXcor(), this.getYcor());
+  }
+  
+  public void move(){
+    if(pause < 150 && pause > 0){
+      if(this.getPlayer()){
+      this.setXcor(this.getXcor() + (this.getSpeed() / 4.0));}
+      else{this.setXcor(this.getXcor() - (this.getSpeed() / 4.0));}
+    }
+    if(pause > 150){
+    pause = -75;
+  }
+    pause ++;
   }
    
 }
