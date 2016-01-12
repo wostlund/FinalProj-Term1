@@ -10,7 +10,7 @@ PShape choice1, chooser, play, choice2, choice3; //we'll add more if we implemen
 ArrayList<PShape> choices = new ArrayList<PShape>();
 int playerScore = 25, enemyScore = 25;
 int [] score = new int[50];
-
+PFont x;
 /*
 Our code got very cluttered so I'm going to make this glossary to make it easier for both of us
 Fuction            |     Purpose
