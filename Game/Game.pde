@@ -278,6 +278,7 @@ void setup(){
      if((mouseX-720)*(mouseX-720)+(mouseY-70)*(mouseY-70)<2500){
        if(playing){
          play.setFill(color(#F52811));
+         background(0,0,0);
          playing=false;
        }else{
          playing=true;
