@@ -44,7 +44,7 @@ void setup(){
     chooser = createShape(RECT, 0, 0, 80, 80);
     background(132, 180, 10);
     size(1440, 980);
-    
+    f = createFont("Arial",16,true);
   }
   
    /*void fillArray(){
@@ -280,6 +280,9 @@ void setup(){
        if(playing){
          play.setFill(color(#F52811));
          background(0,0,0);
+         textFont(f,36);
+         fill(255);
+         text("Paused",720,490);
          playing=false;
        }else{
          playing=true;
