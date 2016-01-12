@@ -70,17 +70,14 @@ public class Artificial{
       return 0;
     }
     if(mel < range){
-      return 3;
+      return 2;
     }
-    else{return 2;}
+    else{return 1;}
   }
         
     
     
 }
-    
- 
-  
   
 
     

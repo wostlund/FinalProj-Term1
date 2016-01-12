@@ -181,10 +181,10 @@ void setup(){
     }
     
     
-    public void enemySpawn(){ 
-    echoice = (int)Math.random() * 3; // will robustify later
+    public void enemySpawn(){  
     Artificial w = new Artificial(board);    
     Unit soldier = new Melee();
+    echoice = w.pickClass();
         switch(echoice){
           case 0:
             if(etimer >= 160){
