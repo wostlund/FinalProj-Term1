@@ -282,7 +282,7 @@ void setup(){
          background(0,0,0);
          textFont(f,36);
          fill(255);
-         text("Paused",720,490);
+         text("Paused",650,490);
          playing=false;
        }else{
          playing=true;
