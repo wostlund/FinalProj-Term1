@@ -31,6 +31,14 @@ public class Range extends Unit{
     
   public void setupDisplay(){
      this.makeShape(); 
+     this.setColor();
+  }
+  
+  public void setColor(){
+    switch(this.getRace()){
+      case "Men":
+        avatar.setFill(color(0, 0, 256));
+    }
   }
   
   public void display(){
