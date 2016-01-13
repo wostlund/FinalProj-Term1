@@ -167,7 +167,7 @@ void setup(){
             break;
           default:
             if(timer >= 200){
-              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", true);
+              soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", true, 0);
               init = true;
               timer = 0;
             }
@@ -210,7 +210,7 @@ void setup(){
             break;
           default:
             if(etimer >= 200){
-              soldier = new Range(700, 420, 3, 100, 100, 35, "Men", "Archer", false);
+              soldier = new Range(700, 420, 3, 100, 100, 35, "Men", "Archer", false, 0);
               einit = true;
               etimer = 0;
             }

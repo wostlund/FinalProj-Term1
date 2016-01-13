@@ -2,7 +2,7 @@ public class Range extends Unit{
   private PShape avatar;
   private int pause = 0;
 
-   public Range(float xcor, float ycor, int speed, int armour, int range, int damage, String race, String name, boolean id){
+   public Range(float xcor, float ycor, int speed, int armour, int range, int damage, String race, String name, boolean id, int lane){
   this.setSpeed(speed);
   this.setArmour(armour);
   this.setRange(range);
@@ -12,10 +12,11 @@ public class Range extends Unit{
   this.setYcor(ycor);
   this.setXcor(xcor);
   this.setPlayer(id);
+  this.setLane(lane);
     }
 
     public Range(){
-  this(0, 0, 0, 0, 0, 0, "Men", "Archer", true);
+  this(0, 0, 0, 0, 0, 0, "Men", "Archer", true, 0);
     }
 
   
