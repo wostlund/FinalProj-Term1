@@ -1,5 +1,5 @@
 public boolean playing=true;
-int y = 420, choice = 0, echoice;
+int y = 420, choice = 0, echoice=0;
 int timer = 0, etimer = 0;
 boolean init = false, einit = false;
 int yUp = 6, yDown = 6, ent = 6;
@@ -38,6 +38,9 @@ void setup(){
     echoice1 = createShape(ELLIPSE, 1400, 70, 60, 60);
     echoice2 = createShape(ELLIPSE, 1330, 70, 60, 60);
     echoice3 = createShape(ELLIPSE, 1260, 70, 60, 60);
+    echoices.add(echoice1);
+    echoices.add(echoice2);
+    echoices.add(echoice3);
     choice1 = createShape(ELLIPSE, 40, 70, 60, 60);
     choice2 = createShape(ELLIPSE, 110, 70, 60, 60);
     choice3 = createShape(ELLIPSE, 180, 70, 60, 60);
@@ -105,6 +108,13 @@ void setup(){
       choices.get(i).setFill(color(255)); 
     }
     choices.get(choice).setFill(color(190, 90, 0));
+  }
+  
+  public void ecolorIndicator(){
+    for(int i=0; i<echoices.size(); i++){
+      echoices.get(i).setFill(color(255)); 
+    }
+    echoices.get(echoice).setFill(color(190, 90, 0));
   }
   
   public void changeY(){
@@ -313,6 +323,7 @@ void setup(){
       background(132, 180, 10);
       chooser();
       colorIndicator();
+      ecolorIndicator();
       shape(echoice1);
       shape(echoice2);
       shape(echoice3);
