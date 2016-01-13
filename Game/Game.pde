@@ -10,7 +10,7 @@ PShape choice1, chooser, play, choice2, choice3; //we'll add more if we implemen
 ArrayList<PShape> choices = new ArrayList<PShape>();
 int playerScore = 25, enemyScore = 25;
 int [] score = new int[50];
-PFont f;
+PFont f, s;
 /*
 Our code got very cluttered so I'm going to make this glossary to make it easier for both of us
 Fuction            |     Purpose
@@ -45,6 +45,7 @@ void setup(){
     background(132, 180, 10);
     size(1440, 980);
     f = createFont("Arial",16,true);
+    s = createFont("Arial",16,true);
   }
   
    /*void fillArray(){
@@ -283,6 +284,9 @@ void setup(){
          textFont(f,36);
          fill(255);
          text("Paused",650,490);
+         textFont(s,36);
+         fill(255);
+         text("Play",685,70);
          playing=false;
        }else{
          playing=true;
