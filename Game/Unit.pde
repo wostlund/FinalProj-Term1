@@ -1,6 +1,6 @@
 public abstract class Unit{
 
-    private int speed, armour, range, damage; 
+    private int speed, armour, range, damage, lane; 
     private float ycor, xcor;
     private String race, name;
     private boolean player;
@@ -14,6 +14,7 @@ public abstract class Unit{
     public float getYcor(){return ycor;}
     public float getXcor(){return xcor;}
     public boolean getPlayer(){return player;}
+    public int getLane(){return lane;}
     
     public void setSpeed(int s){speed = s;}
     public void setArmour(int a){armour = a;}
@@ -24,7 +25,7 @@ public abstract class Unit{
     public void setYcor(float n){ycor = n;}
     public void setXcor(float n){xcor = n;}
     public void setPlayer(boolean k){player = k;}
-    
+    public void setLane(int k){lane=k;}
 
     public void move(){
       if(player){

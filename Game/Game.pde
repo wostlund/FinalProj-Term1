@@ -153,14 +153,14 @@ void setup(){
         switch(choice){ //this is like a cond statement in Scheme
           case 0:
             if(timer >= 160){
-              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", true);
+              soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", true, 0);
               init = true;
               timer=0;
             }
             break;
           case 1:
             if(timer >= 240){
-              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", true);
+              soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", true, 0);
               init = true;
               timer = 0;
             }
@@ -196,14 +196,14 @@ void setup(){
         switch(echoice){
           case 0:
             if(etimer >= 160){
-              soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false);
+              soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false, 0);
               einit = true;
               etimer=0;
             }
             break;
           case 1:
             if(etimer >= 240){
-              soldier = new Melee(700, 420, 3, 100, 100, 35, "Men", "Swordsman", false);
+              soldier = new Melee(700, 420, 3, 100, 100, 35, "Men", "Swordsman", false, 0);
               einit = true;
               etimer = 0;
             }
@@ -237,6 +237,7 @@ void setup(){
         for(int k = 0; k < board[i].length; k ++){ //
         if(board[i][k] instanceof Unit){//
           board[i][k].setYcor(i*40+110);//
+          board[i][k].setLane(i);
           board[i][k].setupDisplay();
           board[i][k].display();//
           board[i][k].move();//
@@ -256,6 +257,7 @@ void setup(){
         for(int k = 0; k < eboard[i].length; k ++){ //
         if(eboard[i][k] instanceof Unit){//
           eboard[i][k].setYcor(i*40+110);
+          eboard[i][k].setLane(i);
           eboard[i][k].setupDisplay();
           eboard[i][k].display();//
           eboard[i][k].move();//
