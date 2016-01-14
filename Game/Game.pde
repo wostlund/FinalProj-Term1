@@ -201,6 +201,7 @@ public void playerSpawn() {
 public void enemySpawn() {  
   Artificial w = new Artificial(board);    
   Unit soldier = new Melee();
+  //int [] dec = w.betterDecide(eboard);
   echoice = w.pickClass();
   switch(echoice) {
   case 0:
@@ -229,7 +230,7 @@ public void enemySpawn() {
   if (einit) {
     int k = 0;
     for (int i = 0; i < eboard[w.decide()].length; i++) {
-      int x = w.decide();
+      //int x = dec[0];
       if (eboard[x][i] == null && k == 0) {
         eboard[x][i] = (soldier);
         //println(w.decide());
