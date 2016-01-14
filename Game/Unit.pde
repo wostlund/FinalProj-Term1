@@ -70,8 +70,8 @@ public abstract class Unit {
   public void move(Unit[][]k) {
     AttackChoice m = new AttackChoice(k);
     if (player) {
-      if (xcor + range/10 <= m.findMin()[lane]) {
-        attack(m.minUnit()[lane]);
+      if (m.inLane(this.getLane()) && this.xcor + this.range/10 >= m.findMin()[lane]) {
+        //attack(m.minUnit()[lane]);
       }
       xcor+= (speed / 4.0);
     } else {

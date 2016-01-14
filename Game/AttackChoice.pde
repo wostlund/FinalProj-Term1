@@ -64,15 +64,19 @@ public class AttackChoice {
     Unit[]ans = new Unit[8];
     for (int i=0; i<jacob.length; i++) {
       Unit max = null;
-      for (int k=0; k<jacob[i].length; i++) {
+      for (int k=0; k<jacob[i].length; k++) {
         max = jacob[i][k];
-        float maxx = jacob[i][k].getXcor(); 
-        if (jacob[i][k].getXcor() < maxx) {
-          max = jacob[i][k];
-          maxx = jacob[i][k].getXcor();
+        if (jacob[i][k]!=null) {
+          float maxx = jacob[i][k].getXcor(); 
+          if (jacob[i][k].getXcor() < maxx) {
+            max = jacob[i][k];
+            maxx = jacob[i][k].getXcor();
+          }
         }
       }
-      ans[i]=max;
+      if (max!=null) {
+        ans[i]=max;
+      }
     }
     return ans;
   }
@@ -95,5 +99,14 @@ public class AttackChoice {
       }
     }
     return ans;
+  }
+
+  public boolean inLane(int n) {
+    for (int i=0; i<data[n].length; i++) {
+      if (data[n][i]!=null) {
+        return true;
+      }
+    }
+    return false;
   }
 }
