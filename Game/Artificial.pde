@@ -54,6 +54,67 @@ public class Artificial{
     
   }
   
+  public Unit[] maxUnit(Unit [][] data, int lane){
+    Unit[][]jacob=data;
+    Unit[]ans = new Unit[1];
+    Unit max = null;
+      for(int k=0; k<jacob[lane].length; k++){
+        max = jacob[lane][k];
+        float maxx = jacob[lane][k].getXcor(); 
+        if(jacob[lane][k].getXcor() > maxx){
+          max = jacob[lane][k];
+          maxx = jacob[lane][k].getXcor();
+        }
+      }
+      ans[0]= max;
+    return ans;
+  }
+  
+  
+ 
+  public int [] betterDecide(Unit [][] elane){
+    int sum = 0;
+    int [] fin = new int[2];
+    ArrayList<Integer> empty = new ArrayList<Integer>();
+    for(int i = 0; i < elane.length; i ++){
+      sum = 0;
+      for(int k = 0; k < elane[i].length; k++){
+        if(elane[i][k] == null){
+          sum ++;
+        }
+         if(sum == elane[i].length){
+          empty.add(i);
+        }
+        }
+      }
+    
+    
+    
+    int srow = empty.get((int)(Math.random() *empty.size()));
+    Unit[] c = this.maxUnit(ary, srow);
+    int sclass = 0;
+    if(Math.random() * 100 <= 80){
+      fin[0] = srow;
+    }
+    else{fin[0] = (int)(Math.random() * 8) ;}
+    
+    if(c[0] instanceof Melee){
+      fin[1] = 0;
+    }
+    if(c[0] instanceof Range){
+      fin[1] = 2;
+    }
+    else{fin[1]= 1;}
+    
+    
+    return fin;
+    
+
+
+  }
+
+
+  
   public int pickClass(){
     int n = decide();
     int mel = 0;
