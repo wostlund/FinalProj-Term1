@@ -92,7 +92,6 @@ public class Artificial {
 
     int srow = empty.get((int)(Math.random() *empty.size()));
     Unit[] c = this.maxUnit(ary, srow);
-    int sclass = 0;
     if (Math.random() * 100 <= 80) {
       fin[0] = srow;
     } else {
