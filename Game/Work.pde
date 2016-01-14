@@ -1,5 +1,5 @@
-public abstract class Work {
+//public abstract class Work {
 //comment
 //comment
 //comment
-}
+//}

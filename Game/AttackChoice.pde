@@ -81,16 +81,19 @@ public class AttackChoice {
     Unit[][]jacob=data;
     float[]ans = new float[8];
     for (int i=0; i<jacob.length; i++) {
-      float min = 1400.0;
-      for (int k=0; k<jacob[i].length; i++) {
-        if (jacok[i][k]!=null) {
-          min = jacob[i][k].getXcor();
-          if (jacob[i][k].getXcor() < min) {
-            min = jacob[i][k].getXcor();
+      float max = 0.0;
+      if (jacob[i]!=null) {
+        for (int k=0; k<10; k++) {
+          if (jacob[i][k]!=null) {
+            max = jacob[i][k].getXcor();
+            if (jacob[i][k].getXcor() < max) {
+              max = jacob[i][k].getXcor();
+            }
           }
         }
-        ans[i]=min;
+        ans[i]=max;
       }
-      return ans;
     }
+    return ans;
   }
+}
