@@ -18,7 +18,7 @@ public class AttackChoice {
     Unit[][]george=data;
     for (int i=0; i<george.length; i++) {
       for (int k=0; k<george[i].length; k++) {
-        if (george[i][k].getArmour()<=0) {
+        if (george[i][k] != null && george[i][k].getArmour()<=0) {
           george[i][k] = null;
         }
       }
@@ -47,15 +47,15 @@ public class AttackChoice {
     Unit[]ans = new Unit[8];
     for (int i=0; i<jacob.length; i++) {
       Unit max = null;
-      for (int k=0; k<jacob[i].length; i++) {
+      for (int k=0; k<jacob[i].length; k++) {
         max = jacob[i][k];
-        float maxx = jacob[i][k].getXcor(); 
-        if (jacob[i][k].getXcor() > maxx) {
+        float maxx = 0;
+        if (jacob[i][k]!=null && jacob[i][k].getXcor() >= maxx) {
           max = jacob[i][k];
           maxx = jacob[i][k].getXcor();
+          ans[i]=max;
         }
       }
-      ans[i]=max;
     }
     return ans;
   }
@@ -67,16 +67,12 @@ public class AttackChoice {
       Unit max = null;
       for (int k=0; k<jacob[i].length; k++) {
         max = jacob[i][k];
-        if (jacob[i][k]!=null) {
-          float maxx = jacob[i][k].getXcor(); 
-          if (jacob[i][k].getXcor() < maxx) {
-            max = jacob[i][k];
-            maxx = jacob[i][k].getXcor();
-          }
+        float maxx = 1440;
+        if (jacob[i][k]!=null && jacob[i][k].getXcor() <= maxx) {
+          max = jacob[i][k];
+          maxx = jacob[i][k].getXcor();
+          ans[i]=max;
         }
-      }
-      if (max!=null) {
-        ans[i]=max;
       }
     }
     return ans;
