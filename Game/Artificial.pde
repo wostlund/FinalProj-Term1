@@ -54,43 +54,47 @@ public class Artificial {
     return fin;
   }
 
-  public Unit[] maxUnit(Unit [][] data, int lane) {
+  public Unit[] maxUnit(Unit [][] data, int lane) { // error here. know that it is in loop but can't find issue
     Unit[][]jacob=data;
-    Unit[]ans = new Unit[1];
+    Unit[]ans = new Unit[2];
     Unit max = null;
-    for (int k=0; k<jacob[lane].length; k++) {
-      max = jacob[lane][k];
-      float maxx = jacob[lane][k].getXcor(); 
-      if (jacob[lane][k].getXcor() > maxx) {
-        max = jacob[lane][k];
-        maxx = jacob[lane][k].getXcor();
+    println(jacob.length);
+    for (int w=0; w<jacob[lane].length; w ++) {
+      println(lane);
+      println(w);
+      max = jacob[lane][w];
+      println(max.getXcor());
+      float maxx = jacob[lane][w].getXcor(); 
+         if (jacob[lane][w].getXcor() > maxx) {
+        max = jacob[lane][w];
+        maxx = jacob[lane][w].getXcor();
       }
     }
     ans[0]= max;
     return ans;
   }
-
-
+  
 
   public int [] betterDecide(Unit [][] elane) {
-    int sum = 0;
+    int sum = 1;
     int [] fin = new int[2];
     ArrayList<Integer> empty = new ArrayList<Integer>();
     for (int i = 0; i < elane.length; i ++) {
+      if (sum == 0) {
+          empty.add(i - 1);
+        }
       sum = 0;
       for (int k = 0; k < elane[i].length; k++) {
-        if (elane[i][k] == null) {
+        if (elane[i][k] != null) {
           sum ++;
         }
-        if (sum == elane[i].length) {
-          empty.add(i);
-        }
+      
       }
     }
 
 
-
-    int srow = empty.get((int)(Math.random() *empty.size()));
+    int choser = (int)(Math.random() * empty.size());
+    int srow = empty.get(choser);
     Unit[] c = this.maxUnit(ary, srow);
     if (Math.random() * 100 <= 80) {
       fin[0] = srow;
