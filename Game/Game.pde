@@ -12,6 +12,8 @@ PShape echoice1, echoice2, echoice3;
 ArrayList<PShape> echoices = new ArrayList<PShape>();
 int playerScore = 25, enemyScore = 25;
 int [] score = new int[50];
+AttackChoice m = new AttackChoice(eboard);
+AttackChoice em = new AttackChoice(board);
 PFont f, s, p;
 /*
 Our code got very cluttered so I'm going to make this glossary to make it easier for both of us
@@ -201,9 +203,8 @@ public void playerSpawn() {
 public void enemySpawn() {  
   Artificial w = new Artificial(board);    
   Unit soldier = new Melee();
-  int [] dec = w.betterDecide(eboard);
-  echoice = dec[1];
-  //echoice = w.pickClass();
+  //int [] dec = w.betterDecide(eboard);
+  echoice = w.pickClass();
   switch(echoice) {
   case 0:
     if (etimer >= 160) {
@@ -230,9 +231,9 @@ public void enemySpawn() {
   //shape(soldier);
   if (einit) {
     int k = 0;
-    for (int i = 0; i < eboard[dec[0]].length; i++) {
-     int x = dec[0];
-    //  int x = w.decide();
+    for (int i = 0; i < eboard[w.decide()].length; i++) {
+    //  int x = dec[0];
+      int x = w.decide();
       if (eboard[x][i] == null && k == 0) {
         eboard[x][i] = (soldier);
         //println(w.decide());
@@ -320,6 +321,10 @@ public void mouseClicked() {
 }
 
 void draw() { //player colors are now controllable
+  m.setData(eboard);
+  em.setData(board);
+  m.kill();
+  em.kill();
   background(132, 180, 10);
   chooser();
   colorIndicator();
