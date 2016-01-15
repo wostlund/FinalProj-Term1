@@ -79,6 +79,7 @@ public class Artificial {
 
   public int [] betterDecide(Unit [][] elane) {
     int sum = 1;
+    int tote = 0;
     int [] fin = new int[2];
     ArrayList<Integer> empty = new ArrayList<Integer>();
     for (int i = 0; i < elane.length; i ++) {
@@ -89,12 +90,18 @@ public class Artificial {
       for (int k = 0; k < elane[i].length; k++) {
         if (elane[i][k] != null) {
           sum ++;
+          tote ++;
         }
       
       }
     }
-
-
+    
+    
+    if(tote == 0){
+      fin[0] = (int)(Math.random() * 8);
+      fin[1] = (int) (Math.random() * 3);
+    }
+    else{
     int choser = (int)(Math.random() * empty.size());
     int srow = empty.get(choser);
     if (Math.random() * 100 < 90){ 
@@ -114,8 +121,9 @@ public class Artificial {
       fin[1]= 1;
     }
     }
-    else{fin[0] = (int)(Math.random() * 7);
+    else{fin[0] = (int)(Math.random() * 8);
          fin[1] = (int) (Math.random() * 3);
+    }
     }
 
 
