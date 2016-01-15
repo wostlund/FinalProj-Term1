@@ -1,19 +1,19 @@
-public boolean playing=true;
-int y = 420, choice = 0, echoice=0;
-int timer = 0, etimer = 0;
-boolean init = false, einit = false;
-int yUp = 6, yDown = 6, ent = 6;
-int choiceR = 6, choiceL = 6;
-Unit[][] board = new Unit[8][100];
-Unit[][] eboard = new Unit[8][100];
+public boolean playing;
+int y , choice , echoice;
+int timer, etimer;
+boolean init, einit;
+int yUp, yDown, ent;
+int choiceR, choiceL;
+Unit[][] board;
+Unit[][] eboard;
 PShape choice1, chooser, play, choice2, choice3; //we'll add more if we implement the shop
 ArrayList<PShape> choices = new ArrayList<PShape>();
 PShape echoice1, echoice2, echoice3;
 ArrayList<PShape> echoices = new ArrayList<PShape>();
-int playerScore = 25, enemyScore = 25;
-int [] score = new int[50];
-AttackChoice m = new AttackChoice(eboard);
-AttackChoice em = new AttackChoice(board);
+int playerScore, enemyScore;
+int [] score;
+AttackChoice m;
+AttackChoice em;
 PFont f, s, p;
 /*
 Our code got very cluttered so I'm going to make this glossary to make it easier for both of us
@@ -36,6 +36,26 @@ Our code got very cluttered so I'm going to make this glossary to make it easier
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup() {
+  playing = true;
+  y = 420;
+  choice = 0;
+  echoice = 0;
+  timer = 0;
+  etimer = 0;
+  init = false;
+  einit = false;
+  yUp = 6;
+  yDown = 6;
+  ent = 6;
+  choiceR = 6;
+  choiceL = 6;
+  board = new Unit[8][20];
+  eboard = new Unit[8][10];
+  playerScore = 25;
+  enemyScore = 25;
+  score = new int[50];
+  m = new AttackChoice(eboard);
+  em = new AttackChoice(board);
   fillScore();
   echoice1 = createShape(ELLIPSE, 1400, 70, 60, 60);
   echoice2 = createShape(ELLIPSE, 1330, 70, 60, 60);
@@ -57,6 +77,8 @@ void setup() {
   f = createFont("Arial", 16, true);
   s = createFont("Arial", 16, true);
   p = createFont("Arial", 16, true);
+  
+  
 }
 
 /*void fillArray(){
@@ -207,21 +229,21 @@ public void enemySpawn() {
   echoice = w.pickClass();
   switch(echoice) {
   case 0:
-    if (etimer >= 160) {
+    if (etimer >= 210) {
       soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false, 0);
       einit = true;
       etimer=0;
     }
     break;
   case 1:
-    if (etimer >= 240) {
+    if (etimer >= 290) {
       soldier = new Melee(700, 420, 3, 100, 100, 35, "Men", "Swordsman", false, 0);
       einit = true;
       etimer = 0;
     }
     break;
   default:
-    if (etimer >= 200) {
+    if (etimer >= 250) {
       soldier = new Range(700, 420, 3, 100, 100, 35, "Men", "Archer", false, 0);
       einit = true;
       etimer = 0;

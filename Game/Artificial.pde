@@ -97,6 +97,7 @@ public class Artificial {
 
     int choser = (int)(Math.random() * empty.size());
     int srow = empty.get(choser);
+    if (Math.random() * 100 < 90){ 
     Unit[] c = this.maxUnit(ary, srow);
     if (Math.random() * 100 <= 80) {
       fin[0] = srow;
@@ -111,6 +112,10 @@ public class Artificial {
       fin[1] = 2;
     } else {
       fin[1]= 1;
+    }
+    }
+    else{fin[0] = (int)(Math.random() * 7);
+         fin[1] = (int) (Math.random() * 3);
     }
 
 
