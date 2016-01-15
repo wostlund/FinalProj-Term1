@@ -48,7 +48,7 @@ public class Range extends Unit {
   }
   
 
-  public void move() {
+  /*public void move() {
     if (pause < 150 && pause > 0) {
       if (this.getPlayer()) {
         this.setXcor(this.getXcor() + (this.getSpeed() / 4.0));
@@ -60,23 +60,32 @@ public class Range extends Unit {
       pause = -75;
     }
     pause ++;
-  }
+  }*/
   
   public void move(Unit[][]k) {
     AttackChoice m = new AttackChoice(k);
     if (this.getPlayer()) {
-      if (m.inLane(this.getLane()) && this.getXcor() + this.getRange() * 1.6  >= m.findMin()[this.getLane()]) {
+      if (m.inLane(this.getLane()) && this.getXcor() + this.getRange() * 1.6  >= m.findMin()[this.getLane()] && attack > 0) {
         attack(m.minUnit()[this.getLane()]);
+        attack = - 12;
+        pause = -100;
       } else {
+        if(pause > 0){
         this.setXcor(this.getXcor() + (this.getSpeed() / 4.0));
+        attack ++;}
       }
     } else {
-      if (m.inLane(this.getLane()) && this.getXcor() - this.getRange() * 1.6 <= m.findMax()[this.getLane()]) {
+      if (m.inLane(this.getLane()) && this.getXcor() - this.getRange() * 1.6 <= m.findMax()[this.getLane()] && attack > 0) {
         attack(m.maxUnit()[this.getLane()]);
+        attack = -12;
+        pause = -100;
       } else {
+        if(pause > 0){
         this.setXcor(this.getXcor() - (this.getSpeed() / 4.0));
+        attack ++;}
       }
     }
+    pause ++;
   }
   
   
