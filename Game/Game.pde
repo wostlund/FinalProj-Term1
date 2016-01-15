@@ -202,6 +202,7 @@ public void enemySpawn() {
   Artificial w = new Artificial(board);    
   Unit soldier = new Melee();
   int [] dec = w.betterDecide(eboard);
+  echoice = dec[1];
   //echoice = w.pickClass();
   switch(echoice) {
   case 0:

@@ -59,14 +59,13 @@ public class Artificial {
     Unit[]ans = new Unit[2];
     Unit max = null;
     float maxx =0;
-    println(jacob.length);
+   //println(jacob.length);
     for (int w=0; w<jacob[lane].length; w ++) {
-      println(lane);
-      println(w);
+      //println(lane);
+      //println(w);
       if (jacob[lane][w] != null){
-      max = jacob[lane][w];
-      maxx = jacob[lane][w].getXcor();
-      println(max.getXcor());
+       max = jacob[lane][w];
+       maxx = jacob[lane][w].getXcor();
       if (jacob[lane][w].getXcor() > maxx) {
         max = jacob[lane][w];
         maxx = jacob[lane][w].getXcor();
@@ -104,7 +103,7 @@ public class Artificial {
     } else {
       fin[0] = (int)(Math.random() * 8) ;
     }
-
+      println(c[0]);
     if (c[0] instanceof Melee) {
       fin[1] = 0;
     }
