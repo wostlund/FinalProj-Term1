@@ -58,16 +58,19 @@ public class Artificial {
     Unit[][]jacob=data;
     Unit[]ans = new Unit[2];
     Unit max = null;
+    float maxx =0;
     println(jacob.length);
     for (int w=0; w<jacob[lane].length; w ++) {
       println(lane);
       println(w);
+      if (jacob[lane][w] != null){
       max = jacob[lane][w];
+      maxx = jacob[lane][w].getXcor();
       println(max.getXcor());
-      float maxx = jacob[lane][w].getXcor(); 
-         if (jacob[lane][w].getXcor() > maxx) {
+      if (jacob[lane][w].getXcor() > maxx) {
         max = jacob[lane][w];
         maxx = jacob[lane][w].getXcor();
+      } 
       }
     }
     ans[0]= max;
