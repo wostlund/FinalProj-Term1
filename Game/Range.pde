@@ -1,7 +1,8 @@
 public class Range extends Unit {
   private PShape avatar;
   private int pause = 0;
-
+  private int attack = 0;
+  
   public Range(float xcor, float ycor, int speed, int armour, int range, int damage, String race, String name, boolean id, int lane) {
     this.setSpeed(speed);
     this.setArmour(armour);
@@ -45,6 +46,7 @@ public class Range extends Unit {
   public void display() {
     shape(avatar, this.getXcor(), this.getYcor());
   }
+  
 
   public void move() {
     if (pause < 150 && pause > 0) {
@@ -59,4 +61,23 @@ public class Range extends Unit {
     }
     pause ++;
   }
+  
+  public void move(Unit[][]k) {
+    AttackChoice m = new AttackChoice(k);
+    if (this.getPlayer()) {
+      if (m.inLane(this.getLane()) && this.getXcor() + this.getRange() * 1.6  >= m.findMin()[this.getLane()]) {
+        attack(m.minUnit()[this.getLane()]);
+      } else {
+        this.setXcor(this.getXcor() + (this.getSpeed() / 4.0));
+      }
+    } else {
+      if (m.inLane(this.getLane()) && this.getXcor() - this.getRange() * 1.6 <= m.findMax()[this.getLane()]) {
+        attack(m.maxUnit()[this.getLane()]);
+      } else {
+        this.setXcor(this.getXcor() - (this.getSpeed() / 4.0));
+      }
+    }
+  }
+  
+  
 }
