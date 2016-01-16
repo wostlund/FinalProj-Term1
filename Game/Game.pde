@@ -15,6 +15,9 @@ int [] score;
 AttackChoice m;
 AttackChoice em;
 PFont f, s, p;
+boolean eattacked;
+//int decide;
+//int [] dec;
 /*
 Our code got very cluttered so I'm going to make this glossary to make it easier for both of us
  Fuction            |     Purpose
@@ -56,6 +59,7 @@ void setup() {
   score = new int[50];
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
+  eattacked = false;
   fillScore();
   echoice1 = createShape(ELLIPSE, 1400, 70, 60, 60);
   echoice2 = createShape(ELLIPSE, 1330, 70, 60, 60);
@@ -225,8 +229,14 @@ public void playerSpawn() {
 public void enemySpawn() {  
   Artificial w = new Artificial(board);    
   Unit soldier = new Melee();
-  //int [] dec = w.betterDecide(eboard);
-  echoice = w.pickClass();
+  int decide = (int)Math.random() * 2;
+  int [] dec = w.betterDecide(eboard);
+  if (decide == 0 && eattacked == false){
+    echoice = dec[1];
+  eattacked = true;}
+     if(decide == 1 && eattacked == false){
+       echoice = w.pickClass();
+          eattacked = true;}
   switch(echoice) {
   case 0:
     if (etimer >= 210) {
@@ -252,16 +262,28 @@ public void enemySpawn() {
   }
   //shape(soldier);
   if (einit) {
+    eattacked = false;
     int k = 0;
-    for (int i = 0; i < eboard[w.decide()].length; i++) {
-    //  int x = dec[0];
-      int x = w.decide();
+    if(decide == 0){
+    for (int i = 0; i < eboard[dec[0]].length; i++) {
+      int x = dec[0];
       if (eboard[x][i] == null && k == 0) {
         eboard[x][i] = (soldier);
         //println(w.decide());
         k += 1;
       }
     }
+    }
+    else{for (int i = 0; i < eboard[dec[0]].length; i++) {
+      int x = w.decide();
+      if (eboard[x][i] == null && k == 0) {
+        eboard[x][i] = (soldier);
+        //println(w.decide());
+        k += 1;      
+      }
+    }
+    }
+
     einit = false;
   }
 }    

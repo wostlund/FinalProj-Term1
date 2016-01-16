@@ -49,7 +49,7 @@ public class Artificial {
     if (Math.random() * 100 <= 80) {
       fin = lane;
     } else {
-      fin = name[7];
+      fin = (int) (Math.random() * 8);
     }
     return fin;
   }
@@ -136,6 +136,13 @@ public class Artificial {
         range ++;
       }
     }
+     if (Math.random() * 100 < 15 || (mel == 0 && range == 0) ){
+       int k = (int)(Math.random() * 3);
+       println(k);
+       return k;
+     }
+     println(mel);
+     println(range);
     if (mel > range) {
       return 0;
     }
@@ -144,5 +151,7 @@ public class Artificial {
     } else {
       return 1;
     }
-  }
+     
+      
+    }
 }
