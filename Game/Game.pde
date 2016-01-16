@@ -49,8 +49,8 @@ void setup() {
   ent = 6;
   choiceR = 6;
   choiceL = 6;
-  board = new Unit[8][20];
-  eboard = new Unit[8][20];
+  board = new Unit[8][10];
+  eboard = new Unit[8][10];
   playerScore = 25;
   enemyScore = 25;
   score = new int[50];
@@ -225,9 +225,8 @@ public void playerSpawn() {
 public void enemySpawn() {  
   Artificial w = new Artificial(board);    
   Unit soldier = new Melee();
-  int [] dec = w.betterDecide(eboard);
-  //echoice = w.pickClass();
-  echoice = dec [1];
+  //int [] dec = w.betterDecide(eboard);
+  echoice = w.pickClass();
   switch(echoice) {
   case 0:
     if (etimer >= 210) {
@@ -254,9 +253,9 @@ public void enemySpawn() {
   //shape(soldier);
   if (einit) {
     int k = 0;
-    for (int i = 0; i < eboard[dec[0]].length; i++) {
-      int x = dec[0];
-      //int x = w.decide();
+    for (int i = 0; i < eboard[w.decide()].length; i++) {
+    //  int x = dec[0];
+      int x = w.decide();
       if (eboard[x][i] == null && k == 0) {
         eboard[x][i] = (soldier);
         //println(w.decide());

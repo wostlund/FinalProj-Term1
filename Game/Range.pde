@@ -62,13 +62,13 @@ public class Range extends Unit {
     pause ++;
   }*/
   
-  public void move(Unit[][]k) {
+  public void move(Unit[][]k) { // need to make stop if get  too close
     AttackChoice m = new AttackChoice(k);
     if (this.getPlayer()) {
       if (m.inLane(this.getLane()) && this.getXcor() + this.getRange() * 1.6  >= m.findMin()[this.getLane()] && attack > 0) {
         attack(m.minUnit()[this.getLane()]);
         attack = - 12;
-        pause = -100;
+        pause = -75;
       } else {
         if(pause > 0){
         this.setXcor(this.getXcor() + (this.getSpeed() / 4.0));
@@ -78,7 +78,7 @@ public class Range extends Unit {
       if (m.inLane(this.getLane()) && this.getXcor() - this.getRange() * 1.6 <= m.findMax()[this.getLane()] && attack > 0) {
         attack(m.maxUnit()[this.getLane()]);
         attack = -12;
-        pause = -100;
+        pause = -75;
       } else {
         if(pause > 0){
         this.setXcor(this.getXcor() - (this.getSpeed() / 4.0));
