@@ -16,6 +16,7 @@ AttackChoice m;
 AttackChoice em;
 PFont f, s, p;
 boolean eattacked;
+int mode;
 //int decide;
 //int [] dec;
 /*
@@ -40,6 +41,7 @@ Our code got very cluttered so I'm going to make this glossary to make it easier
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup() {
   playing = true;
+  mode = 0;
   y = 420;
   choice = 0;
   echoice = 0;
@@ -325,6 +327,9 @@ public void displayEnemy() {
       }//
     }
   }
+  if(enemyScore == 50){
+    mode =1;
+  playing = false;}
 }
 
 
@@ -365,6 +370,7 @@ public void mouseClicked() {
 }
 
 void draw() { //player colors are now controllable
+if(mode == 0){
   m.setData(eboard);
   em.setData(board);
   m.kill();
@@ -393,7 +399,11 @@ void draw() { //player colors are now controllable
   fillScore();
   setChooserColor();
   timer ++;
-  etimer ++;
+  etimer ++;}
+if(mode == 1){
+  GameOver g = new GameOver();
+  g.endGame();
+}
 }
 
 public void setChooserColor() {
