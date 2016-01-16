@@ -77,7 +77,8 @@ public class Range extends Unit {
       }
     } else {
       if (m.inLane(this.getLane()) && this.getXcor() - this.getRange() * 1.6 <= m.findMax()[this.getLane()] && attack > 0) {
-        attack(m.maxUnit()[this.getLane()]);
+        float[]x = m.findMin();
+        attack(m.maxUnit(x)[this.getLane()]);
         attack = -12;
         pause = -75;
       } else {

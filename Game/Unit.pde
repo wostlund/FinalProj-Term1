@@ -80,7 +80,8 @@ public abstract class Unit {
       }
     } else {
       if (m.inLane(this.getLane()) && this.xcor - this.range/10 <= m.findMax()[lane]) {
-        attack(m.maxUnit()[lane]);
+        float[]x = m.findMax();
+        attack(m.maxUnit(x)[lane]);
       } else {
         xcor -= (speed / 4.0);
       }
