@@ -66,7 +66,8 @@ public class Range extends Unit {
     AttackChoice m = new AttackChoice(k);
     if (this.getPlayer()) {
       if (m.inLane(this.getLane()) && this.getXcor() + this.getRange() * 1.6  >= m.findMin()[this.getLane()] && attack > 0) {
-        attack(m.minUnit()[this.getLane()]);
+        float[]x = m.findMin();
+        attack(m.minUnit(x)[this.getLane()]);
         attack = - 12;
         pause = -75;
       } else {

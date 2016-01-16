@@ -71,7 +71,10 @@ public abstract class Unit {
     AttackChoice m = new AttackChoice(k);
     if (player) {
       if (m.inLane(this.getLane()) && this.xcor + this.range/10  >= m.findMin()[lane]) {
-        attack(m.minUnit()[lane]);
+        println(m.findMin()[lane]);
+        println();
+        float[]x = m.findMin();
+        attack(m.minUnit(x)[lane]);
       } else {
         xcor+= (speed / 4.0);
       }
