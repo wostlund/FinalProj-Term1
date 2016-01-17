@@ -14,7 +14,7 @@ int playerScore, enemyScore;
 int [] score;
 AttackChoice m;
 AttackChoice em;
-PFont f, s, p;
+PFont f, s, p, g;
 boolean eattacked;
 int mode;
 //int decide;
@@ -83,6 +83,7 @@ void setup() {
   f = createFont("Arial", 16, true);
   s = createFont("Arial", 16, true);
   p = createFont("Arial", 16, true);
+  g = createFont("Arial", 16, true);
   
   
 }
@@ -304,8 +305,12 @@ public void displaySoldier() {
           playerScore ++;
           enemyScore --;
         }
-      }//
+      }
     }
+  }
+  if(playerScore >= 50){
+    playing = false;
+    mode = 4;
   }
 }
 
@@ -327,7 +332,7 @@ public void displayEnemy() {
       }//
     }
   }
-  if(enemyScore == 50){
+  if(enemyScore >= 50){
     mode =1;
   playing = false;}
 }
@@ -356,6 +361,16 @@ public void mouseClicked() {
       textFont(s, 36);
       fill(255);
       text("Play", 685, 70);
+      textFont(g, 36);
+      fill(255);
+      text("Quit", 685, 600);
+      if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  )){
+        //setup();
+        mode = 2;
+        playing = false;
+      }
+        
+        
       playing=false;
     } else {
       playing=true;
@@ -410,7 +425,15 @@ if(mode == 2){
   Home d = new Home();
   d.displayMenu();
   mode = d.mouseClicked();
+  }
+  
+if (mode == 4){
+  Shop s = new Shop();
+  s.shopSetup();
+  s.shopDraw();
 }
+    
+
 }
 
 public void setChooserColor() {
