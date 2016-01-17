@@ -6,6 +6,10 @@ public class Data {
   private ArrayList<Integer>ranges = new ArrayList<Integer>(8);
   private ArrayList<Integer>damages = new ArrayList<Integer>(8);
 
+  public void setRace(String n) {
+    this.race = n;
+  }
+
   public void setName(String n, int choice) {
     names.set(choice, n);
   }
@@ -44,5 +48,9 @@ public class Data {
 
   public int getDamage(int choice) {
     return damages.get(choice);
+  }
+
+  public String getRace() {
+    return this.race;
   }
 }
