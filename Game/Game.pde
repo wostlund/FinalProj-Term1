@@ -40,8 +40,8 @@ Our code got very cluttered so I'm going to make this glossary to make it easier
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup() {
-  playing = true;
-  mode = 0;
+  playing = false;
+  mode = 2;
   y = 420;
   choice = 0;
   echoice = 0;
@@ -371,6 +371,7 @@ public void mouseClicked() {
 
 void draw() { //player colors are now controllable
 if(mode == 0){
+  playing = true;
   m.setData(eboard);
   em.setData(board);
   m.kill();
@@ -403,6 +404,12 @@ if(mode == 0){
 if(mode == 1){
   GameOver g = new GameOver();
   g.endGame();
+}
+if(mode == 2){
+  playing = false;
+  Home d = new Home();
+  d.displayMenu();
+  mode = d.mouseClicked();
 }
 }
 
