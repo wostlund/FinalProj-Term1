@@ -14,6 +14,7 @@ public class Range extends Unit {
     this.setXcor(xcor);
     this.setPlayer(id);
     this.setLane(lane);
+    this.makeShape();
   }
 
   public Range() {

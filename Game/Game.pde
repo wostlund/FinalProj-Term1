@@ -210,8 +210,8 @@ public void playerSpawn() {
       break;
     case 2:
       if (timer >= unitTraits.getSpawnTime(2)) {
-        soldier = new Range(40, 420, unitTraits.getSpeed(1), unitTraits.getArmour(1), 
-        unitTraits.getRange(1), unitTraits.getDamage(1), unitTraits.getRace(), unitTraits.getName(1), true, 0);
+        soldier = new Range(40, 420, unitTraits.getSpeed(2), unitTraits.getArmour(2), 
+        unitTraits.getRange(2), unitTraits.getDamage(2), unitTraits.getRace(), unitTraits.getName(2), true, 0);
         init = true;
         timer = 0;
       }
