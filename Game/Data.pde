@@ -1,12 +1,17 @@
 public class Data {
   
   public Data(){
+    race = "Men";
+    units = 3;
     names.add("Spearman");
     names.add("Swordsman");
     names.add("Archer");
     isMelee.add(true);
     isMelee.add(true);
     isMelee.add(false);
+    spawnTimes.add(160);
+    spawnTimes.add(240);
+    spawnTimes.add(200);    
     speeds.add(5);
     speeds.add(3);
     speeds.add(3);
@@ -25,6 +30,7 @@ public class Data {
   private String race;
   private ArrayList<String>names = new ArrayList<String>(8);
   private ArrayList<Boolean>isMelee = new ArrayList<Boolean>(8);
+  private ArrayList<Integer>spawnTimes = new ArrayList<Integer>(8);
   private ArrayList<Integer>speeds = new ArrayList<Integer>(8);
   private ArrayList<Integer>armour = new ArrayList<Integer>(8);
   private ArrayList<Integer>ranges = new ArrayList<Integer>(8);
@@ -92,5 +98,13 @@ public class Data {
 
   public String getRace() {
     return this.race;
+  }
+  
+  public int getSpawnTime(int n){
+   return spawnTimes.get(n); 
+  }
+  
+  public void setSpawnTime(int n, int choice){
+    spawnTimes.set(choice, n);
   }
 }

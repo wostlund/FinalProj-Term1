@@ -17,6 +17,7 @@ AttackChoice em;
 PFont f, s, p, g;
 boolean eattacked;
 int mode;
+Data unitTraits = new Data();
 //int decide;
 //int [] dec;
 /*
@@ -192,22 +193,25 @@ public void playerSpawn() {
     Unit soldier = new Melee();
     switch(choice) { //this is like a cond statement in Scheme
     case 0:
-      if (timer >= 160) {
-        soldier = new Melee(40, 420, 5, 40, 130, 20, "Men", "Spearman", true, 0);
+      if (timer >= unitTraits.getSpawnTime(0)) {
+        soldier = new Melee(40, 420, unitTraits.getSpeed(0), unitTraits.getArmour(0), 
+        unitTraits.getRange(0), unitTraits.getDamage(0), unitTraits.getRace(), unitTraits.getName(0), true, 0);
         init = true;
         timer=0;
       }
       break;
     case 1:
-      if (timer >= 240) {
-        soldier = new Melee(40, 420, 3, 100, 100, 35, "Men", "Swordsman", true, 0);
+      if (timer >= unitTraits.getSpawnTime(1)) {
+        soldier = new Melee(40, 420, unitTraits.getSpeed(1), unitTraits.getArmour(1), 
+        unitTraits.getRange(1), unitTraits.getDamage(1), unitTraits.getRace(), unitTraits.getName(1), true, 0);
         init = true;
         timer = 0;
       }
       break;
-    default:
-      if (timer >= 200) {
-        soldier = new Range(40, 420, 3, 100, 100, 35, "Men", "Archer", true, 0);
+    case 2:
+      if (timer >= unitTraits.getSpawnTime(2)) {
+        soldier = new Range(40, 420, unitTraits.getSpeed(1), unitTraits.getArmour(1), 
+        unitTraits.getRange(1), unitTraits.getDamage(1), unitTraits.getRace(), unitTraits.getName(1), true, 0);
         init = true;
         timer = 0;
       }
@@ -437,7 +441,8 @@ if (mode == 4){
 }
 
 public void setChooserColor() {
-  if ((choice == 0 && timer >= 160) || (choice == 1 && timer >= 240) || (choice == 2 && timer >= 200)) {
+  if ((choice == 0 && timer >= unitTraits.getSpawnTime(0)) || (choice == 1 && timer >= unitTraits.getSpawnTime(1)) ||
+  (choice == 2 && timer >= unitTraits.getSpawnTime(2))) {
     chooser.setFill(color(0, 0, 256));
   } else {
     chooser.setFill(color(255));
