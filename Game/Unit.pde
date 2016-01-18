@@ -70,7 +70,7 @@ public abstract class Unit {
   public void move(Unit[][]k) {
     AttackChoice m = new AttackChoice(k);
     if (player) {
-      if (m.inLane(this.getLane()) && this.xcor + this.range/10  >= m.findMin()[lane]) {
+      if (m.inLane(this.getLane()) && this.xcor + this.range/3  >= m.findMin()[lane]) {
         println(m.findMin()[lane]);
         println();
         float[]x = m.findMin();
@@ -79,7 +79,7 @@ public abstract class Unit {
         xcor+= (speed / 4.0);
       }
     } else {
-      if (m.inLane(this.getLane()) && this.xcor - this.range/10 <= m.findMax()[lane]) {
+      if (m.inLane(this.getLane()) && this.xcor - this.range/3 <= m.findMax()[lane]) {
         float[]x = m.findMax();
         attack(m.maxUnit(x)[lane]);
       } else {
