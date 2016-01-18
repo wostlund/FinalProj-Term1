@@ -1,5 +1,5 @@
 public boolean playing;
-int y , choice , echoice;
+int y, choice, echoice;
 int timer, etimer;
 boolean init, einit;
 int yUp, yDown, ent;
@@ -18,6 +18,7 @@ PFont f, s, p, g;
 boolean eattacked;
 int mode;
 Data unitTraits = new Data();
+Shop shop = new Shop();
 //int decide;
 //int [] dec;
 /*
@@ -85,8 +86,6 @@ void setup() {
   s = createFont("Arial", 16, true);
   p = createFont("Arial", 16, true);
   g = createFont("Arial", 16, true);
-  
-  
 }
 
 /*void fillArray(){
@@ -195,7 +194,7 @@ public void playerSpawn() {
     case 0:
       if (timer >= unitTraits.getSpawnTime(0)) {
         soldier = new Melee(40, 420, unitTraits.getSpeed(0), unitTraits.getArmour(0), 
-        unitTraits.getRange(0), unitTraits.getDamage(0), unitTraits.getRace(), unitTraits.getName(0), true, 0);
+          unitTraits.getRange(0), unitTraits.getDamage(0), unitTraits.getRace(), unitTraits.getName(0), true, 0);
         init = true;
         timer=0;
       }
@@ -203,7 +202,7 @@ public void playerSpawn() {
     case 1:
       if (timer >= unitTraits.getSpawnTime(1)) {
         soldier = new Melee(40, 420, unitTraits.getSpeed(1), unitTraits.getArmour(1), 
-        unitTraits.getRange(1), unitTraits.getDamage(1), unitTraits.getRace(), unitTraits.getName(1), true, 0);
+          unitTraits.getRange(1), unitTraits.getDamage(1), unitTraits.getRace(), unitTraits.getName(1), true, 0);
         init = true;
         timer = 0;
       }
@@ -211,7 +210,7 @@ public void playerSpawn() {
     case 2:
       if (timer >= unitTraits.getSpawnTime(2)) {
         soldier = new Range(40, 420, unitTraits.getSpeed(2), unitTraits.getArmour(2), 
-        unitTraits.getRange(2), unitTraits.getDamage(2), unitTraits.getRace(), unitTraits.getName(2), true, 0);
+          unitTraits.getRange(2), unitTraits.getDamage(2), unitTraits.getRace(), unitTraits.getName(2), true, 0);
         init = true;
         timer = 0;
       }
@@ -238,12 +237,14 @@ public void enemySpawn() {
   Unit soldier = new Melee();
   int decide = (int)Math.random() * 2;
   int [] dec = w.betterDecide(eboard);
-  if (decide == 0 && eattacked == false){
+  if (decide == 0 && eattacked == false) {
     echoice = dec[1];
-  eattacked = true;}
-     if(decide == 1 && eattacked == false){
-       echoice = w.pickClass();
-          eattacked = true;}
+    eattacked = true;
+  }
+  if (decide == 1 && eattacked == false) {
+    echoice = w.pickClass();
+    eattacked = true;
+  }
   switch(echoice) {
   case 0:
     if (etimer >= 210) {
@@ -271,24 +272,24 @@ public void enemySpawn() {
   if (einit) {
     eattacked = false;
     int k = 0;
-    if(decide == 0){
-    for (int i = 0; i < eboard[dec[0]].length; i++) {
-      int x = dec[0];
-      if (eboard[x][i] == null && k == 0) {
-        eboard[x][i] = (soldier);
-        //println(w.decide());
-        k += 1;
+    if (decide == 0) {
+      for (int i = 0; i < eboard[dec[0]].length; i++) {
+        int x = dec[0];
+        if (eboard[x][i] == null && k == 0) {
+          eboard[x][i] = (soldier);
+          //println(w.decide());
+          k += 1;
+        }
       }
-    }
-    }
-    else{for (int i = 0; i < eboard[dec[0]].length; i++) {
-      int x = w.decide();
-      if (eboard[x][i] == null && k == 0) {
-        eboard[x][i] = (soldier);
-        //println(w.decide());
-        k += 1;      
+    } else {
+      for (int i = 0; i < eboard[dec[0]].length; i++) {
+        int x = w.decide();
+        if (eboard[x][i] == null && k == 0) {
+          eboard[x][i] = (soldier);
+          //println(w.decide());
+          k += 1;
+        }
       }
-    }
     }
 
     einit = false;
@@ -312,8 +313,9 @@ public void displaySoldier() {
       }
     }
   }
-  if(playerScore >= 50){
+  if (playerScore >= 50) {
     playing = false;
+    timer = 0;
     mode = 4;
   }
 }
@@ -336,9 +338,10 @@ public void displayEnemy() {
       }//
     }
   }
-  if(enemyScore >= 50){
+  if (enemyScore >= 50) {
     mode =1;
-  playing = false;}
+    playing = false;
+  }
 }
 
 
@@ -368,13 +371,13 @@ public void mouseClicked() {
       textFont(g, 36);
       fill(255);
       text("Quit", 685, 600);
-      if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  )){
+      if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  )) {
         //setup();
         mode = 2;
         playing = false;
       }
-        
-        
+
+
       playing=false;
     } else {
       playing=true;
@@ -389,60 +392,60 @@ public void mouseClicked() {
 }
 
 void draw() { //player colors are now controllable
-if(mode == 0){
-  playing = true;
-  m.setData(eboard);
-  em.setData(board);
-  m.kill();
-  em.kill();
-  background(132, 180, 10);
-  chooser();
-  colorIndicator();
-  ecolorIndicator();
-  shape(echoice1);
-  shape(echoice2);
-  shape(echoice3);
-  shape(choice1);
-  shape(choice2);
-  shape(choice3);
-  shape(play);
-  shape(chooser, 0, y);
-  textFont(p, 30);
-  fill(255);
-  text("Pause", 680, 80);
-  playerSpawn();
-  enemySpawn();
-  displaySoldier();
-  displayEnemy();
-  displayScore();
-  changeY();
-  fillScore();
-  setChooserColor();
-  timer ++;
-  etimer ++;}
-if(mode == 1){
-  GameOver g = new GameOver();
-  g.endGame();
-}
-if(mode == 2){
-  playing = false;
-  Home d = new Home();
-  d.displayMenu();
-  mode = d.mouseClicked();
+  if (mode == 0) {
+    playing = true;
+    m.setData(eboard);
+    em.setData(board);
+    m.kill();
+    em.kill();
+    background(132, 180, 10);
+    chooser();
+    colorIndicator();
+    ecolorIndicator();
+    shape(echoice1);
+    shape(echoice2);
+    shape(echoice3);
+    shape(choice1);
+    shape(choice2);
+    shape(choice3);
+    shape(play);
+    shape(chooser, 0, y);
+    textFont(p, 30);
+    fill(255);
+    text("Pause", 680, 80);
+    playerSpawn();
+    enemySpawn();
+    displaySoldier();
+    displayEnemy();
+    displayScore();
+    changeY();
+    fillScore();
+    setChooserColor();
+    timer ++;
+    etimer ++;
   }
-  
-if (mode == 4){
-  Shop s = new Shop();
-  s.shopSetup();
-  s.shopDraw();
-}
-    
+  if (mode == 1) {
+    GameOver g = new GameOver();
+    g.endGame();
+  }
+  if (mode == 2) {
+    playing = false;
+    Home d = new Home();
+    d.displayMenu();
+    mode = d.mouseClicked();
+  }
 
+  boolean k = true;
+  if (mode == 4) {
+  shop.shopSetup();
+  shop.shopDraw();
+  shop.mouseClicked();
+  }
 }
 
 public void setChooserColor() {
   if ((choice == 0 && timer >= unitTraits.getSpawnTime(0)) || (choice == 1 && timer >= unitTraits.getSpawnTime(1)) ||
-  (choice == 2 && timer >= unitTraits.getSpawnTime(2))) {
+    (choice == 2 && timer >= unitTraits.getSpawnTime(2))) {
     chooser.setFill(color(0, 0, 256));
   } else {
     chooser.setFill(color(255));

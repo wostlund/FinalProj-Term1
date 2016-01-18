@@ -1,13 +1,24 @@
 public class Shop {
-  
+
   //This is self explanitory
 
   PFont a, b, c, d, e, f;
-  PShape choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
+  private PShape choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
+
+  private boolean filled1, filled2, filled3, filled4, filled5, filled6, filled7, filled8;  
+
+  public Shop() {
+    filled1 = false;
+    filled2 = false;
+    filled3 = false;
+    filled4 = false;
+    filled5 = false;
+    filled6 = false;
+    filled7 = false;
+    filled8 = false;
+  }
 
   public void shopSetup() {
-    size(1440, 980);
-    background(#5D5A5A);
     choice1 = createShape(RECT, 60, 600, 160, 160);
     choice1.setFill(color(#AD2E1F));
     choice2 = createShape(RECT, 225, 600, 160, 160);
@@ -30,6 +41,18 @@ public class Shop {
     d = createFont("Ariel", 72);
     e = createFont("Ariel", 72);
     f = createFont("Ariel", 72);
+  }
+
+  public void shopDraw() {
+    background(color(#5D5A5A));
+    shape(choice1);
+    shape(choice2);
+    shape(choice3);
+    shape(choice4);
+    shape(choice5);
+    shape(choice6);
+    shape(choice7);
+    shape(choice8);
     textFont(a);
     textSize(72);
     text("Money", 50, 200);
@@ -65,15 +88,11 @@ public class Shop {
     text ("0                  600", 971, 450);
     text ("0                  600", 971, 490);
   }
-  
-  public void shopDraw(){
-    shape(choice1);
-    shape(choice2);
-    shape(choice3);
-    shape(choice4);
-    shape(choice5);
-    shape(choice6);
-    shape(choice7);
-    shape(choice8); 
+
+  public void mouseClicked() {
+    if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 && filled1==false) {
+      filled1=true;
+      println("Manamijeff");
+    }
   }
 }
