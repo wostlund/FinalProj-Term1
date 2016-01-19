@@ -17,8 +17,8 @@ AttackChoice em;
 PFont f, s, p, g;
 boolean eattacked;
 int mode;
-Data unitTraits = new Data();
-Shop shop = new Shop();
+Data unitTraits; 
+Shop shop;
 //int decide;
 //int [] dec;
 /*
@@ -64,6 +64,8 @@ void setup() {
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
   eattacked = false;
+  unitTraits = new Data();
+  shop = new Shop();
   fillScore();
   echoice1 = createShape(ELLIPSE, 1400, 70, 60, 60);
   echoice2 = createShape(ELLIPSE, 1330, 70, 60, 60);
