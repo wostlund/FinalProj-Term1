@@ -247,6 +247,7 @@ public void enemySpawn() {
     echoice = w.pickClass();
     eattacked = true;
   }
+  println(w.isEmpty());
   if (w.isEmpty() && eattacked == false){
     echoice = (int) (Math.random() * 3);
     eattacked = true;
