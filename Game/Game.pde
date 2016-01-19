@@ -247,9 +247,11 @@ public void enemySpawn() {
     echoice = w.pickClass();
     eattacked = true;
   }
-  if (w.isEmpty()){
-    echoice = (int) Math.random() * 3;
+  if (w.isEmpty() && eattacked == false){
+    echoice = (int) (Math.random() * 3);
+    eattacked = true;
   }
+  println(echoice);
   switch(echoice) {
   case 0:
     if (etimer >= 210) {

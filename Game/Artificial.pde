@@ -49,13 +49,13 @@ public class Artificial {
   
   public boolean isEmpty(){
     int ctr = 0;
-    for (int i = 0; i < eary.length; i++){
-      for (int k = 0; k < eary[i].length; k ++){
-        if (eary[i][k] == null){
+    for (int i = 0; i < ary.length; i++){
+      for (int k = 0; k < ary[i].length; k ++){
+        if (ary[i][k] == null){
           ctr ++;}
       }
     }
-    return ctr == (eary.length * eary[0].length);
+    return ctr == (ary.length * ary[0].length);
   }
         
 
