@@ -1,9 +1,16 @@
 public class Artificial {
   Unit [][] ary = new Unit [8][100];
-  Artificial(Unit [][] j) {
+  Unit [][] eary = new Unit [8][100];
+  Artificial(Unit [][] j, Unit [][] e ) {
     for (int i = 0; i < j.length; i ++) {
       for (int k = 0; k < j[i].length; k ++) {
         ary[i][k] = j[i][k];
+      }
+    }
+    
+     for (int p = 0; p < e.length; p ++) {
+      for (int a = 0; a < e[p].length; a ++) {
+        eary[p][a] = e[p][a];
       }
     }
   }
@@ -39,6 +46,18 @@ public class Artificial {
     }
     return lane;
   }
+  
+  public boolean isEmpty(){
+    int ctr = 0;
+    for (int i = 0; i < eary.length; i++){
+      for (int k = 0; k < eary[i].length; k ++){
+        if (eary[i][k] == null){
+          ctr ++;}
+      }
+    }
+    return ctr == (eary.length * eary[0].length);
+  }
+        
 
 
 

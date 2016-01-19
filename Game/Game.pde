@@ -235,7 +235,7 @@ public void playerSpawn() {
 
 
 public void enemySpawn() {  
-  Artificial w = new Artificial(board);    
+  Artificial w = new Artificial(board, eboard);    
   Unit soldier = new Melee();
   int decide = (int)Math.random() * 2;
   int [] dec = w.betterDecide(eboard);
@@ -246,6 +246,9 @@ public void enemySpawn() {
   if (decide == 1 && eattacked == false) {
     echoice = w.pickClass();
     eattacked = true;
+  }
+  if (w.isEmpty()){
+    echoice = (int) Math.random() * 3;
   }
   switch(echoice) {
   case 0:
