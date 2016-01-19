@@ -15,7 +15,7 @@ int [] score;
 AttackChoice m;
 AttackChoice em;
 PFont f, s, p, g;
-boolean eattacked;
+boolean eattacked, paused;
 int mode;
 Data unitTraits; 
 Shop shop;
@@ -66,6 +66,7 @@ void setup() {
   eattacked = false;
   unitTraits = new Data();
   shop = new Shop();
+  paused = false;
   fillScore();
   echoice1 = createShape(ELLIPSE, 1400, 70, 60, 60);
   echoice2 = createShape(ELLIPSE, 1330, 70, 60, 60);
@@ -368,6 +369,7 @@ public void displayScore() {
 public void mouseClicked() {
   if ((mouseX-720)*(mouseX-720)+(mouseY-70)*(mouseY-70)<2500) {
     if (playing) {
+      paused = true;
       play.setFill(color(#F52811));
       background(0, 0, 0);
       textFont(f, 36);
@@ -379,15 +381,14 @@ public void mouseClicked() {
       textFont(g, 36);
       fill(255);
       text("Quit", 685, 600);
-      if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  )) {
-        //setup();
-        mode = 2;
-        playing = false;
+      
       }
 
 
       playing=false;
-    } else {
+    } 
+    
+    else {
       playing=true;
     }
     if (!playing) {
@@ -396,8 +397,14 @@ public void mouseClicked() {
       play.setFill(color(#11F51E));
       loop();
     }
+    if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  ) && paused == true) {
+        setup();
+        mode = 2;
+        playing = false;
+        paused = false;
+    }
   }
-}
+
 
 void draw() { //player colors are now controllable
   if (mode == 0) {
