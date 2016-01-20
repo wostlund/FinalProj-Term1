@@ -481,7 +481,7 @@ void draw() { //player colors are now controllable
   if (mode == 4) {
   shop.shopSetup();
   shop.shopDraw();
-  shop.mouseClicked();
+  shop.mouseClicked(unitTraits);
   }
 }
 
