@@ -181,23 +181,29 @@ public class Artificial {
       return 0;
     }
     
-    public int evalStrLane(){
+    public int evalStrLane(int i, Unit [][] array){
+      int ret = 0;
+      for(int n = 0; n < array[i].length; n ++){
+        if (array[i][n] instanceof Unit){
+          ret += array[i][n].getDamage();
+        }
+      }
+      return ret;
+    }
+    
+    public int evalRngLane(int i, Unit [] array){
       return 0;
     }
     
-    public int evalRngLane(){
+    public int evalNumb(int i, Unit [][] array){
       return 0;
     }
     
-    public int evalNumb(){
+    public int evalHealth(int i, Unit[][] array){
       return 0;
     }
     
-    public int evalHealth(){
-      return 0;
-    }
-    
-    public int evalFHealth(){
+    public int evalFHealth(int i, Unit [][] array){
       return 0;
     }
     
