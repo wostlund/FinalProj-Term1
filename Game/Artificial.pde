@@ -192,18 +192,19 @@ public class Artificial {
     }
     
     public int evalRngLane(int i, Unit [] array){
+      
       return 0;
     }
     
-    public int evalNumb(int i, Unit [][] array){
+    public int evalNumbLane(int i, Unit [][] array){
       return 0;
     }
     
-    public int evalHealth(int i, Unit[][] array){
+    public int evalHealthLane(int i, Unit[][] array){
       return 0;
     }
     
-    public int evalFHealth(int i, Unit [][] array){
+    public int evalFHealthLane(int i, Unit [][] array){
       return 0;
     }
     
