@@ -89,10 +89,15 @@ public class Shop {
     text ("0                  600", 971, 490);
   }
 
-  public void mouseClicked() {
+  public void mouseClicked(Data n) {
     if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 && filled1==false) {
       filled1=true;
-      println("Manamijeff");
+      n.setName("Mage", n.getUnits());
+      n.setSpeed(3, n.getUnits());
+      n.setArmour(110, n.getUnits());
+      n.setRange(100, n.getUnits());
+      n.setDamages(50 , n.getUnits());
+      n.setIsMelee(false, n.getUnits());
     }
   }
 }

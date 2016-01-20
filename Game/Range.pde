@@ -27,6 +27,8 @@ public class Range extends Unit {
     case "Archer":
       avatar = createShape(TRIANGLE, this.getXcor(), this.getYcor()+20, this.getXcor()-20, this.getYcor()-20, this.getXcor()+20, this.getYcor()-20);
       break;
+    case "Mage":
+      avatar = createShape(TRIANGLE, this.getXcor(), this.getYcor()-20, this.getXcor()+20, this.getYcor()+20, this.getXcor()-20, this.getYcor()+20);
     default:
       triangle(this.getXcor(), this.getYcor()+20, this.getXcor()-20, this.getYcor()-20, this.getXcor()+20, this.getYcor()-20);
     }

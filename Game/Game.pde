@@ -6,7 +6,7 @@ int yUp, yDown, ent;
 int choiceR, choiceL;
 Unit[][] board;
 Unit[][] eboard;
-PShape choice1, chooser, play, choice2, choice3; //we'll add more if we implement the shop
+PShape choice1, chooser, play, choice2, choice3, choice4, choice5, choice6, choice7, choice8; //we'll add more if we implement the shop
 ArrayList<PShape> choices = new ArrayList<PShape>();
 PShape echoice1, echoice2, echoice3;
 ArrayList<PShape> echoices = new ArrayList<PShape>();
@@ -77,6 +77,11 @@ void setup() {
   choice1 = createShape(ELLIPSE, 40, 70, 60, 60);
   choice2 = createShape(ELLIPSE, 110, 70, 60, 60);
   choice3 = createShape(ELLIPSE, 180, 70, 60, 60);
+  choice4 = createShape(ELLIPSE, 250, 70, 60, 60);
+  choice5 = createShape(ELLIPSE, 320, 70, 60, 60);
+  choice6 = createShape(ELLIPSE, 390, 70, 60, 60);
+  choice7 = createShape(ELLIPSE, 460, 70, 60, 60);
+  choice8 = createShape(ELLIPSE, 530, 70, 60, 60);
   play = createShape(ELLIPSE, 720, 70, 100, 100);
   play.setFill(color(#11F51E));
   choices.add(choice1);
@@ -109,6 +114,23 @@ public void fillScore() {
   }
 }
 
+public void showPShapes(){
+  if(unitTraits.getUnits()>3){
+     shape(choice4);
+  }
+  if(unitTraits.getUnits()>4){
+     shape(choice5); 
+  }
+  if(unitTraits.getUnits()>5){
+     shape(choice6); 
+  }
+  if(unitTraits.getUnits()>6){
+     shape(choice7); 
+  }
+  if(unitTraits.getUnits()>7){
+     shape(choice8); 
+  }
+}
 
 public void chooser() {
   if (keyPressed) {
@@ -398,10 +420,13 @@ public void mouseClicked() {
       loop();
     }
     if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  ) && paused == true) {
-        setup();
+        this.setup();
         mode = 2;
         playing = false;
         paused = false;
+    }
+    if(mode == 1){
+      mode = 4; 
     }
   }
 
@@ -438,10 +463,12 @@ void draw() { //player colors are now controllable
     setChooserColor();
     timer ++;
     etimer ++;
+    showPShapes();
   }
   if (mode == 1) {
     GameOver g = new GameOver();
     g.endGame();
+    mouseClicked();
   }
   if (mode == 2) {
     playing = false;

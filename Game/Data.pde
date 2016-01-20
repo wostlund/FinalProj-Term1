@@ -107,4 +107,12 @@ public class Data {
   public void setSpawnTime(int n, int choice){
     spawnTimes.set(choice, n);
   }
+  
+  public void setIsMelee(boolean n, int choice){
+    isMelee.set(choice, n); 
+  }
+  
+  public boolean getIsMelee(int choice){
+     return isMelee.get(choice); 
+  }
 }
