@@ -1,6 +1,8 @@
 public class Artificial {
   Unit [][] ary = new Unit [8][100];
   Unit [][] eary = new Unit [8][100];
+  
+
   Artificial(Unit [][] j, Unit [][] e ) {
     for (int i = 0; i < j.length; i ++) {
       for (int k = 0; k < j[i].length; k ++) {
@@ -177,9 +179,7 @@ public class Artificial {
     
     
     
-    public int evalLanes(){
-      return 0;
-    }
+    
     
     public int evalStrLane(int i, Unit [][] array){
       int ret = 0;
@@ -231,6 +231,91 @@ public class Artificial {
       }
       return ret;
     }
+    
+    public int minUnit() {
+    Unit[][]jacob = ary;
+    float val = 10000000;
+    int ret = 0;
+    for (int i=0; i<jacob.length; i++) {
+      for (int k=0; k<jacob[i].length; k++) {
+        if (jacob[i][k]!=null && jacob[i][k].getXcor() <= val) {
+          ret = i;
+        }
+      }
+    }
+    return ret;
+  }
+      
+    
+    
+    
+    public int maxSpd(){
+      int max = 0;
+      int lane = 0;
+      for (int i = 0; i < 8; i ++){
+        int c = evalSpdLane(i, ary);
+        if (c > max){
+          lane = i;
+        }
+      }
+      return lane;
+    }
+    
+    public int maxHp(){
+      int max = 0;
+      int lane = 0;
+      for (int i = 0; i < 8; i ++){
+        int c = evalHealthLane(i, ary);
+        if (c > max){
+          lane = i;
+        }
+      }
+      return lane;
+    }
+    
+    public int maxNumb(){
+      int max = 0;
+      int lane = 0;
+      for (int i = 0; i < 8; i ++){
+        int c = evalNumbLane(i, ary);
+        if (c > max){
+          lane = i;
+        }
+      }
+      return lane;
+    }
+    
+    public int maxStr(){
+      int max = 0;
+      int lane = 0;
+      for (int i = 0; i < 8; i ++){
+        int c = evalStrLane(i, ary);
+        if (c > max){
+          lane = i;
+        }
+      }
+      return lane;
+    }
+    public int maxRng(){
+      int max = 0;
+      int lane = 0;
+      for (int i = 0; i < 8; i ++){
+        int c = evalRngLane(i, ary);
+        if (c > max){
+          lane = i;
+        }
+      }
+      return lane;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     public int evalMine(){
