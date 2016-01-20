@@ -173,4 +173,54 @@ public class Artificial {
      
       
     }
+    
+    
+    
+    
+    public int evalLanes(){
+      return 0;
+    }
+    
+    public int evalStrLane(){
+      return 0;
+    }
+    
+    public int evalRngLane(){
+      return 0;
+    }
+    
+    public int evalNumb(){
+      return 0;
+    }
+    
+    public int evalHealth(){
+      return 0;
+    }
+    
+    public int evalFHealth(){
+      return 0;
+    }
+    
+    public int evalMine(){
+      return 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
