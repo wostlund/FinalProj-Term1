@@ -349,18 +349,6 @@ public class Artificial {
       int lane =  altSel();
       return 10000000;}
       
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    //public int evalMine(){
-      //return 0;
-    //}
     
     
     
