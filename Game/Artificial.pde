@@ -326,6 +326,22 @@ public class Artificial {
       }
       return ret; 
     }
+    
+    public int altSel(){
+      return (int)(Math.random() * 8);
+    }
+    
+    public int chooseLane(){
+      if (evalNumbLane(tally() , eary) < 2){
+        return tally();
+      }
+      
+      else{ return altSel();}
+    }
+      
+    
+    //public int selClass(){
+      
       
     
     
