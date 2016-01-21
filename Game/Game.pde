@@ -114,21 +114,21 @@ public void fillScore() {
   }
 }
 
-public void showPShapes(){
-  if(unitTraits.getUnits()>3){
-     shape(choice4);
+public void showPShapes() {
+  if (unitTraits.getUnits()>3) {
+    shape(choice4);
   }
-  if(unitTraits.getUnits()>4){
-     shape(choice5); 
+  if (unitTraits.getUnits()>4) {
+    shape(choice5);
   }
-  if(unitTraits.getUnits()>5){
-     shape(choice6); 
+  if (unitTraits.getUnits()>5) {
+    shape(choice6);
   }
-  if(unitTraits.getUnits()>6){
-     shape(choice7); 
+  if (unitTraits.getUnits()>6) {
+    shape(choice7);
   }
-  if(unitTraits.getUnits()>7){
-     shape(choice8); 
+  if (unitTraits.getUnits()>7) {
+    shape(choice8);
   }
 }
 
@@ -271,7 +271,7 @@ public void enemySpawn() {
     eattacked = true;
   }
   println(w.isEmpty());
-  if (w.isEmpty() && eattacked == false){
+  if (w.isEmpty() && eattacked == false) {
     echoice = (int) (Math.random() * 3);
     eattacked = true;
   }
@@ -403,36 +403,33 @@ public void mouseClicked() {
       textFont(g, 36);
       fill(255);
       text("Quit", 685, 600);
-      
-      }
+    }
 
 
-      playing=false;
-    } 
-    
-    else {
-      playing=true;
-    }
-    if (!playing) {
-      noLoop();
-    } else {
-      play.setFill(color(#11F51E));
-      loop();
-    }
-    if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  ) && paused == true) {
-        this.setup();
-        mode = 2;
-        playing = false;
-        paused = false;
-    }
-    if(mode == 1){
-      mode = 4; 
-    }
+    playing=false;
+  } else {
+    playing=true;
   }
+  if (!playing) {
+    noLoop();
+  } else {
+    play.setFill(color(#11F51E));
+    loop();
+  }
+  if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  ) && paused == true) {
+    this.setup();
+    mode = 2;
+    playing = false;
+    paused = false;
+  }
+  if (mode == 1) {
+    mode = 4;
+  }
+}
 
 
 void draw() { //player colors are now controllable
-  if (mode == 0) {
+  if (mode == 4) {
     playing = true;
     m.setData(eboard);
     em.setData(board);
@@ -478,10 +475,13 @@ void draw() { //player colors are now controllable
   }
 
   boolean k = true;
-  if (mode == 4) {
-  shop.shopSetup();
-  shop.shopDraw();
-  shop.mouseClicked(unitTraits);
+  if (mode == 0) {
+    shop.shopSetup();
+    shop.shopDraw();
+    if (mousePressed) {
+      shop.mouseClicked(unitTraits);
+      mode = shop.mouseClicked(unitTraits);
+    }
   }
 }
 
@@ -493,11 +493,3 @@ public void setChooserColor() {
     chooser.setFill(color(255));
   }
 }
-
-/*public static void main(String[]args){
- spawn();
- int i = 0;
- while (i < board.length){
- System.out.println(board[i][0]);
- i ++;
- }*/

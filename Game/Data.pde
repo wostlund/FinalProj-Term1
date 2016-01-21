@@ -48,28 +48,28 @@ public class Data {
     return this.units; 
   }
   
-  public void setName(String n, int choice) {
-    names.set(choice, n);
+  public void setName(String n) {
+    names.add(n);
   }
 
-  public void setSpeed(int n, int choice) {
-    speeds.set(choice, n);
+  public void setSpeed(int n) {
+    speeds.add(n);
   }
 
-  public void setArmour(int n, int choice) {
-    armour.set(choice, n);
+  public void setArmour(int n) {
+    armour.add(n);
   }
 
-  public void setRange(int n, int choice) {
-    ranges.set(choice, n);
+  public void setRange(int n) {
+    ranges.add(n);
   }
 
-  public void setDamages(int n, int choice) {
-    damages.set(choice, n);
+  public void setDamages(int n) {
+    damages.add(n);
   }
   
-  public void setType(boolean n, int choice){
-    isMelee.set(choice, n); 
+  public void setType(boolean n){
+    isMelee.add(n); 
   }
   
   public boolean setType(int choice){
@@ -104,12 +104,12 @@ public class Data {
    return spawnTimes.get(n); 
   }
   
-  public void setSpawnTime(int n, int choice){
-    spawnTimes.set(choice, n);
+  public void setSpawnTime(int n){
+    spawnTimes.add(n);
   }
   
-  public void setIsMelee(boolean n, int choice){
-    isMelee.set(choice, n); 
+  public void setIsMelee(boolean n){
+    isMelee.add(n); 
   }
   
   public boolean getIsMelee(int choice){

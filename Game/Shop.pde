@@ -2,7 +2,7 @@ public class Shop {
 
   //This is self explanitory
 
-  PFont a, b, c, d, e, f;
+  PFont a, b, c, d, e, f, g;
   private PShape choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
 
   private boolean filled1, filled2, filled3, filled4, filled5, filled6, filled7, filled8;  
@@ -41,6 +41,7 @@ public class Shop {
     d = createFont("Ariel", 72);
     e = createFont("Ariel", 72);
     f = createFont("Ariel", 72);
+    g = createFont("Ariel", 72);
   }
 
   public void shopDraw() {
@@ -87,17 +88,32 @@ public class Shop {
     text ("0                  600", 971, 410);
     text ("0                  600", 971, 450);
     text ("0                  600", 971, 490);
+    textFont(g);
+    fill(color(255));
+    if(mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940){
+      textSize(72);
+      text("Continue", 1080, 900);
+    }else{
+      textSize(64); 
+      text ("Continue", 1100, 900);
+    }
   }
 
-  public void mouseClicked(Data n) {
+  public int mouseClicked(Data n) {
     if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 && filled1==false) {
       filled1=true;
-      n.setName("Mage", n.getUnits());
-      n.setSpeed(3, n.getUnits());
-      n.setArmour(110, n.getUnits());
-      n.setRange(100, n.getUnits());
-      n.setDamages(50 , n.getUnits());
-      n.setIsMelee(false, n.getUnits());
+      n.setName("Mage");
+      n.setSpeed(3);
+      n.setArmour(110);
+      n.setRange(100);
+      n.setDamages(50);
+      n.setIsMelee(false);
+      n.setSpawnTime(300);
+      n.setUnits(n.getUnits()+1);
     }
+    if(mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940){
+      return 4;
+    }
+    return 0;
   }
 }
