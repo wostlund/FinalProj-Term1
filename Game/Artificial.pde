@@ -309,7 +309,24 @@ public class Artificial {
     }
     
     
-    
+    public int tally(){
+      int [] scores = new int[8];
+      scores [maxSpd()] ++;
+      scores [maxHp()] ++;
+      scores [maxNumb()] ++;
+      scores [maxStr()] ++;
+      scores [maxRng()] ++;
+      int max = 0;
+      int ret = 0;
+      for(int i = 0; i < scores.length; i ++){
+        if(scores [i] > max){
+          max = scores[i];
+          ret = i;
+        }
+      }
+      return ret; 
+    }
+      
     
     
     
