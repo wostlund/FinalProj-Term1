@@ -332,17 +332,25 @@ public class Artificial {
     }
     
     public int chooseLane(){
-      if (evalNumbLane(tally() , eary) < 2){
+      if (Math.random() * 100 < 33){
+        return minUnit();
+      }
+      else{
+        if (evalNumbLane(tally() , eary) < 2){
         return tally();
       }
       
-      else{ return altSel();}
+        else{ return altSel();}
+      }
     }
+    //minUnit()  
+    
+    public int selClass(){
+      int lane =  altSel();
+      return 10000000;}
+      
       
     
-    //public int selClass(){
-      
-      
     
     
     
@@ -350,10 +358,9 @@ public class Artificial {
     
     
     
-    
-    public int evalMine(){
-      return 0;
-    }
+    //public int evalMine(){
+      //return 0;
+    //}
     
     
     
