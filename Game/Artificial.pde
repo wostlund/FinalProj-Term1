@@ -358,7 +358,7 @@ public class Artificial {
         return minUnit();
         }
       }
-     if (evalNumbLane(tally() , eary) < 2 && evalNumbLane(tally() , ary) < 4){
+     if (evalNumbLane(tally() , eary) < 2 && !playerHack()){
         return tally();
       }
       
@@ -366,7 +366,22 @@ public class Artificial {
       }
 
     //minUnit()  
-    
+   
+     public boolean playerHack(){
+      int sum = 0;
+      int [] num = new int[8];
+      for (int i = 0; i < 8; i ++){
+        int c = evalNumbLane(i, ary);
+        num[i] = c;
+      }
+     for (int k = 0; k < num.length; k ++){
+       if (num[k] == 0){
+         sum ++;
+       }
+     }
+     return sum == 7;
+    }
+       
 
     
    public int selClass(){
