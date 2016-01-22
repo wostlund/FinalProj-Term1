@@ -455,7 +455,9 @@ void draw() { //player colors are now controllable
     fill(255);
     text("Pause", 680, 80);
     playerSpawn();
+    if (etimer == 210 ||etimer == 250 || etimer == 290){
     enemySpawn();
+    }
     displaySoldier();
     displayEnemy();
     displayScore();
