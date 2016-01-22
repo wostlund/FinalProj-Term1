@@ -358,7 +358,7 @@ public class Artificial {
         return minUnit();
         }
       }
-     if (evalNumbLane(tally() , eary) < 2){
+     if (evalNumbLane(tally() , eary) < 2 && evalNumbLane(tally() , ary) < 4){
         return tally();
       }
       
