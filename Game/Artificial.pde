@@ -17,7 +17,7 @@ public class Artificial {
     }
   }
 
-
+/*
   public int [] viewField() {
     int [] lane = new int [8];
     for (int i = 0; i < ary.length; i ++) {
@@ -178,7 +178,7 @@ public class Artificial {
     
     
     
-    
+  */  
     
     
     public int evalStrLane(int i, Unit [][] array){
@@ -232,16 +232,37 @@ public class Artificial {
       return ret;
     }
     
+    
+    
+    
+    
+    
     public int minUnit() {
     Unit[][]jacob = ary;
-    float val = 10000000;
+    float val = 0;
     int ret = 0;
     for (int i=0; i<jacob.length; i++) {
       for (int k=0; k<jacob[i].length; k++) {
-        if (jacob[i][k]!=null && jacob[i][k].getXcor() <= val) {
+        if (jacob[i][k]!=null && jacob[i][k].getXcor() >= val) {
+          val = jacob[i][k].getXcor();
           ret = i;
         }
       }
+    }
+    return ret;
+  }
+  
+  
+  
+  public Unit[] minLane(int i) {
+    Unit[][]jacob = ary;
+    float val = 0;
+    Unit [] ret = new Unit[1];
+      for (int k=0; k<jacob[i].length; k++) {
+        if (jacob[i][k]!=null && jacob[i][k].getXcor() >= val) {
+          val = jacob[i][k].getXcor();
+          ret[1] = jacob[i][k];
+        }
     }
     return ret;
   }
@@ -346,12 +367,18 @@ public class Artificial {
 
     //minUnit()  
     
-    public int selClass(){
-      int lane =  altSel();
-      return 10000000;}
-      
-      
+   public int selClass(){
+      int lane = chooseLane();
+      if ((int) (Math.random() * 100) < 33){
+        return (int) (Math.random * 100); 
       }
+      if ((int)(Math.random * 100) < 50){
+        Unit [] dat = minData();
+        
+        
+    
+      
+    }
       
     
     

@@ -316,15 +316,15 @@ public void enemySpawn() {
         }
       }
     //} else {
-      for (int i = 0; i < eboard[dec[0]].length; i++) {
-        int x = w.decide();
-        if (eboard[x][i] == null && k == 0) {
-          eboard[x][i] = (soldier);
+      //for (int i = 0; i < eboard[dec[0]].length; i++) {
+        //int x = dec[0];
+        //if (eboard[x][i] == null && k == 0) {
+          //eboard[x][i] = (soldier);
           //println(w.decide());
-          k += 1;
-        }
+          //k += 1;
+        //}
       //}
-    }
+    //}
 
     einit = false;
   }
