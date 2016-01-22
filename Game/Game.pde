@@ -260,7 +260,8 @@ public void playerSpawn() {
 public void enemySpawn() {  
   Artificial w = new Artificial(board, eboard);    
   Unit soldier = new Melee();
-  int decide = (int)Math.random() * 2;
+  int [] dec = new int [2];
+  /*int decide = (int)Math.random() * 2;
   int [] dec = w.betterDecide(eboard);
   if (decide == 0 && eattacked == false) {
     echoice = dec[1];
@@ -274,7 +275,9 @@ public void enemySpawn() {
   if (w.isEmpty() && eattacked == false) {
     echoice = (int) (Math.random() * 3);
     eattacked = true;
-  }
+  }*/
+  dec[0] = w.chooseLane();
+  dec[1] = 0;
   println(echoice);
   switch(echoice) {
   case 0:
@@ -303,7 +306,7 @@ public void enemySpawn() {
   if (einit) {
     eattacked = false;
     int k = 0;
-    if (decide == 0) {
+    //if (decide == 0) {
       for (int i = 0; i < eboard[dec[0]].length; i++) {
         int x = dec[0];
         if (eboard[x][i] == null && k == 0) {
@@ -312,7 +315,7 @@ public void enemySpawn() {
           k += 1;
         }
       }
-    } else {
+    //} else {
       for (int i = 0; i < eboard[dec[0]].length; i++) {
         int x = w.decide();
         if (eboard[x][i] == null && k == 0) {
@@ -320,7 +323,7 @@ public void enemySpawn() {
           //println(w.decide());
           k += 1;
         }
-      }
+      //}
     }
 
     einit = false;
