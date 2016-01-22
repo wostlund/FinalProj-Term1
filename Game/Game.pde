@@ -87,6 +87,11 @@ void setup() {
   choices.add(choice1);
   choices.add(choice2);
   choices.add(choice3);
+  choices.add(choice4);
+  choices.add(choice5);
+  choices.add(choice6);
+  choices.add(choice7);
+  choices.add(choice8);
   chooser = createShape(RECT, 0, 0, 80, 80);
   background(132, 180, 10);
   size(1440, 980);
@@ -150,11 +155,11 @@ public void chooser() {
       choiceL = 0;
     }
   }
-  if (choice == 3) {
+  if (choice == unitTraits.getUnits()) {
     choice = 0;
   }
   if (choice == -1) {
-    choice = 2;
+    choice = unitTraits.getUnits()-1;
   }
 }
 
@@ -167,7 +172,7 @@ public void colorIndicator() {
 
 public void ecolorIndicator() {
   for (int i=0; i<echoices.size(); i++) {
-    echoices.get(i).setFill(color(0,255,0));
+    echoices.get(i).setFill(color(0, 255, 0));
   }
   echoices.get(echoice).setFill(color(190, 90, 0));
 }
@@ -215,32 +220,51 @@ public void playerSpawn() {
   }
   if (ent >= 7) { // will improve delay later / vary based on unit
     Unit soldier = new Melee();
-    switch(choice) { //this is like a cond statement in Scheme
-    case 0:
-      if (timer >= unitTraits.getSpawnTime(0)) {
-        soldier = new Melee(40, 420, unitTraits.getSpeed(0), unitTraits.getArmour(0), 
-          unitTraits.getRange(0), unitTraits.getDamage(0), unitTraits.getRace(), unitTraits.getName(0), true, 0);
-        init = true;
-        timer=0;
+    if (timer>= unitTraits.getSpawnTime(choice)) {
+      if (unitTraits.getIsMelee(choice)) {
+        println("dsfgh");
+        soldier = new Melee(40, 420, unitTraits.getSpeed(choice), unitTraits.getArmour(choice), 
+          unitTraits.getRange(choice), unitTraits.getDamage(choice), unitTraits.getRace(), unitTraits.getName(choice), true, 0);
+      } else {
+        soldier = new Range(40, 420, unitTraits.getSpeed(choice), unitTraits.getArmour(choice), 
+          unitTraits.getRange(choice), unitTraits.getDamage(choice), unitTraits.getRace(), unitTraits.getName(choice), true, 0);
       }
-      break;
-    case 1:
-      if (timer >= unitTraits.getSpawnTime(1)) {
-        soldier = new Melee(40, 420, unitTraits.getSpeed(1), unitTraits.getArmour(1), 
-          unitTraits.getRange(1), unitTraits.getDamage(1), unitTraits.getRace(), unitTraits.getName(1), true, 0);
-        init = true;
-        timer = 0;
-      }
-      break;
-    case 2:
-      if (timer >= unitTraits.getSpawnTime(2)) {
-        soldier = new Range(40, 420, unitTraits.getSpeed(2), unitTraits.getArmour(2), 
-          unitTraits.getRange(2), unitTraits.getDamage(2), unitTraits.getRace(), unitTraits.getName(2), true, 0);
-        init = true;
-        timer = 0;
-      }
-      break;
+      init = true;
+      timer = 0;
     }
+    //switch(choice) { //this is like a cond statement in Scheme
+    /*case 0:
+     if (timer >= unitTraits.getSpawnTime(0)) {
+     soldier = new Melee(40, 420, unitTraits.getSpeed(0), unitTraits.getArmour(0), 
+     unitTraits.getRange(0), unitTraits.getDamage(0), unitTraits.getRace(), unitTraits.getName(0), true, 0);
+     init = true;
+     timer=0;
+     }
+     break;
+     case 1:
+     if (timer >= unitTraits.getSpawnTime(1)) {
+     soldier = new Melee(40, 420, unitTraits.getSpeed(1), unitTraits.getArmour(1), 
+     unitTraits.getRange(1), unitTraits.getDamage(1), unitTraits.getRace(), unitTraits.getName(1), true, 0);
+     init = true;
+     timer = 0;
+     }
+     break;
+     case 2:
+     if (timer >= unitTraits.getSpawnTime(2)) {
+     soldier = new Range(40, 420, unitTraits.getSpeed(2), unitTraits.getArmour(2), 
+     unitTraits.getRange(2), unitTraits.getDamage(2), unitTraits.getRace(), unitTraits.getName(2), true, 0);
+     init = true;
+     timer = 0;
+     }
+     break;
+     default:
+     if (unitTraits.getIsMelee(choice)){
+     soldier = new Melee(40, 420, unitTraits.getSpeed(3), unitTraits.getArmour(3),
+     unitTraits.getRange(3), unitTraits.getDamage(3), unitTraits.getRace(), unitTraits.getName(3), true, 0);
+     }else{
+     
+     }*/
+    //}
     //shape(soldier);
     if (init) {
       int k = 0;
@@ -262,20 +286,20 @@ public void enemySpawn() {
   Unit soldier = new Melee();
   int [] dec = new int [2];
   /*int decide = (int)Math.random() * 2;
-  int [] dec = w.betterDecide(eboard);
-  if (decide == 0 && eattacked == false) {
-    echoice = dec[1];
-    eattacked = true;
-  }
-  if (decide == 1 && eattacked == false) {
-    echoice = w.pickClass();
-    eattacked = true;
-  }
-  println(w.isEmpty());
-  if (w.isEmpty() && eattacked == false) {
-    echoice = (int) (Math.random() * 3);
-    eattacked = true;
-  }*/
+   int [] dec = w.betterDecide(eboard);
+   if (decide == 0 && eattacked == false) {
+   echoice = dec[1];
+   eattacked = true;
+   }
+   if (decide == 1 && eattacked == false) {
+   echoice = w.pickClass();
+   eattacked = true;
+   }
+   println(w.isEmpty());
+   if (w.isEmpty() && eattacked == false) {
+   echoice = (int) (Math.random() * 3);
+   eattacked = true;
+   }*/
   dec[0] = w.chooseLane();
   dec[1] = w.selClass();
   println(dec[1]);
@@ -308,23 +332,23 @@ public void enemySpawn() {
   if (einit) {
     int k = 0;
     //if (decide == 0) {
-      for (int i = 0; i < eboard[dec[0]].length; i++) {
-        int x = dec[0];
-        if (eboard[x][i] == null && k == 0) {
-          eboard[x][i] = (soldier);
-          //println(w.decide());
-          k += 1;
-        }
+    for (int i = 0; i < eboard[dec[0]].length; i++) {
+      int x = dec[0];
+      if (eboard[x][i] == null && k == 0) {
+        eboard[x][i] = (soldier);
+        //println(w.decide());
+        k += 1;
       }
+    }
     //} else {
-      //for (int i = 0; i < eboard[dec[0]].length; i++) {
-        //int x = dec[0];
-        //if (eboard[x][i] == null && k == 0) {
-          //eboard[x][i] = (soldier);
-          //println(w.decide());
-          //k += 1;
-        //}
-      //}
+    //for (int i = 0; i < eboard[dec[0]].length; i++) {
+    //int x = dec[0];
+    //if (eboard[x][i] == null && k == 0) {
+    //eboard[x][i] = (soldier);
+    //println(w.decide());
+    //k += 1;
+    //}
+    //}
     //}
 
     einit = false;
@@ -455,8 +479,8 @@ void draw() { //player colors are now controllable
     fill(255);
     text("Pause", 680, 80);
     playerSpawn();
-    if (etimer == 210 ||etimer == 250 || etimer == 290){
-    enemySpawn();
+    if (etimer == 210 ||etimer == 250 || etimer == 290) {
+      enemySpawn();
     }
     displaySoldier();
     displayEnemy();
@@ -492,8 +516,7 @@ void draw() { //player colors are now controllable
 }
 
 public void setChooserColor() {
-  if ((choice == 0 && timer >= unitTraits.getSpawnTime(0)) || (choice == 1 && timer >= unitTraits.getSpawnTime(1)) ||
-    (choice == 2 && timer >= unitTraits.getSpawnTime(2))) {
+  if (timer >= unitTraits.getSpawnTime(choice)) {
     chooser.setFill(color(0, 0, 256));
   } else {
     chooser.setFill(color(255));

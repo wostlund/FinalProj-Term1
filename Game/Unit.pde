@@ -76,14 +76,14 @@ public abstract class Unit {
         float[]x = m.findMin();
         attack(m.minUnit(x)[lane]);
       } else {
-        xcor+= (speed / 4.0);
+        xcor+= (speed / 5.0);
       }
     } else {
       if (m.inLane(this.getLane()) && this.xcor - this.range/3 <= m.findMax()[lane]) {
         float[]x = m.findMax();
         attack(m.maxUnit(x)[lane]);
       } else {
-        xcor -= (speed / 4.0);
+        xcor -= (speed / 5.0);
       }
     }
   }

@@ -106,7 +106,7 @@ public class Shop {
       n.setSpeed(3);
       n.setArmour(110);
       n.setRange(100);
-      n.setDamages(50);
+      n.setDamages(125);
       n.setIsMelee(false);
       n.setSpawnTime(300);
       n.setUnits(n.getUnits()+1);
