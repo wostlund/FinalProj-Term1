@@ -261,7 +261,7 @@ public class Artificial {
       for (int k=0; k<jacob[i].length; k++) {
         if (jacob[i][k]!=null && jacob[i][k].getXcor() >= val) {
           val = jacob[i][k].getXcor();
-          ret[1] = jacob[i][k];
+          ret[0] = jacob[i][k];
         }
     }
     return ret;
@@ -367,14 +367,33 @@ public class Artificial {
 
     //minUnit()  
     
+
+    
    public int selClass(){
       int lane = chooseLane();
       if ((int) (Math.random() * 100) < 33){
-        return (int) (Math.random * 100); 
+        return (int) (Math.random() * 3); 
       }
-      if ((int)(Math.random * 100) < 50){
-        Unit [] dat = minData();
-        
+      else{
+      if ((int)(Math.random() * 100) < 50){
+        Unit [] dat = minLane(lane);
+        if(dat[0] instanceof Range){
+          if(Math.random() * 100 < 66){
+            return (int) (Math.random() * 2);}
+            else{return 3;}
+        }
+        if(dat[0] instanceof Melee){
+          if(Math.random() * 100 < 66){
+            return 3;
+            }
+            else{return (int) (Math.random() * 2);}
+        }
+      }
+      }
+      return 0;
+      /// will add evaluation based on langes overall speed dmg etc later
+   }
+     
         
     
       

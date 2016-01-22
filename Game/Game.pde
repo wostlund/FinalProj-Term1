@@ -167,7 +167,7 @@ public void colorIndicator() {
 
 public void ecolorIndicator() {
   for (int i=0; i<echoices.size(); i++) {
-    echoices.get(i).setFill(color(255));
+    echoices.get(i).setFill(color(0,255,0));
   }
   echoices.get(echoice).setFill(color(190, 90, 0));
 }
@@ -277,9 +277,11 @@ public void enemySpawn() {
     eattacked = true;
   }*/
   dec[0] = w.chooseLane();
-  dec[1] = 0;
-  println(echoice);
-  switch(echoice) {
+  dec[1] = w.selClass();
+  println(dec[1]);
+  int d = dec[1];
+  //println(echoice);
+  switch(d) {
   case 0:
     if (etimer >= 210) {
       soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false, 0);
@@ -304,7 +306,6 @@ public void enemySpawn() {
   }
   //shape(soldier);
   if (einit) {
-    eattacked = false;
     int k = 0;
     //if (decide == 0) {
       for (int i = 0; i < eboard[dec[0]].length; i++) {
