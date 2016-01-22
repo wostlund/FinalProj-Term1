@@ -17,3 +17,11 @@ Jackson Morgan:
 	-Decided to totally to revamp A.I. as it was too random. 
 	- made new helper functions to impliment the new A.I. idea. Also made more helper functions that used the helper functions.
 	- NO NEW BUGS were created
+
+
+1/21/16 
+Jackson Morgan: 
+	- completed lane spawn parts of A.I.
+	-Made new class chose functions (2/3)  way done
+        -When implimented due to spawning times almost always spawns same enemy(must be fixed)
+	-NEW BUG: colors for enemy circles screwed up. 
