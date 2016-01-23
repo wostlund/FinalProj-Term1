@@ -116,7 +116,7 @@ public class Shop {
         n.setName("Mounted Spearman");
         n.setSpeed(6);
         n.setArmour(100);
-        n.setRange(200);
+        n.setRange(130);
         n.setDamages(20);
         n.setIsMelee(true);
         n.setSpawnTime(500);
@@ -130,6 +130,46 @@ public class Shop {
         n.setDamages(40);
         n.setIsMelee(true);
         n.setSpawnTime(180);
+        n.setUnits(n.getUnits()+1);
+      } else if (mouseX <= 715 && mouseX >= 555  && mouseY <= 760 && mouseY>= 600 && filled4 == false){
+        filled4=true;
+        n.setName("Mounted Halberdier");
+        n.setSpeed(8);
+        n.setArmour(45);
+        n.setRange(130);
+        n.setDamages(40);
+        n.setIsMelee(true);
+        n.setSpawnTime(450);
+        n.setUnits(n.getUnits()+1);
+      } else if (mouseX <= 1045 && mouseX >= 885  && mouseY <= 760 && mouseY>= 600 && filled6 == false){
+        filled6=true;
+        n.setName("Longswordsman");
+        n.setSpeed(3);
+        n.setArmour(100);
+        n.setRange(100);
+        n.setDamages(60);
+        n.setIsMelee(true);
+        n.setSpawnTime(380);
+        n.setUnits(n.getUnits()+1);
+      } else if (mouseX <= 1210 && mouseX >= 1050  && mouseY <= 760 && mouseY>= 600 && filled7 == false){
+        filled7=true;
+        n.setName("Axeman");
+        n.setSpeed(5);
+        n.setArmour(80);
+        n.setRange(110);
+        n.setDamages(45);
+        n.setIsMelee(true);
+        n.setSpawnTime(250);
+        n.setUnits(n.getUnits()+1);
+      } else if (mouseX <= 880 && mouseX >= 720  && mouseY <= 760 && mouseY>= 600 && filled5 == false){
+        filled5=true;
+        n.setName("Scout");
+        n.setSpeed(10);
+        n.setArmour(10);
+        n.setRange(60);
+        n.setDamages(10);
+        n.setIsMelee(true);
+        n.setSpawnTime(170);
         n.setUnits(n.getUnits()+1);
       }
     } 

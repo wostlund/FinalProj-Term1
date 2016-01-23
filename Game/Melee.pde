@@ -32,7 +32,7 @@ public class Melee extends Unit {
     case "Mounted Spearman":
       avatar = createShape(ELLIPSE, this.getXcor(), this.getYcor(), 50, 50);
       break;
-    case "Halberdier":
+    case "Mounted Halberdier":
       avatar = createShape();
       avatar.beginShape();
       avatar.vertex(this.getXcor() - 30 , this.getYcor() + 20);
@@ -41,6 +41,42 @@ public class Melee extends Unit {
       avatar.vertex(this.getXcor() - 20 , this.getYcor() - 20);
       avatar.endShape(CLOSE);
       break;
+    case "Halberdier":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() - 20 , this.getYcor() + 10);
+      avatar.vertex(this.getXcor() + 20 , this.getYcor() + 10);
+      avatar.vertex(this.getXcor() + 10 , this.getYcor() - 10);
+      avatar.vertex(this.getXcor() - 10 , this.getYcor() - 10);
+      avatar.endShape(CLOSE);
+      break;
+    case "Scout":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() - 20 , this.getYcor() + 20);
+      avatar.vertex(this.getXcor(), this.getYcor() + 20);
+      avatar.vertex(this.getXcor() + 20, this.getYcor() - 20);
+      avatar.vertex(this.getXcor(), this.getYcor() - 20);
+      avatar.endShape(CLOSE);
+      break;
+    case "Longswordsman":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() - 20, this.getYcor() + 30);
+      avatar.vertex(this.getXcor() + 20, this.getYcor() + 30);
+      avatar.vertex(this.getXcor() + 20, this.getYcor() - 30);
+      avatar.vertex(this.getXcor() - 20, this.getYcor() - 30);
+      avatar.endShape(CLOSE);
+      break;
+    case "Axeman":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor(), this.getYcor() + 20);
+      avatar.vertex(this.getXcor() - 20, this.getYcor());
+      avatar.vertex(this.getXcor(), this.getYcor() - 20);
+      avatar.vertex(this.getXcor() + 20, this.getYcor());
+      avatar.endShape(CLOSE);
+      break;    
     default:
       break;
     }
