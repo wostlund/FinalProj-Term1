@@ -1,4 +1,4 @@
-public boolean playing;
+  public boolean playing;
 int y, choice, echoice;
 int timer, etimer;
 boolean init, einit;

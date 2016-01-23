@@ -90,28 +90,50 @@ public class Shop {
     text ("0                  600", 971, 490);
     textFont(g);
     fill(color(255));
-    if(mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940){
+    if (mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940) {
       textSize(72);
       text("Continue", 1080, 900);
-    }else{
+    } else {
       textSize(64); 
       text ("Continue", 1100, 900);
     }
   }
 
   public int mouseClicked(Data n) {
-    if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 && filled1==false) {
-      filled1=true;
-      n.setName("Mage");
-      n.setSpeed(3);
-      n.setArmour(110);
-      n.setRange(100);
-      n.setDamages(125);
-      n.setIsMelee(false);
-      n.setSpawnTime(300);
-      n.setUnits(n.getUnits()+1);
-    }
-    if(mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940){
+    if (n.getUnits() < 8) {
+      if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 && filled1==false) {
+        filled1=true;
+        n.setName("Mage");
+        n.setSpeed(3);
+        n.setArmour(10);
+        n.setRange(100);
+        n.setDamages(125);
+        n.setIsMelee(false);
+        n.setSpawnTime(300);
+        n.setUnits(n.getUnits()+1);
+      }else if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 && filled2==false) {
+        filled2=true;
+        n.setName("Mounted Spearman");
+        n.setSpeed(6);
+        n.setArmour(100);
+        n.setRange(200);
+        n.setDamages(20);
+        n.setIsMelee(true);
+        n.setSpawnTime(500);
+        n.setUnits(n.getUnits()+1);
+      } else if (mouseX<= 550 && mouseX >= 390 && mouseY <= 760 && mouseY>= 600 && filled3 == false){
+        filled3=true;
+        n.setName("Halberdier");
+        n.setSpeed(2);
+        n.setArmour(40);
+        n.setRange(125);
+        n.setDamages(40);
+        n.setIsMelee(true);
+        n.setSpawnTime(180);
+        n.setUnits(n.getUnits()+1);
+      }
+    } 
+    if (mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940) {
       return 4;
     }
     return 0;

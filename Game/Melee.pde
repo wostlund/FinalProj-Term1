@@ -29,6 +29,18 @@ public class Melee extends Unit {
     case "Swordsman":
       avatar = createShape(RECT, this.getXcor()-20, this.getYcor()-20, 40, 40);
       break;
+    case "Mounted Spearman":
+      avatar = createShape(ELLIPSE, this.getXcor(), this.getYcor(), 50, 50);
+      break;
+    case "Halberdier":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() - 30 , this.getYcor() + 20);
+      avatar.vertex(this.getXcor() + 30 , this.getYcor() + 20);
+      avatar.vertex(this.getXcor() + 20 , this.getYcor() - 20);
+      avatar.vertex(this.getXcor() - 20 , this.getYcor() - 20);
+      avatar.endShape(CLOSE);
+      break;
     default:
       break;
     }
