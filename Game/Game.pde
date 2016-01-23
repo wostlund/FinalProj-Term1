@@ -281,7 +281,49 @@ public void playerSpawn() {
 }
 
 
-public void enemySpawn() {  
+public void enemySpawn() {
+    Artificial w = new Artificial(board, eboard);    
+    Unit soldier = new Melee();
+    int [] dec = new int [2];
+    dec[0] = w.chooseLane();
+    dec[1] = w.selClass();
+    int d = dec[1];
+    if (etimer>= unitTraits.getSpawnTime(d)) {
+      if (unitTraits.getIsMelee(d)) {
+        soldier = new Melee(700, 420, unitTraits.getSpeed(d), unitTraits.getArmour(d), 
+          unitTraits.getRange(d), unitTraits.getDamage(d), unitTraits.getRace(), unitTraits.getName(d), false, 0);
+      } else {
+        soldier = new Range(700, 420, unitTraits.getSpeed(d), unitTraits.getArmour(d), 
+          unitTraits.getRange(d), unitTraits.getDamage(d), unitTraits.getRace(), unitTraits.getName(d), false, 0);
+      }
+      einit = true;
+      etimer = 0;
+    }
+    
+    if (einit) {
+    int k = 0;
+    //if (decide == 0) {
+    for (int i = 0; i < eboard[dec[0]].length; i++) {
+      int x = dec[0];
+      if (eboard[x][i] == null && k == 0) {
+        eboard[x][i] = (soldier);
+        //println(w.decide());
+        k += 1;
+      }
+    }
+    einit = false;
+    }
+    }
+    
+    
+  
+
+
+
+
+
+
+/*public void enemySpawn() {  
   Artificial w = new Artificial(board, eboard);    
   Unit soldier = new Melee();
   int [] dec = new int [2];
@@ -299,7 +341,7 @@ public void enemySpawn() {
    if (w.isEmpty() && eattacked == false) {
    echoice = (int) (Math.random() * 3);
    eattacked = true;
-   }*/
+   }
   dec[0] = w.chooseLane();
   dec[1] = w.selClass();
   //println(dec[1]);
@@ -355,7 +397,7 @@ public void enemySpawn() {
 
     einit = false;
   }
-}    
+}    */
 
 public void displaySoldier() {
   for (int i = 0; i < board.length; i++) {

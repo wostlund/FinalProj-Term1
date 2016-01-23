@@ -397,11 +397,11 @@ public class Artificial {
         if(dat[0] instanceof Range){
           if(Math.random() * 100 < 66){
             return (int) (Math.random() * 2);}
-            else{return 3;}
+            else{return 2;}
         }
         if(dat[0] instanceof Melee){
           if(Math.random() * 100 < 66){
-            return 3;
+            return 2;
             }
             else{
               if(evalStrLane(lane, ary) / 5 > evalSpdLane(lane, ary)){
