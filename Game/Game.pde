@@ -306,8 +306,10 @@ public void enemySpawn() {
   int d = dec[1];
   //println(echoice);
   switch(d) {
+    
   case 0:
     if (etimer >= 210) {
+                      //  x,    y, spd,arm,rng, dmg, race, name,        id, lane
       soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false, 0);
       einit = true;
       etimer=0;

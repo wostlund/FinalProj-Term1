@@ -403,7 +403,23 @@ public class Artificial {
           if(Math.random() * 100 < 66){
             return 3;
             }
-            else{return (int) (Math.random() * 2);}
+            else{
+              if(evalStrLane(lane, ary) / 5 > evalSpdLane(lane, ary)){
+                if((Math.random() * 100) < 66){
+                  return 0;
+                }
+                else{return 1;}
+              }
+              else{
+                if(evalStrLane(lane, ary) / 5 < evalSpdLane(lane, ary)){
+                if((Math.random() * 100) < 66){
+                  return 1;
+                }
+                else{return 0;}
+                }
+              }
+            }
+                
         }
       }
       //}
