@@ -58,8 +58,8 @@ void setup() {
   choiceL = 6;
   board = new Unit[8][10];
   eboard = new Unit[8][10];
-  playerScore = 0;
-  enemyScore = 50;
+  playerScore = 25;
+  enemyScore = 25;
   score = new int[50];
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
