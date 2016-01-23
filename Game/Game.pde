@@ -20,6 +20,7 @@ int mode;
 Data unitTraits;
 Data eunitTraits;
 Shop shop;
+Cheats ch = new Cheats();
 //int decide;
 //int [] dec;
 /*
@@ -522,6 +523,22 @@ public void mouseClicked() {
   }
 }
 
+public void doCheats(){
+  if(ch.win()){
+    playerScore = 50;
+    enemyScore = 0;
+  }
+  if(ch.lose()){
+    playerScore = 0;
+    enemyScore = 50;
+  }
+  if (ch.increaseScore()){
+    playerScore += 1;
+    enemyScore -= 1;
+  }
+}
+  
+
 
 void draw() { //player colors are now controllable
   if (mode == 4) {
@@ -558,6 +575,7 @@ void draw() { //player colors are now controllable
     timer ++;
     etimer ++;
     showPShapes();
+    doCheats();
   }
   if (mode == 1) {
     GameOver g = new GameOver();
@@ -582,6 +600,7 @@ void draw() { //player colors are now controllable
       paused = false;
       mode = 2;
       playing = false;
+        
     }
   }
 
