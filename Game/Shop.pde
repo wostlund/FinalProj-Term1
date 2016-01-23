@@ -2,10 +2,22 @@ public class Shop {
 
   //This is self explanitory
 
-  PFont a, b, c, d, e, f, g, speed, armour, range, spear, sword, halberd, axe;
+  private PFont a, b, c, d, e, f, g, speed, armour, range, spear, sword, halberd, axe;
   private PShape choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
 
-  private boolean filled1, filled2, filled3, filled4, filled5, filled6, filled7, filled8;  
+  private boolean filled1, filled2, filled3, filled4, filled5, filled6, filled7, filled8;
+
+  private int speedTimer, armourTimer, rangeTimer, spearTimer, swordTimer, halberdTimer, axeTimer;
+
+  public void mouseReleased() {
+    speedTimer = 19;
+    armourTimer = 19;
+    rangeTimer = 19;
+    spearTimer = 19;
+    swordTimer = 19;
+    halberdTimer = 19;
+    axeTimer = 19;
+  }
 
   public Shop() {
     filled1 = false;
@@ -16,6 +28,13 @@ public class Shop {
     filled6 = false;
     filled7 = false;
     filled8 = false;
+    speedTimer = 19;
+    armourTimer = 19;
+    rangeTimer = 19;
+    spearTimer = 19;
+    swordTimer = 19;
+    halberdTimer = 19;
+    axeTimer = 19;
   }
 
   public void shopSetup() {
@@ -69,7 +88,7 @@ public class Shop {
       }
     }
   }
-  
+
   public void upgradeSword(Data n) {
     for (int i =0; i<n.getUnits(); i++) {
       if (n.getName(i).equals("Swordsman")) {
@@ -77,7 +96,7 @@ public class Shop {
       }
     }
   }
-  
+
   public void upgradeAxe(Data n) {
     for (int i =0; i<n.getUnits(); i++) {
       if (n.getName(i).equals("Axeman")) {
@@ -85,7 +104,7 @@ public class Shop {
       }
     }
   }
-  
+
   public void upgradeHalberd(Data n) {
     for (int i =0; i<n.getUnits(); i++) {
       if (n.getName(i).equals("Halberdier") || n.getName(i).equals("Mounted Halberdier")) {
@@ -93,8 +112,8 @@ public class Shop {
       }
     }
   }
-  
-  public void upgradeRange(Data n){
+
+  public void upgradeRange(Data n) {
     for (int i =0; i<n.getUnits(); i++) {
       if (n.getName(i).equals("Archer") || n.getName(i).equals("Mage")) {
         n.setDamages(n.getDamage(i)+1, i);
@@ -305,43 +324,69 @@ public class Shop {
       }
     }
     if (n.getMoney() >= n.getSpeedUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 220 && mouseY <= 255) {
-      this.upgradeSpeed(n);
-      n.setMoney(n.getMoney() - (n.getSpeedUpgrade() * 600 + 600));
-      n.setSpeedUpgrade(n.getSpeedUpgrade() + 1);
+      speedTimer++;
+      if (speedTimer == 20) {
+        this.upgradeSpeed(n);
+        n.setMoney(n.getMoney() - (n.getSpeedUpgrade() * 600 + 600));
+        n.setSpeedUpgrade(n.getSpeedUpgrade() + 1);
+        speedTimer = 0;
+      }
     }
     if (n.getMoney() >= n.getArmourUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 260 && mouseY <= 295) {
-      this.upgradeArmour(n);
-      n.setMoney(n.getMoney() - (n.getArmourUpgrade() * 600 + 600));
-      n.setArmourUpgrade(n.getArmourUpgrade() + 1);
+      armourTimer++;
+      if (armourTimer == 20) {
+        this.upgradeArmour(n);
+        n.setMoney(n.getMoney() - (n.getArmourUpgrade() * 600 + 600));
+        n.setArmourUpgrade(n.getArmourUpgrade() + 1);
+        armourTimer = 0;
+      }
     }
     if (n.getMoney() >= n.getRangeUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 300 && mouseY <= 335) {
-      this.upgradeRange(n);
-      n.setMoney(n.getMoney() - (n.getRangeUpgrade() * 600 + 600));
-      n.setRangeUpgrade(n.getRangeUpgrade() + 1);
+      rangeTimer++;
+      if (rangeTimer == 20) {
+        this.upgradeRange(n);
+        n.setMoney(n.getMoney() - (n.getRangeUpgrade() * 600 + 600));
+        n.setRangeUpgrade(n.getRangeUpgrade() + 1);
+        rangeTimer = 0;
+      }
     }
     if (n.getMoney() >= n.getSpearUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 340 && mouseY <= 375) {
-      this.upgradeSpear(n);
-      n.setMoney(n.getMoney() - (n.getSpearUpgrade() * 600 + 600));
-      n.setSpearUpgrade(n.getSpearUpgrade() + 1);
+      spearTimer++;
+      if (spearTimer == 20) {
+        this.upgradeSpear(n);
+        n.setMoney(n.getMoney() - (n.getSpearUpgrade() * 600 + 600));
+        n.setSpearUpgrade(n.getSpearUpgrade() + 1);
+        spearTimer = 0;
+      }
+      if (n.getMoney() >= n.getSwordUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 380 && mouseY <= 415) {
+        swordTimer++;
+        if (swordTimer == 20) {
+          this.upgradeSword(n);
+          n.setMoney(n.getMoney() - (n.getSwordUpgrade() * 600 + 600));
+          n.setSwordUpgrade(n.getSwordUpgrade() + 1);
+          swordTimer = 0;
+        }
+      }
+      if (n.getMoney() >= n.getHalberdUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 420 && mouseY <= 455) {
+        halberdTimer++;
+        if (halberdTimer == 20) {
+          this.upgradeHalberd(n);
+          n.setMoney(n.getMoney() - (n.getHalberdUpgrade() * 600 + 600));
+          n.setHalberdUpgrade(n.getHalberdUpgrade() + 1);
+          halberdTimer = 0;
+        }
+      }
+      if (n.getMoney() >= n.getAxeUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 460 && mouseY <= 495) {
+        axeTimer++;
+        if (axeTimer == 20) {
+          this.upgradeArmour(n);
+          n.setMoney(n.getMoney() - (n.getAxeUpgrade() * 600 + 600));
+          n.setAxeUpgrade(n.getAxeUpgrade() + 1);
+          axeTimer = 0;
+        }
+        if (mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940) {
+          return 4;
+        }
+        return 0;
+      }
     }
-    if (n.getMoney() >= n.getSwordUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 380 && mouseY <= 415) {
-      this.upgradeSword(n);
-      n.setMoney(n.getMoney() - (n.getSwordUpgrade() * 600 + 600));
-      n.setSwordUpgrade(n.getSwordUpgrade() + 1);
-    }
-    if (n.getMoney() >= n.getHalberdUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 420 && mouseY <= 455) {
-      this.upgradeHalberd(n);
-      n.setMoney(n.getMoney() - (n.getHalberdUpgrade() * 600 + 600));
-      n.setHalberdUpgrade(n.getHalberdUpgrade() + 1);
-    }
-    if (n.getMoney() >= n.getAxeUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 460 && mouseY <= 495) {
-      this.upgradeArmour(n);
-      n.setMoney(n.getMoney() - (n.getAxeUpgrade() * 600 + 600));
-      n.setAxeUpgrade(n.getAxeUpgrade() + 1);
-    }
-    if (mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940) {
-      return 4;
-    }
-    return 0;
-  }
-}

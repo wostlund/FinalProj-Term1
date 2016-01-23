@@ -17,7 +17,8 @@ AttackChoice em;
 PFont f, s, p, g;
 boolean eattacked, paused;
 int mode;
-Data unitTraits; 
+Data unitTraits;
+Data eunitTraits;
 Shop shop;
 //int decide;
 //int [] dec;
@@ -65,6 +66,7 @@ void setup() {
   em = new AttackChoice(board);
   eattacked = false;
   unitTraits = new Data();
+  eunitTraits = new Data();
   shop = new Shop();
   paused = false;
   fillScore();
@@ -288,13 +290,13 @@ public void enemySpawn() {
     dec[0] = w.chooseLane();
     dec[1] = w.selClass();
     int d = dec[1];
-    if (etimer>= unitTraits.getSpawnTime(d)) {
-      if (unitTraits.getIsMelee(d)) {
-        soldier = new Melee(700, 420, unitTraits.getSpeed(d), unitTraits.getArmour(d), 
-          unitTraits.getRange(d), unitTraits.getDamage(d), unitTraits.getRace(), unitTraits.getName(d), false, 0);
+    if (etimer>= eunitTraits.getSpawnTime(d)) {
+      if (eunitTraits.getIsMelee(d)) {
+        soldier = new Melee(700, 420, eunitTraits.getSpeed(d), eunitTraits.getArmour(d), 
+          eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
       } else {
-        soldier = new Range(700, 420, unitTraits.getSpeed(d), unitTraits.getArmour(d), 
-          unitTraits.getRange(d), unitTraits.getDamage(d), unitTraits.getRace(), unitTraits.getName(d), false, 0);
+        soldier = new Range(700, 420, unitTraits.getSpeed(d), eunitTraits.getArmour(d), 
+          eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
       }
       einit = true;
       etimer = 0;
