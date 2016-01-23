@@ -58,8 +58,8 @@ void setup() {
   choiceL = 6;
   board = new Unit[8][10];
   eboard = new Unit[8][10];
-  playerScore = 25;
-  enemyScore = 25;
+  playerScore = 50;
+  enemyScore = 0;
   score = new int[50];
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
@@ -375,7 +375,7 @@ public void displaySoldier() {
   if (playerScore >= 50) {
     playing = false;
     timer = 0;
-    mode = 4;
+    mode = 5;
   }
 }
 
@@ -538,7 +538,42 @@ void draw() { //player colors are now controllable
       mode = 2;
       playing = false;
   }
+  
   }
+  
+   if (mode == 5){
+    Win w = new Win();
+    w.winGame();
+    if ((mouseX  > 650 && mouseX< 890) && (mouseY  > 15  && mouseY < 100  ) && mousePressed){
+      choice = 0;
+      echoice = 0;
+      timer = 0;
+      etimer = 0;
+      init = false;
+      einit = false;
+      board = new Unit[8][10];
+      eboard = new Unit[8][10];
+      playerScore = 25;
+      enemyScore = 25;
+      score = new int[50];
+      m = new AttackChoice(eboard);
+      em = new AttackChoice(board);
+      eattacked = false;
+      unitTraits = new Data();
+      shop = new Shop();
+      paused = false;
+      mode = 0;
+      playing = false;
+    }
+  }
+  if (mode == 2) {
+    playing = false;
+    Home d = new Home();
+    d.displayMenu();
+    mode = d.mouseClicked();
+  }
+  
+  
   if (mode == 2) {
     playing = false;
     Home d = new Home();
