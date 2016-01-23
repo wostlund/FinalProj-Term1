@@ -2,7 +2,7 @@
 public class Artificial {
   Unit [][] ary = new Unit [8][100];
   Unit [][] eary = new Unit [8][100];
-  
+
 
   Artificial(Unit [][] j, Unit [][] e ) {
     for (int i = 0; i < j.length; i ++) {
@@ -10,235 +10,234 @@ public class Artificial {
         ary[i][k] = j[i][k];
       }
     }
-    
-     for (int p = 0; p < e.length; p ++) {
+
+    for (int p = 0; p < e.length; p ++) {
       for (int a = 0; a < e[p].length; a ++) {
         eary[p][a] = e[p][a];
       }
     }
   }
 
-/*
+  /*
   public int [] viewField() {
-    int [] lane = new int [8];
-    for (int i = 0; i < ary.length; i ++) {
-      for (int k = 0; k < ary[i].length; k ++) {
-        if (ary[i][k] instanceof Unit) {
-          lane[i] += 1;
-        }
-      }
-    }
-
-    for (int f = 0; f < lane.length - 1; f ++) {
-      if (lane [f] == 0) {
-        lane[7] = f;
-      }
-    }
-
-    return lane;
-  }
-
-  public int retMaxLane(int [] name) {
-    int m = name[0];
-    int lane = 0;
-    for (int i = 0; i < name.length -1; i ++) {
-      if (name[i] >= m) {
-        lane = i;
-        m = name[i];
-      }
-    }
-    return lane;
-  }
-  
-  public boolean isEmpty(){
-    int ctr = 0;
-    for (int i = 0; i < ary.length; i++){
-      for (int k = 0; k < ary[i].length; k ++){
-        if (ary[i][k] == null){
-          ctr ++;}
-      }
-    }
-    return ctr == (ary.length * ary[0].length);
-  }
-        
-
-
-
-  public int decide() {
-    int [] name  = viewField(); 
-    int lane = retMaxLane(viewField());
-    int fin = 0;
-    if (Math.random() * 100 <= 80) {
-      fin = lane;
-    } else {
-      fin = (int) (Math.random() * 8);
-    }
-    return fin;
-  }
-
-  public Unit[] maxUnit(Unit [][] data, int lane) { // error here. know that it is in loop but can't find issue
-    Unit[][]jacob=data;
-    Unit[]ans = new Unit[2];
-    Unit max = null;
-    float maxx =0;
+   int [] lane = new int [8];
+   for (int i = 0; i < ary.length; i ++) {
+   for (int k = 0; k < ary[i].length; k ++) {
+   if (ary[i][k] instanceof Unit) {
+   lane[i] += 1;
+   }
+   }
+   }
+   
+   for (int f = 0; f < lane.length - 1; f ++) {
+   if (lane [f] == 0) {
+   lane[7] = f;
+   }
+   }
+   
+   return lane;
+   }
+   
+   public int retMaxLane(int [] name) {
+   int m = name[0];
+   int lane = 0;
+   for (int i = 0; i < name.length -1; i ++) {
+   if (name[i] >= m) {
+   lane = i;
+   m = name[i];
+   }
+   }
+   return lane;
+   }
+   
+   public boolean isEmpty(){
+   int ctr = 0;
+   for (int i = 0; i < ary.length; i++){
+   for (int k = 0; k < ary[i].length; k ++){
+   if (ary[i][k] == null){
+   ctr ++;}
+   }
+   }
+   return ctr == (ary.length * ary[0].length);
+   }
+   
+   
+   
+   
+   public int decide() {
+   int [] name  = viewField(); 
+   int lane = retMaxLane(viewField());
+   int fin = 0;
+   if (Math.random() * 100 <= 80) {
+   fin = lane;
+   } else {
+   fin = (int) (Math.random() * 8);
+   }
+   return fin;
+   }
+   
+   public Unit[] maxUnit(Unit [][] data, int lane) { // error here. know that it is in loop but can't find issue
+   Unit[][]jacob=data;
+   Unit[]ans = new Unit[2];
+   Unit max = null;
+   float maxx =0;
    //println(jacob.length);
-    for (int w=0; w<jacob[lane].length; w ++) {
-      //println(lane);
-      //println(w);
-      if (jacob[lane][w] != null){
-       max = jacob[lane][w];
-       maxx = jacob[lane][w].getXcor();
-      if (jacob[lane][w].getXcor() > maxx) {
-        max = jacob[lane][w];
-        maxx = jacob[lane][w].getXcor();
-      } 
+   for (int w=0; w<jacob[lane].length; w ++) {
+   //println(lane);
+   //println(w);
+   if (jacob[lane][w] != null){
+   max = jacob[lane][w];
+   maxx = jacob[lane][w].getXcor();
+   if (jacob[lane][w].getXcor() > maxx) {
+   max = jacob[lane][w];
+   maxx = jacob[lane][w].getXcor();
+   } 
+   }
+   }
+   ans[0]= max;
+   return ans;
+   }
+   
+   
+   public int [] betterDecide(Unit [][] elane) {
+   int sum = 1;
+   int [] fin = new int[2];
+   ArrayList<Integer> empty = new ArrayList<Integer>();
+   for (int i = 0; i < elane.length; i ++) {
+   if (sum == 0) {
+   empty.add(i - 1);
+   }
+   sum = 0;
+   for (int k = 0; k < elane[i].length; k++) {
+   if (elane[i][k] != null) {
+   sum ++;
+   }
+   
+   }
+   }
+   
+   
+   int choser = (int)(Math.random() * empty.size());
+   int srow = empty.get(choser);
+   if (Math.random() * 100 < 90){ 
+   Unit[] c = this.maxUnit(ary, srow);
+   if (Math.random() * 100 <= 80) {
+   fin[0] = srow;
+   } else {
+   fin[0] = (int)(Math.random() * 8) ;
+   }
+   println(c[0]);
+   if (c[0] instanceof Melee) {
+   fin[1] = 0;
+   }
+   if (c[0] instanceof Range) {
+   fin[1] = 2;
+   } else {
+   fin[1]= 1;
+   }
+   }
+   else{fin[0] = (int)(Math.random() * 7);
+   fin[1] = (int) (Math.random() * 3);
+   }
+   
+   
+   return fin;
+   }
+   
+   
+   
+   public int pickClass() {
+   int n = decide();
+   int mel = 0;
+   int range = 0;
+   for (int i = 0; i < ary[n].length; i ++) {
+   if (ary[n][i] instanceof Melee) {
+   mel ++;
+   }
+   if (ary[n][i] instanceof Range) {
+   range ++;
+   }
+   }
+   if (Math.random() * 100 < 15 || (mel == 0 && range == 0) ){
+   int k = (int)(Math.random() * 3);
+   println(k);
+   return k;
+   }
+   println(mel);
+   println(range);
+   if (mel > range) {
+   return 0;
+   }
+   if (mel < range) {
+   return 2;
+   } else {
+   return 1;
+   }
+   
+   
+   }
+   
+   
+   
+   */
+
+
+  public int evalStrLane(int i, Unit [][] array) {
+    int ret = 0;
+    for (int n = 0; n < array[i].length; n ++) {
+      if (array[i][n] instanceof Unit) {
+        ret += array[i][n].getDamage();
       }
     }
-    ans[0]= max;
-    return ans;
+    return ret;
   }
-  
 
-  public int [] betterDecide(Unit [][] elane) {
-    int sum = 1;
-    int [] fin = new int[2];
-    ArrayList<Integer> empty = new ArrayList<Integer>();
-    for (int i = 0; i < elane.length; i ++) {
-      if (sum == 0) {
-          empty.add(i - 1);
-        }
-      sum = 0;
-      for (int k = 0; k < elane[i].length; k++) {
-        if (elane[i][k] != null) {
-          sum ++;
-        }
-      
+  public int evalRngLane(int i, Unit [][] array) {
+    int ret = 0;
+    for (int n = 0; n < array[i].length; n ++) {
+      if (array[i][n] instanceof Unit) {
+        ret += array[i][n].getRange();
       }
     }
+    return ret;
+  }
 
+  public int evalNumbLane(int i, Unit [][] array) {
+    int ret = 0;
+    for (int n = 0; n < array[i].length; n ++) {
+      if (array[i][n] != null && array[i][n] instanceof Unit) {
+        ret ++;
+      }
+    }
+    return ret;
+  }
 
-    int choser = (int)(Math.random() * empty.size());
-    int srow = empty.get(choser);
-    if (Math.random() * 100 < 90){ 
-    Unit[] c = this.maxUnit(ary, srow);
-    if (Math.random() * 100 <= 80) {
-      fin[0] = srow;
-    } else {
-      fin[0] = (int)(Math.random() * 8) ;
+  public int evalHealthLane(int i, Unit[][] array) {
+    int ret = 0;
+    for (int n = 0; n < array[i].length; n ++) {
+      if (array[i][n] instanceof Unit) {
+        ret += array[i][n].getArmour();
+      }
     }
-      println(c[0]);
-    if (c[0] instanceof Melee) {
-      fin[1] = 0;
-    }
-    if (c[0] instanceof Range) {
-      fin[1] = 2;
-    } else {
-      fin[1]= 1;
-    }
-    }
-    else{fin[0] = (int)(Math.random() * 7);
-         fin[1] = (int) (Math.random() * 3);
-    }
+    return ret;
+  }
 
-
-    return fin;
+  public int evalSpdLane(int i, Unit[][] array) {
+    int ret = 0;
+    for (int n = 0; n < array[i].length; n ++) {
+      if (array[i][n] instanceof Unit) {
+        ret += array[i][n].getSpeed();
+      }
+    }
+    return ret;
   }
 
 
 
-  public int pickClass() {
-    int n = decide();
-    int mel = 0;
-    int range = 0;
-    for (int i = 0; i < ary[n].length; i ++) {
-      if (ary[n][i] instanceof Melee) {
-        mel ++;
-      }
-      if (ary[n][i] instanceof Range) {
-        range ++;
-      }
-    }
-     if (Math.random() * 100 < 15 || (mel == 0 && range == 0) ){
-       int k = (int)(Math.random() * 3);
-       println(k);
-       return k;
-     }
-     println(mel);
-     println(range);
-    if (mel > range) {
-      return 0;
-    }
-    if (mel < range) {
-      return 2;
-    } else {
-      return 1;
-    }
-     
-      
-    }
-    
-    
-    
-  */  
-    
-    
-    public int evalStrLane(int i, Unit [][] array){
-      int ret = 0;
-      for(int n = 0; n < array[i].length; n ++){
-        if (array[i][n] instanceof Unit){
-          ret += array[i][n].getDamage();
-        }
-      }
-      return ret;
-    }
-    
-    public int evalRngLane(int i, Unit [][] array){
-       int ret = 0;
-      for(int n = 0; n < array[i].length; n ++){
-        if (array[i][n] instanceof Unit){
-          ret += array[i][n].getRange();
-        }
-      }
-      return ret;
-           
-    }
-    
-    public int evalNumbLane(int i, Unit [][] array){
-       int ret = 0;
-      for(int n = 0; n < array[i].length; n ++){
-        if (array[i][n] != null && array[i][n] instanceof Unit){
-          ret ++;
-        }
-      }
-      return ret;
-    }
-    
-    public int evalHealthLane(int i, Unit[][] array){
-       int ret = 0;
-      for(int n = 0; n < array[i].length; n ++){
-        if (array[i][n] instanceof Unit){
-          ret += array[i][n].getArmour();
-        }
-      }
-      return ret;
-    }
-    
-    public int evalSpdLane(int i, Unit[][] array){
-      int ret = 0;
-      for(int n = 0; n < array[i].length; n ++){
-        if (array[i][n] instanceof Unit){
-          ret += array[i][n].getSpeed();
-        }
-      }
-      return ret;
-    }
-    
-    
-    
-    
-    
-    
-    public int minUnit() {
+
+
+
+  public int minUnit() {
     Unit[][]jacob = ary;
     float val = 0;
     int ret = 0;
@@ -252,202 +251,178 @@ public class Artificial {
     }
     return ret;
   }
-  
-  
-  
+
+
+
   public Unit[] minLane(int i) {
     Unit[][]jacob = ary;
     float val = 0;
     Unit [] ret = new Unit[1];
-      for (int k=0; k<jacob[i].length; k++) {
-        if (jacob[i][k]!=null && jacob[i][k].getXcor() >= val) {
-          val = jacob[i][k].getXcor();
-          ret[0] = jacob[i][k];
-        }
+    for (int k=0; k<jacob[i].length; k++) {
+      if (jacob[i][k]!=null && jacob[i][k].getXcor() >= val) {
+        val = jacob[i][k].getXcor();
+        ret[0] = jacob[i][k];
+      }
     }
     return ret;
   }
-      
-    
-    
-    
-    public int maxSpd(){
-      int max = 0;
-      int lane = 0;
-      for (int i = 0; i < 8; i ++){
-        int c = evalSpdLane(i, ary);
-        if (c > max){
-          lane = i;
-        }
+
+
+
+
+  public int maxSpd() {
+    int max = 0;
+    int lane = 0;
+    for (int i = 0; i < 8; i ++) {
+      int c = evalSpdLane(i, ary);
+      if (c > max) {
+        lane = i;
       }
-      return lane;
     }
-    
-    public int maxHp(){
-      int max = 0;
-      int lane = 0;
-      for (int i = 0; i < 8; i ++){
-        int c = evalHealthLane(i, ary);
-        if (c > max){
-          lane = i;
-        }
+    return lane;
+  }
+
+  public int maxHp() {
+    int max = 0;
+    int lane = 0;
+    for (int i = 0; i < 8; i ++) {
+      int c = evalHealthLane(i, ary);
+      if (c > max) {
+        lane = i;
       }
-      return lane;
     }
-    
-    public int maxNumb(){
-      int max = 0;
-      int lane = 0;
-      for (int i = 0; i < 8; i ++){
-        int c = evalNumbLane(i, ary);
-        if (c > max){
-          lane = i;
-        }
+    return lane;
+  }
+
+  public int maxNumb() {
+    int max = 0;
+    int lane = 0;
+    for (int i = 0; i < 8; i ++) {
+      int c = evalNumbLane(i, ary);
+      if (c > max) {
+        lane = i;
       }
-      return lane;
     }
-    
-    public int maxStr(){
-      int max = 0;
-      int lane = 0;
-      for (int i = 0; i < 8; i ++){
-        int c = evalStrLane(i, ary);
-        if (c > max){
-          lane = i;
-        }
+    return lane;
+  }
+
+  public int maxStr() {
+    int max = 0;
+    int lane = 0;
+    for (int i = 0; i < 8; i ++) {
+      int c = evalStrLane(i, ary);
+      if (c > max) {
+        lane = i;
       }
-      return lane;
     }
-    public int maxRng(){
-      int max = 0;
-      int lane = 0;
-      for (int i = 0; i < 8; i ++){
-        int c = evalRngLane(i, ary);
-        if (c > max){
-          lane = i;
-        }
+    return lane;
+  }
+  public int maxRng() {
+    int max = 0;
+    int lane = 0;
+    for (int i = 0; i < 8; i ++) {
+      int c = evalRngLane(i, ary);
+      if (c > max) {
+        lane = i;
       }
-      return lane;
     }
-    
-    
-    public int tally(){
-      int [] scores = new int[8];
-      scores [maxSpd()] ++;
-      scores [maxHp()] ++;
-      scores [maxNumb()] ++;
-      scores [maxStr()] ++;
-      scores [maxRng()] ++;
-      int max = 0;
-      int ret = 0;
-      for(int i = 0; i < scores.length; i ++){
-        if(scores [i] > max){
-          max = scores[i];
-          ret = i;
-        }
+    return lane;
+  }
+
+
+  public int tally() {
+    int [] scores = new int[8];
+    scores [maxSpd()] ++;
+    scores [maxHp()] ++;
+    scores [maxNumb()] ++;
+    scores [maxStr()] ++;
+    scores [maxRng()] ++;
+    int max = 0;
+    int ret = 0;
+    for (int i = 0; i < scores.length; i ++) {
+      if (scores [i] > max) {
+        max = scores[i];
+        ret = i;
       }
-      return ret; 
     }
-    
-    public int altSel(){
-      return (int)(Math.random() * 8);
-    }
-    
-    public int chooseLane(){
-      if (Math.random() * 100 < 33){
-        if (evalNumbLane(minUnit(), eary) > 0){
+    return ret;
+  }
+
+  public int altSel() {
+    return (int)(Math.random() * 8);
+  }
+
+  public int chooseLane() {
+    if (Math.random() * 100 < 33) {
+      if (evalNumbLane(minUnit(), eary) > 0) {
         return minUnit();
-        }
       }
-     if (evalNumbLane(tally() , eary) < 2 && !playerHack()){
-        return tally();
-      }
-      
-        else{ return altSel();}
-      }
-
-    //minUnit()  
-   
-     public boolean playerHack(){
-      int sum = 0;
-      int [] num = new int[8];
-      for (int i = 0; i < 8; i ++){
-        int c = evalNumbLane(i, ary);
-        num[i] = c;
-      }
-     for (int k = 0; k < num.length; k ++){
-       if (num[k] == 0){
-         sum ++;
-       }
-     }
-     return sum == 7;
     }
-       
+    if (evalNumbLane(tally(), eary) < 2 && !playerHack()) {
+      return tally();
+    } else { 
+      return altSel();
+    }
+  }
 
-    
-   public int selClass(){
-      int lane = chooseLane();
-      if ((int) (Math.random() * 100) < 33){
-        return (int) (Math.random() * 3); 
+  //minUnit()  
+
+  public boolean playerHack() {
+    int sum = 0;
+    int [] num = new int[8];
+    for (int i = 0; i < 8; i ++) {
+      int c = evalNumbLane(i, ary);
+      num[i] = c;
+    }
+    for (int k = 0; k < num.length; k ++) {
+      if (num[k] == 0) {
+        sum ++;
       }
-      else{
+    }
+    return sum == 7;
+  }
+
+
+
+  public int selClass() {
+    int lane = chooseLane();
+    if ((int) (Math.random() * 100) < 33) {
+      return (int) (Math.random() * 3);
+    } else {
       //if ((int)(Math.random() * 100) < 50){
-        Unit [] dat = minLane(lane);
-        println(dat[0]);
-        if(dat[0] instanceof Range){
-          if(Math.random() * 100 < 66){
-            return (int) (Math.random() * 2);}
-            else{return 2;}
-        }
-        if(dat[0] instanceof Melee){
-          if(Math.random() * 100 < 66){
-            return 2;
-            }
-            else{
-              if(evalStrLane(lane, ary) / 5 > evalSpdLane(lane, ary)){
-                if((Math.random() * 100) < 66){
-                  return 0;
-                }
-                else{return 1;}
-              }
-              else{
-                if(evalStrLane(lane, ary) / 5 < evalSpdLane(lane, ary)){
-                if((Math.random() * 100) < 66){
-                  return 1;
-                }
-                else{return 0;}
-                }
-              }
-            }
-                
+      Unit [] dat = minLane(lane);
+      println(dat[0]);
+      if (dat[0] instanceof Range) {
+        if (Math.random() * 100 < 66) {
+          return (int) (Math.random() * 2);
+        } else {
+          return 2;
         }
       }
-      //}
-      return (int)(Math.random() * 3);
-      /// will add evaluation based on langes overall speed dmg etc later
-   }
-     
-        
-    
-      
+      if (dat[0] instanceof Melee) {
+        if (Math.random() * 100 < 66) {
+          return 2;
+        } else {
+          if (evalStrLane(lane, ary) / 5 > evalSpdLane(lane, ary)) {
+            if ((Math.random() * 100) < 66) {
+              return 0;
+            } else {
+              return 1;
+            }
+          } else {
+            if (evalStrLane(lane, ary) / 5 < evalSpdLane(lane, ary)) {
+              if ((Math.random() * 100) < 66) {
+                return 1;
+              } else {
+                return 0;
+              }
+            }
+          }
+        }
+      }
     }
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //}
+    return (int)(Math.random() * 3);
+    /// will add evaluation based on langes overall speed dmg etc later
+  }
+}

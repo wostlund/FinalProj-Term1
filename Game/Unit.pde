@@ -35,7 +35,7 @@ public abstract class Unit {
   public int getLane() {
     return lane;
   }
-  
+
   public void setSpeed(int s) {
     speed = s;
   }

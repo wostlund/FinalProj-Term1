@@ -1,4 +1,4 @@
-  public boolean playing;
+public boolean playing;
 int y, choice, echoice;
 int timer, etimer;
 boolean init, einit;
@@ -284,97 +284,24 @@ public void playerSpawn() {
 
 
 public void enemySpawn() {
-    Artificial w = new Artificial(board, eboard);    
-    Unit soldier = new Melee();
-    int [] dec = new int [2];
-    dec[0] = w.chooseLane();
-    dec[1] = w.selClass();
-    int d = dec[1];
-    if (etimer>= eunitTraits.getSpawnTime(d)) {
-      if (eunitTraits.getIsMelee(d)) {
-        soldier = new Melee(700, 420, eunitTraits.getSpeed(d), eunitTraits.getArmour(d), 
-          eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
-      } else {
-        soldier = new Range(700, 420, unitTraits.getSpeed(d), eunitTraits.getArmour(d), 
-          eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
-      }
-      einit = true;
-      etimer = 0;
-    }
-    
-    if (einit) {
-    int k = 0;
-    //if (decide == 0) {
-    for (int i = 0; i < eboard[dec[0]].length; i++) {
-      int x = dec[0];
-      if (eboard[x][i] == null && k == 0) {
-        eboard[x][i] = (soldier);
-        //println(w.decide());
-        k += 1;
-      }
-    }
-    einit = false;
-    }
-    }
-    
-    
-  
-
-
-
-
-
-
-/*public void enemySpawn() {  
   Artificial w = new Artificial(board, eboard);    
   Unit soldier = new Melee();
   int [] dec = new int [2];
-  /*int decide = (int)Math.random() * 2;
-   int [] dec = w.betterDecide(eboard);
-   if (decide == 0 && eattacked == false) {
-   echoice = dec[1];
-   eattacked = true;
-   }
-   if (decide == 1 && eattacked == false) {
-   echoice = w.pickClass();
-   eattacked = true;
-   }
-   println(w.isEmpty());
-   if (w.isEmpty() && eattacked == false) {
-   echoice = (int) (Math.random() * 3);
-   eattacked = true;
-   }
   dec[0] = w.chooseLane();
   dec[1] = w.selClass();
-  //println(dec[1]);
   int d = dec[1];
-  //println(echoice);
-  switch(d) {
-    
-  case 0:
-    if (etimer >= 210) {
-                      //  x,    y, spd,arm,rng, dmg, race, name,        id, lane
-      soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false, 0);
-      einit = true;
-      etimer=0;
+  if (etimer>= eunitTraits.getSpawnTime(d)) {
+    if (eunitTraits.getIsMelee(d)) {
+      soldier = new Melee(700, 420, eunitTraits.getSpeed(d), eunitTraits.getArmour(d), 
+        eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
+    } else {
+      soldier = new Range(700, 420, unitTraits.getSpeed(d), eunitTraits.getArmour(d), 
+        eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
     }
-    break;
-  case 1:
-    if (etimer >= 290) {
-      soldier = new Melee(700, 420, 3, 100, 100, 35, "Men", "Swordsman", false, 0);
-      einit = true;
-      etimer = 0;
-    }
-    break;
-  default:
-    if (etimer >= 250) {
-      soldier = new Range(700, 420, 3, 100, 100, 35, "Men", "Archer", false, 0);
-      einit = true;
-      etimer = 0;
-    }
-    break;
+    einit = true;
+    etimer = 0;
   }
-  //shape(soldier);
+
   if (einit) {
     int k = 0;
     //if (decide == 0) {
@@ -386,20 +313,93 @@ public void enemySpawn() {
         k += 1;
       }
     }
-    //} else {
-    //for (int i = 0; i < eboard[dec[0]].length; i++) {
-    //int x = dec[0];
-    //if (eboard[x][i] == null && k == 0) {
-    //eboard[x][i] = (soldier);
-    //println(w.decide());
-    //k += 1;
-    //}
-    //}
-    //}
-
     einit = false;
   }
-}    */
+}
+
+
+
+
+
+
+
+
+
+/*public void enemySpawn() {  
+ Artificial w = new Artificial(board, eboard);    
+ Unit soldier = new Melee();
+ int [] dec = new int [2];
+  /*int decide = (int)Math.random() * 2;
+ int [] dec = w.betterDecide(eboard);
+ if (decide == 0 && eattacked == false) {
+ echoice = dec[1];
+ eattacked = true;
+ }
+ if (decide == 1 && eattacked == false) {
+ echoice = w.pickClass();
+ eattacked = true;
+ }
+ println(w.isEmpty());
+ if (w.isEmpty() && eattacked == false) {
+ echoice = (int) (Math.random() * 3);
+ eattacked = true;
+ }
+ dec[0] = w.chooseLane();
+ dec[1] = w.selClass();
+ //println(dec[1]);
+ int d = dec[1];
+ //println(echoice);
+ switch(d) {
+ 
+ case 0:
+ if (etimer >= 210) {
+ //  x,    y, spd,arm,rng, dmg, race, name,        id, lane
+ soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false, 0);
+ einit = true;
+ etimer=0;
+ }
+ break;
+ case 1:
+ if (etimer >= 290) {
+ soldier = new Melee(700, 420, 3, 100, 100, 35, "Men", "Swordsman", false, 0);
+ einit = true;
+ etimer = 0;
+ }
+ break;
+ default:
+ if (etimer >= 250) {
+ soldier = new Range(700, 420, 3, 100, 100, 35, "Men", "Archer", false, 0);
+ einit = true;
+ etimer = 0;
+ }
+ break;
+ }
+ //shape(soldier);
+ if (einit) {
+ int k = 0;
+ //if (decide == 0) {
+ for (int i = 0; i < eboard[dec[0]].length; i++) {
+ int x = dec[0];
+ if (eboard[x][i] == null && k == 0) {
+ eboard[x][i] = (soldier);
+ //println(w.decide());
+ k += 1;
+ }
+ }
+ //} else {
+ //for (int i = 0; i < eboard[dec[0]].length; i++) {
+ //int x = dec[0];
+ //if (eboard[x][i] == null && k == 0) {
+ //eboard[x][i] = (soldier);
+ //println(w.decide());
+ //k += 1;
+ //}
+ //}
+ //}
+ 
+ einit = false;
+ }
+ }    */
 
 public void displaySoldier() {
   for (int i = 0; i < board.length; i++) {
@@ -511,13 +511,12 @@ public void mouseClicked() {
     mode = 2;
     playing = false;
   }
-  
-  if ((mouseX  > 670 && mouseX< 740) && (mouseY  > 60  && mouseY < 80  ) && paused && !playing){
+
+  if ((mouseX  > 670 && mouseX< 740) && (mouseY  > 60  && mouseY < 80  ) && paused && !playing) {
     playing = true;
     paused = false;
-    
   }
-  
+
   if (mode == 1) {
     mode = 4;
   }
@@ -563,7 +562,7 @@ void draw() { //player colors are now controllable
   if (mode == 1) {
     GameOver g = new GameOver();
     g.endGame();
-    if ((mouseX  > 650 && mouseX< 890) && (mouseY  > 15  && mouseY < 100  ) && mousePressed){
+    if ((mouseX  > 650 && mouseX< 890) && (mouseY  > 15  && mouseY < 100  ) && mousePressed) {
       choice = 0;
       echoice = 0;
       timer = 0;
@@ -583,14 +582,13 @@ void draw() { //player colors are now controllable
       paused = false;
       mode = 2;
       playing = false;
+    }
   }
-  
-  }
-  
-   if (mode == 5){
+
+  if (mode == 5) {
     Win w = new Win();
     w.winGame();
-    if ((mouseX  > 650 && mouseX< 890) && (mouseY  > 15  && mouseY < 100  ) && mousePressed){
+    if ((mouseX  > 650 && mouseX< 890) && (mouseY  > 15  && mouseY < 100  ) && mousePressed) {
       choice = 0;
       echoice = 0;
       timer = 0;
@@ -618,8 +616,8 @@ void draw() { //player colors are now controllable
     d.displayMenu();
     mode = d.mouseClicked();
   }
-  
-  
+
+
   if (mode == 2) {
     playing = false;
     Home d = new Home();

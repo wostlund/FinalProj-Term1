@@ -35,25 +35,25 @@ public class Melee extends Unit {
     case "Mounted Halberdier":
       avatar = createShape();
       avatar.beginShape();
-      avatar.vertex(this.getXcor() - 30 , this.getYcor() + 20);
-      avatar.vertex(this.getXcor() + 30 , this.getYcor() + 20);
-      avatar.vertex(this.getXcor() + 20 , this.getYcor() - 20);
-      avatar.vertex(this.getXcor() - 20 , this.getYcor() - 20);
+      avatar.vertex(this.getXcor() - 30, this.getYcor() + 20);
+      avatar.vertex(this.getXcor() + 30, this.getYcor() + 20);
+      avatar.vertex(this.getXcor() + 20, this.getYcor() - 20);
+      avatar.vertex(this.getXcor() - 20, this.getYcor() - 20);
       avatar.endShape(CLOSE);
       break;
     case "Halberdier":
       avatar = createShape();
       avatar.beginShape();
-      avatar.vertex(this.getXcor() - 20 , this.getYcor() + 10);
-      avatar.vertex(this.getXcor() + 20 , this.getYcor() + 10);
-      avatar.vertex(this.getXcor() + 10 , this.getYcor() - 10);
-      avatar.vertex(this.getXcor() - 10 , this.getYcor() - 10);
+      avatar.vertex(this.getXcor() - 20, this.getYcor() + 10);
+      avatar.vertex(this.getXcor() + 20, this.getYcor() + 10);
+      avatar.vertex(this.getXcor() + 10, this.getYcor() - 10);
+      avatar.vertex(this.getXcor() - 10, this.getYcor() - 10);
       avatar.endShape(CLOSE);
       break;
     case "Scout":
       avatar = createShape();
       avatar.beginShape();
-      avatar.vertex(this.getXcor() - 20 , this.getYcor() + 20);
+      avatar.vertex(this.getXcor() - 20, this.getYcor() + 20);
       avatar.vertex(this.getXcor(), this.getYcor() + 20);
       avatar.vertex(this.getXcor() + 20, this.getYcor() - 20);
       avatar.vertex(this.getXcor(), this.getYcor() - 20);
