@@ -417,7 +417,7 @@ public void displayScore() {
 }
 
 public void mouseClicked() {
-  if ((mouseX-720)*(mouseX-720)+(mouseY-70)*(mouseY-70)<2500) {
+  if ((mouseX-720)*(mouseX-720)+(mouseY-70)*(mouseY-70)<2500 && !paused) {
     if (playing) {
       paused = true;
       play.setFill(color(#F52811));
@@ -444,7 +444,7 @@ public void mouseClicked() {
     play.setFill(color(#11F51E));
     loop();
   }
-  if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  ) && paused == true) {
+  if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  ) && paused ) {
     playing = false;
     choice = 0;
     echoice = 0;
@@ -466,6 +466,12 @@ public void mouseClicked() {
     mode = 2;
     playing = false;
   }
+  
+  if ((mouseX  > 670 && mouseX< 700) && (mouseY  > 65  && mouseY < 75  ) && paused && !playing){
+    paused = false;
+    playing = true;
+  }
+  
   if (mode == 1) {
     mode = 4;
   }
