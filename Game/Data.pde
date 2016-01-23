@@ -1,6 +1,6 @@
 public class Data {
-  
-  public Data(){
+
+  public Data() {
     race = "Men";
     units = 3;
     names.add("Spearman");
@@ -24,8 +24,23 @@ public class Data {
     damages.add(20);
     damages.add(35);
     damages.add(35);
+    money = 0;
+    spearUpgrade = 0;
+    swordUpgrade = 0;
+    speedUpgrade = 0;
+    axeUpgrade = 0;
+    halberdUpgrade = 0;
+    armourUpgrade = 0;
   }
-  
+
+  private int money;
+  private int spearUpgrade;
+  private int swordUpgrade;
+  private int speedUpgrade;
+  private int axeUpgrade;
+  private int halberdUpgrade;
+  private int armourUpgrade;
+  private int rangeUpgrade;
   private int units;
   private String race;
   private ArrayList<String>names = new ArrayList<String>(8);
@@ -36,18 +51,68 @@ public class Data {
   private ArrayList<Integer>ranges = new ArrayList<Integer>(8);
   private ArrayList<Integer>damages = new ArrayList<Integer>(8);
 
+  public int getSpearUpgrade() {
+    return this.spearUpgrade;
+  }
+  public int getMoney() {
+    return this.money;
+  }
+  public int getSwordUpgrade() {
+    return this.swordUpgrade;
+  }
+  public int getSpeedUpgrade() {
+    return this.speedUpgrade;
+  }
+  public int getAxeUpgrade() {
+    return this.axeUpgrade;
+  }
+  public int getHalberdUpgrade() {
+    return this.halberdUpgrade;
+  }
+  public int getArmourUpgrade() {
+    return this.armourUpgrade;
+  }
+  public int getRangeUpgrade() {
+    return this.rangeUpgrade; 
+  }
+
+  public void setMoney(int n) {
+    this.money = n;
+  }
+  public void setSpearUpgrade(int n) {
+    this.spearUpgrade = n;
+  }
+  public void setSwordUpgrade(int n) {
+    this.swordUpgrade = n;
+  }
+  public void setSpeedUpgrade(int n) {
+    this.speedUpgrade = n;
+  }
+  public void setAxeUpgrade(int n) {
+    this.axeUpgrade = n;
+  }
+  public void setHalberdUpgrade(int n) {
+    this.halberdUpgrade = n;
+  }
+  public void setArmourUpgrade(int n) {
+    this.armourUpgrade = n;
+  }
+  public void setRangeUpgrade(int n){
+    this.rangeUpgrade = n; 
+  }
+
   public void setRace(String n) {
     this.race = n;
   }
-  
-  public void setUnits(int n){
-    this.units = n; 
+
+  public void setUnits(int n) {
+    this.units = n;
   }
-  
-  public int getUnits(){
-    return this.units; 
+
+  public int getUnits() {
+    return this.units;
   }
-  
+
   public void setName(String n) {
     names.add(n);
   }
@@ -67,13 +132,13 @@ public class Data {
   public void setDamages(int n) {
     damages.add(n);
   }
-  
-  public void setType(boolean n){
-    isMelee.add(n); 
+
+  public void setType(boolean n) {
+    isMelee.add(n);
   }
-  
-  public boolean setType(int choice){
-    return isMelee.get(choice); 
+
+  public boolean setType(int choice) {
+    return isMelee.get(choice);
   }
 
   public String getName(int choice) {
@@ -99,20 +164,20 @@ public class Data {
   public String getRace() {
     return this.race;
   }
-  
-  public int getSpawnTime(int n){
-   return spawnTimes.get(n); 
+
+  public int getSpawnTime(int n) {
+    return spawnTimes.get(n);
   }
-  
-  public void setSpawnTime(int n){
+
+  public void setSpawnTime(int n) {
     spawnTimes.add(n);
   }
-  
-  public void setIsMelee(boolean n){
-    isMelee.add(n); 
+
+  public void setIsMelee(boolean n) {
+    isMelee.add(n);
   }
-  
-  public boolean getIsMelee(int choice){
-     return isMelee.get(choice); 
+
+  public boolean getIsMelee(int choice) {
+    return isMelee.get(choice);
   }
 }

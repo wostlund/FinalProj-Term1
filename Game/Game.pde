@@ -586,7 +586,7 @@ void draw() { //player colors are now controllable
   boolean k = true;
   if (mode == 0) {
     shop.shopSetup();
-    shop.shopDraw();
+    shop.shopDraw(unitTraits);
     if (mousePressed) {
       shop.mouseClicked(unitTraits);
       mode = shop.mouseClicked(unitTraits);

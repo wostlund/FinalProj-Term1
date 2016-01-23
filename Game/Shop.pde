@@ -44,7 +44,7 @@ public class Shop {
     g = createFont("Ariel", 72);
   }
 
-  public void shopDraw() {
+  public void shopDraw(Data n) {
     background(color(#5D5A5A));
     shape(choice1);
     shape(choice2);
@@ -72,7 +72,7 @@ public class Shop {
     textFont(e);
     textSize(32);
     fill(color(255));
-    text ("Speed Training (+1)          0                  600", 600, 250);
+    text ("Speed Training (+1)", 600, 250);
     textFont(f);
     textSize(32);
     fill(color(255));
@@ -82,12 +82,13 @@ public class Shop {
     text("Swordsmanship (+5)", 600, 410);
     text("Halberd Training (+5)", 600, 450);
     text("Axe Training (+5)", 600, 490);
-    text ("0                  600", 971, 290);
-    text ("0                  600", 971, 330);
-    text ("0                  600", 971, 370);
-    text ("0                  600", 971, 410);
-    text ("0                  600", 971, 450);
-    text ("0                  600", 971, 490);
+    text (""+n.getSpeedUpgrade() + "                 "+(n.getSpeedUpgrade()*600 + 600), 971, 250);
+    text (""+n.getArmourUpgrade() + "                 "+(n.getArmourUpgrade()*600 + 600), 971, 290);
+    text (""+n.getRangeUpgrade() + "                 "+(n.getRangeUpgrade()*600 + 600), 971, 330);
+    text (""+n.getSpearUpgrade() + "                 "+(n.getSpearUpgrade()*600 + 600), 971, 370);
+    text (""+n.getSwordUpgrade() + "                 "+(n.getSwordUpgrade()*600 + 600), 971, 410);
+    text (""+n.getHalberdUpgrade() + "                 "+(n.getHalberdUpgrade()*600 + 600), 971, 450);
+    text (""+n.getAxeUpgrade() + "                 "+(n.getAxeUpgrade()*600 + 600), 971, 490);
     textFont(g);
     fill(color(255));
     if (mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940) {
