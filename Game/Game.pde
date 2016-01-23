@@ -58,8 +58,8 @@ void setup() {
   choiceL = 6;
   board = new Unit[8][10];
   eboard = new Unit[8][10];
-  playerScore = 50;
-  enemyScore = 0;
+  playerScore = 25;
+  enemyScore = 25;
   score = new int[50];
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
@@ -302,7 +302,7 @@ public void enemySpawn() {
    }*/
   dec[0] = w.chooseLane();
   dec[1] = w.selClass();
-  println(dec[1]);
+  //println(dec[1]);
   int d = dec[1];
   //println(echoice);
   switch(d) {

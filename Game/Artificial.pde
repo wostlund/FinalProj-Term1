@@ -1,3 +1,4 @@
+// add use ranged to attack slower enemies
 public class Artificial {
   Unit [][] ary = new Unit [8][100];
   Unit [][] eary = new Unit [8][100];
@@ -390,8 +391,9 @@ public class Artificial {
         return (int) (Math.random() * 3); 
       }
       else{
-      if ((int)(Math.random() * 100) < 50){
+      //if ((int)(Math.random() * 100) < 50){
         Unit [] dat = minLane(lane);
+        println(dat[0]);
         if(dat[0] instanceof Range){
           if(Math.random() * 100 < 66){
             return (int) (Math.random() * 2);}
@@ -404,8 +406,8 @@ public class Artificial {
             else{return (int) (Math.random() * 2);}
         }
       }
-      }
-      return 0;
+      //}
+      return (int)(Math.random() * 3);
       /// will add evaluation based on langes overall speed dmg etc later
    }
      

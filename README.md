@@ -25,3 +25,11 @@ Jackson Morgan:
 	-Made new class chose functions (2/3)  way done
         -When implimented due to spawning times almost always spawns same enemy(must be fixed)
 	-NEW BUG: colors for enemy circles screwed up. 
+
+1/22/16 
+Jackson Morgan:
+	-Fixed issue where A.I. spawned one type of enemy much more often than other types.
+        - made the game pause and resume again, but in doing so:
+	- NEW BUG: quit game is broken, breaks everytime pause and resume gets fixed
+	- Made it so when you lose the game you can go back to the main menu.
+	- Made it so that you can proceed to a new game once you win a game. 
