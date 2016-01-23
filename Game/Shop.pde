@@ -358,6 +358,7 @@ public class Shop {
         n.setSpearUpgrade(n.getSpearUpgrade() + 1);
         spearTimer = 0;
       }
+    }
       if (n.getMoney() >= n.getSwordUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 380 && mouseY <= 415) {
         swordTimer++;
         if (swordTimer == 20) {
@@ -384,6 +385,7 @@ public class Shop {
           n.setAxeUpgrade(n.getAxeUpgrade() + 1);
           axeTimer = 0;
         }
+      }
         if (mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940) {
           return 4;
         }
