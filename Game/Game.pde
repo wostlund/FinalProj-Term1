@@ -1,4 +1,4 @@
-public boolean playing;
+  public boolean playing;
 int y, choice, echoice;
 int timer, etimer;
 boolean init, einit;
@@ -172,7 +172,7 @@ public void colorIndicator() {
 
 public void ecolorIndicator() {
   for (int i=0; i<echoices.size(); i++) {
-    echoices.get(i).setFill(color(0, 255, 0));
+    echoices.get(i).setFill(color(255));
   }
   echoices.get(echoice).setFill(color(190, 90, 0));
 }
