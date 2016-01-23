@@ -445,10 +445,26 @@ public void mouseClicked() {
     loop();
   }
   if ((mouseX  > 675 && mouseX< 800) && (mouseY  > 570 && mouseY < 630  ) && paused == true) {
-    this.setup();
+    playing = false;
+    choice = 0;
+    echoice = 0;
+    timer = 0;
+    etimer = 0;
+    init = false;
+    einit = false;
+    board = new Unit[8][10];
+    eboard = new Unit[8][10];
+    playerScore = 25;
+    enemyScore = 25;
+    score = new int[50];
+    m = new AttackChoice(eboard);
+    em = new AttackChoice(board);
+    eattacked = false;
+    unitTraits = new Data();
+    shop = new Shop();
+    paused = false;
     mode = 2;
     playing = false;
-    paused = false;
   }
   if (mode == 1) {
     mode = 4;

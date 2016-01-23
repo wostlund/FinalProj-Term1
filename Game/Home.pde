@@ -17,7 +17,7 @@ public class Home{
   }
   
   public int mouseClicked() {
-  if ((mouseX  > 650 && mouseX< 830) && (mouseY  > 470 && mouseY < 510  )){
+  if ((mouseX  > 650 && mouseX< 830) && (mouseY  > 470 && mouseY < 510  ) && mousePressed){
     return 0;
   }
   else{return 2;}
