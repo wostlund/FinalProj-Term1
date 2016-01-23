@@ -120,17 +120,32 @@ public class Data {
   public void setSpeed(int n) {
     speeds.add(n);
   }
+  
+  public void setSpeed(int n , int choice){
+    speeds.set(choice, n); 
+  }
 
   public void setArmour(int n) {
     armour.add(n);
+  }
+  public void setArmour(int n, int choice){
+    armour.set(choice, n); 
   }
 
   public void setRange(int n) {
     ranges.add(n);
   }
+  
+  public void setRange(int n, int choice){
+    ranges.set(choice, n); 
+  }
 
   public void setDamages(int n) {
     damages.add(n);
+  }
+  
+  public void setDamages(int n, int choice){
+    damages.set(choice, n);
   }
 
   public void setType(boolean n) {

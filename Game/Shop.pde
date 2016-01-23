@@ -2,7 +2,7 @@ public class Shop {
 
   //This is self explanitory
 
-  PFont a, b, c, d, e, f, g;
+  PFont a, b, c, d, e, f, g, speed, armour, range, spear, sword, halberd, axe;
   private PShape choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
 
   private boolean filled1, filled2, filled3, filled4, filled5, filled6, filled7, filled8;  
@@ -42,6 +42,65 @@ public class Shop {
     e = createFont("Ariel", 72);
     f = createFont("Ariel", 72);
     g = createFont("Ariel", 72);
+    speed = createFont("Ariel", 72);
+    armour = createFont("Ariel", 72); 
+    range = createFont("Ariel", 72); 
+    spear = createFont("Ariel", 72);
+    sword = createFont("Ariel", 72);
+    halberd = createFont("Ariel", 72);
+    axe = createFont("Ariel", 72);
+  }
+
+  public void upgradeSpeed(Data n) {
+    for (int i =0; i<n.getUnits(); i++) {
+      n.setSpeed(n.getSpeed(i)+1, i);
+    }
+  }
+  public void upgradeArmour(Data n) {
+    for (int i =0; i<n.getUnits(); i++) {
+      n.setArmour(n.getSpeed(i)+10, i);
+    }
+  }
+
+  public void upgradeSpear(Data n) {
+    for (int i =0; i<n.getUnits(); i++) {
+      if (n.getName(i).equals("Spearman") || n.getName(i).equals("Mounted Spearman")) {
+        n.setDamages(n.getDamage(i)+5, i);
+      }
+    }
+  }
+  
+  public void upgradeSword(Data n) {
+    for (int i =0; i<n.getUnits(); i++) {
+      if (n.getName(i).equals("Swordsman")) {
+        n.setDamages(n.getDamage(i)+5, i);
+      }
+    }
+  }
+  
+  public void upgradeAxe(Data n) {
+    for (int i =0; i<n.getUnits(); i++) {
+      if (n.getName(i).equals("Axeman")) {
+        n.setDamages(n.getDamage(i)+5, i);
+      }
+    }
+  }
+  
+  public void upgradeHalberd(Data n) {
+    for (int i =0; i<n.getUnits(); i++) {
+      if (n.getName(i).equals("Halberdier") || n.getName(i).equals("Mounted Halberdier")) {
+        n.setDamages(n.getDamage(i)+1, i);
+      }
+    }
+  }
+  
+  public void upgradeRange(Data n){
+    for (int i =0; i<n.getUnits(); i++) {
+      if (n.getName(i).equals("Archer") || n.getName(i).equals("Mage")) {
+        n.setDamages(n.getDamage(i)+1, i);
+        n.setRange(n.getRange(i)+1, i);
+      }
+    }
   }
 
   public void shopDraw(Data n) {
@@ -98,6 +157,77 @@ public class Shop {
       textSize(64); 
       text ("Continue", 1100, 900);
     }
+    if (n.getMoney() >= n.getSpeedUpgrade()*600 + 600) {
+      textFont(speed);
+      textSize(32);
+      if (mouseX>= 1250 && mouseX<= 1325 && mouseY>= 220 && mouseY <= 255) {
+        fill(color(#D6E531));
+      } else {
+        fill(color(255));
+      }
+      text("Buy", 1250, 250);
+    }
+    if (n.getMoney() >= n.getArmourUpgrade()*600 + 600) {
+      textFont(armour);
+      textSize(32);
+      if (mouseX>= 1250 && mouseX<= 1325 && mouseY>= 260 && mouseY <= 295) {
+        fill(color(#D6E531));
+      } else {
+        fill(color(255));
+      }
+      text("Buy", 1250, 290);
+    }
+    if (n.getMoney() >= n.getRangeUpgrade()*600 + 600) {
+      textFont(range);
+      textSize(32);
+      if (mouseX>= 1250 && mouseX<= 1325 && mouseY>= 300 && mouseY <= 335) {
+        fill(color(#D6E531));
+      } else {
+        fill(color(255));
+      }
+      text("Buy", 1250, 330);
+    }
+    if (n.getMoney() >= n.getSpearUpgrade()*600 + 600) {
+      textFont(speed);
+      textSize(32);
+      if (mouseX>= 1250 && mouseX<= 1325 && mouseY>= 340 && mouseY <= 375) {
+        fill(color(#D6E531));
+      } else {
+        fill(color(255));
+      }
+      text("Buy", 1250, 370);
+    }
+    if (n.getMoney() >= n.getSwordUpgrade()*600 + 600) {
+      textFont(speed);
+      textSize(32);
+      if (mouseX>= 1250 && mouseX<= 1325 && mouseY>= 380 && mouseY <= 415) {
+        fill(color(#D6E531));
+      } else {
+        fill(color(255));
+      }
+      text("Buy", 1250, 410);
+    }
+    if (n.getMoney() >= n.getHalberdUpgrade()*600 + 600) {
+      textFont(speed);
+      textSize(32);
+      if (mouseX>= 1250 && mouseX<= 1325 && mouseY>= 420 && mouseY <= 455) {
+        fill(color(#D6E531));
+      } else {
+        fill(color(255));
+      }
+      text("Buy", 1250, 450);
+    }
+    if (n.getMoney() >= n.getAxeUpgrade()*600 + 600) {
+      textFont(speed);
+      textSize(32);
+      if (mouseX>= 1250 && mouseX<= 1325 && mouseY>= 460 && mouseY <= 495) {
+        fill(color(#D6E531));
+      } else {
+        fill(color(255));
+      }
+      text("Buy", 1250, 490);
+    }
+    fill(color(255));
   }
 
   public int mouseClicked(Data n) {
@@ -112,7 +242,7 @@ public class Shop {
         n.setIsMelee(false);
         n.setSpawnTime(300);
         n.setUnits(n.getUnits()+1);
-      }else if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 && filled2==false) {
+      } else if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 && filled2==false) {
         filled2=true;
         n.setName("Mounted Spearman");
         n.setSpeed(6 + n.getSpeedUpgrade());
@@ -122,7 +252,7 @@ public class Shop {
         n.setIsMelee(true);
         n.setSpawnTime(500);
         n.setUnits(n.getUnits()+1);
-      } else if (mouseX<= 550 && mouseX >= 390 && mouseY <= 760 && mouseY>= 600 && filled3 == false){
+      } else if (mouseX<= 550 && mouseX >= 390 && mouseY <= 760 && mouseY>= 600 && filled3 == false) {
         filled3=true;
         n.setName("Halberdier");
         n.setSpeed(2 + n.getSpeedUpgrade());
@@ -132,7 +262,7 @@ public class Shop {
         n.setIsMelee(true);
         n.setSpawnTime(180);
         n.setUnits(n.getUnits()+1);
-      } else if (mouseX <= 715 && mouseX >= 555  && mouseY <= 760 && mouseY>= 600 && filled4 == false){
+      } else if (mouseX <= 715 && mouseX >= 555  && mouseY <= 760 && mouseY>= 600 && filled4 == false) {
         filled4=true;
         n.setName("Mounted Halberdier");
         n.setSpeed(8 + n.getSpeedUpgrade());
@@ -142,7 +272,7 @@ public class Shop {
         n.setIsMelee(true);
         n.setSpawnTime(450);
         n.setUnits(n.getUnits()+1);
-      } else if (mouseX <= 1045 && mouseX >= 885  && mouseY <= 760 && mouseY>= 600 && filled6 == false){
+      } else if (mouseX <= 1045 && mouseX >= 885  && mouseY <= 760 && mouseY>= 600 && filled6 == false) {
         filled6=true;
         n.setName("Longswordsman");
         n.setSpeed(3 + n.getSpeedUpgrade());
@@ -152,7 +282,7 @@ public class Shop {
         n.setIsMelee(true);
         n.setSpawnTime(380);
         n.setUnits(n.getUnits()+1);
-      } else if (mouseX <= 1210 && mouseX >= 1050  && mouseY <= 760 && mouseY>= 600 && filled7 == false){
+      } else if (mouseX <= 1210 && mouseX >= 1050  && mouseY <= 760 && mouseY>= 600 && filled7 == false) {
         filled7=true;
         n.setName("Axeman");
         n.setSpeed(5 + n.getSpeedUpgrade());
@@ -162,7 +292,7 @@ public class Shop {
         n.setIsMelee(true);
         n.setSpawnTime(250);
         n.setUnits(n.getUnits()+1);
-      } else if (mouseX <= 880 && mouseX >= 720  && mouseY <= 760 && mouseY>= 600 && filled5 == false){
+      } else if (mouseX <= 880 && mouseX >= 720  && mouseY <= 760 && mouseY>= 600 && filled5 == false) {
         filled5=true;
         n.setName("Scout");
         n.setSpeed(10 + n.getSpeedUpgrade());
@@ -173,7 +303,10 @@ public class Shop {
         n.setSpawnTime(170);
         n.setUnits(n.getUnits()+1);
       }
-    } 
+    }
+    if (n.getMoney() >= n.getSpearUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 220 && mouseY <= 255) {
+      int x = 10;
+    }
     if (mouseX>= 1100 && mouseX<= 1400 && mouseY>= 850 && mouseY <= 940) {
       return 4;
     }
