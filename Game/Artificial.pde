@@ -270,7 +270,7 @@ public class Artificial {
   }
 
   public int chooseLane() {
-    if (Math.random() * 100 < 33) {
+    if (Math.random() * 100 < 15) {
       if (evalNumbLane(minUnit(), eary) > 0) {
         return minUnit();
       }
@@ -400,6 +400,20 @@ public class Artificial {
      }
      return (int)(Math.random() * 10);
      
+  }
+  
+  
+  
+  public int choose2(){
+    println(maxStrChoice());
+    if (evalStrLane(chooseLane(), ary) / 5   > evalSpdLane(chooseLane(), ary)){
+      return maxStrChoice();
+    }
+   if((Math.random() * 2) < 1){
+     return (int)(Math.random() * 3);
+   }
+   else{return (int)(Math.random() * 4) + 4;}
+    
   }
 
   

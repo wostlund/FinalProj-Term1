@@ -28,4 +28,12 @@ public class Cheats{
     
   }
   
+  public boolean decreaseScore(){
+    if (keyPressed && key == 'l'){
+      return true;
+    }
+    return false;
+    
+  }
+  
 }
