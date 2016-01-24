@@ -1,6 +1,0 @@
-Log
-
-Person       logged in            logged out
-Jackson       6:32                    7:03
-Will          12:15                   TBD
-Jackson       ?                       ?

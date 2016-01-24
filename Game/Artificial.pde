@@ -445,7 +445,27 @@ public class Artificial {
 
 
   
-  
+ public int selClass(){
+   int dec = (int)(Math.random() * 100);
+   if (dec < 60){
+     return choose1();
+   }
+   if (dec >= 60 && dec < 70){
+     return choose2();
+   }
+   if (dec >= 70 && dec < 80){
+     return choose3();
+   }
+   if (dec >= 80 && dec < 90){
+     return choose4();
+   }
+   if (dec >= 90){
+     return choose5();
+   }
+   return (int)(Math.random() * 8);
+ }
+   
+     
   
   
   
@@ -464,7 +484,7 @@ public class Artificial {
 
 
 
-  public int selClass() {
+  /*public int selClass() {
     int lane = chooseLane();
     if ((int) (Math.random() * 100) < 33) {
       return (int) (Math.random() * 3);
@@ -504,5 +524,5 @@ public class Artificial {
     //}
     return (int)(Math.random() * 3);
     
-  }
+  }*/
 }
