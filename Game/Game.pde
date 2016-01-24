@@ -654,7 +654,6 @@ public void colorIndicator() {
         m = new AttackChoice(eboard);
         em = new AttackChoice(board);
         eattacked = false;
-        unitTraits = new Data();
         shop = new Shop(unitTraits);
         paused = false;
         mode = 0;

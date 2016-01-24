@@ -31,6 +31,9 @@ public class Data {
     axeUpgrade = 0;
     halberdUpgrade = 0;
     armourUpgrade = 0;
+    for(int i=0; i<8; i++){
+      show[i] = true; 
+    }
   }
 
   private int money;
@@ -50,6 +53,15 @@ public class Data {
   private ArrayList<Integer>armour = new ArrayList<Integer>(8);
   private ArrayList<Integer>ranges = new ArrayList<Integer>(8);
   private ArrayList<Integer>damages = new ArrayList<Integer>(8);
+  private boolean[]show = new boolean[8];
+  
+  public boolean getShow(int i){
+    return show[i];
+  }
+  
+  public void setShow(int i){
+    show[i] = false;
+  } 
 
   public int getSpearUpgrade() {
     return this.spearUpgrade;
