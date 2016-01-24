@@ -23,7 +23,7 @@ public class Data {
     ranges.add(100);
     damages.add(20);
     damages.add(35);
-    damages.add(35);
+    damages.add(10);
     money = 3600;
     spearUpgrade = 0;
     swordUpgrade = 0;

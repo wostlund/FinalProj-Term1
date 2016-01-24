@@ -91,7 +91,7 @@ public abstract class Unit {
   public abstract void setupDisplay();
 
   public void attack(Unit other) {
-    other.takeDamage((int)(((int)(this.damage*.8)+(int)(Math.random()*this.damage*.2))*.2));
+    other.takeDamage((int)(((int)(this.damage*.8)+(int)(Math.random()*this.damage*.2))*.15));
   }
 
   public void takeDamage(int Damage) {
