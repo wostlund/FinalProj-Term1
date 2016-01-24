@@ -192,8 +192,13 @@ public void chooser() {
 public void colorIndicator() {
   for (int i=0; i<choices.size(); i++) {
     choices.get(i).setFill(color(255));
+    if (timer >= unitTraits.getSpawnTime(choice)){
+      choices.get(i).setFill(color(0,0,256));}
   }
   choices.get(choice).setFill(color(190, 90, 0));
+  if (timer >= unitTraits.getSpawnTime(choice)){
+      choices.get(choice).setFill(color(190,90,256));}
+   
 }
 
 public void ecolorIndicator() {
