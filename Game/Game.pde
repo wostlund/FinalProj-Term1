@@ -83,6 +83,11 @@ void setup() {
   echoices.add(echoice1);
   echoices.add(echoice2);
   echoices.add(echoice3);
+  echoices.add(echoice4);
+  echoices.add(echoice5);
+  echoices.add(echoice6);
+  echoices.add(echoice7);
+  echoices.add(echoice8);
   choice1 = createShape(ELLIPSE, 40, 70, 60, 60);
   choice2 = createShape(ELLIPSE, 110, 70, 60, 60);
   choice3 = createShape(ELLIPSE, 180, 70, 60, 60);
@@ -101,6 +106,7 @@ void setup() {
   choices.add(choice6);
   choices.add(choice7);
   choices.add(choice8);
+
   chooser = createShape(RECT, 0, 0, 80, 80);
   background(132, 180, 10);
   size(1440, 980);
@@ -205,7 +211,11 @@ public void colorIndicator() {
     for (int i=0; i<echoices.size(); i++) {
       echoices.get(i).setFill(color(255));
     }
-    echoices.get(echoice).setFill(color(0, 255, 0));
+    if (etimer >= unitTraits.getSpawnTime(echoice)) {
+    fillColor(echoices.get(echoice));
+  } else {
+    echoices.get(echoice).setFill(color(190, 90, 0));
+  }
   }
 
   public void changeY() {
@@ -318,6 +328,8 @@ public void colorIndicator() {
     dec[0] = w.chooseLane();
     dec[1] = w.selClass();
     int d = dec[1];
+    println(d);
+    //echoice = d;
     if (etimer>= eunitTraits.getSpawnTime(d)) {
       if (eunitTraits.getIsMelee(d)) {
         soldier = new Melee(700, 420, eunitTraits.getSpeed(d), eunitTraits.getArmour(d), 
