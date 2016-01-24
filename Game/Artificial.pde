@@ -2,7 +2,8 @@
 public class Artificial {
   Unit [][] ary = new Unit [8][100];
   Unit [][] eary = new Unit [8][100];
-
+  Unit [] choices = new Unit [10]; 
+  Data s = new Data();
 
   Artificial(Unit [][] j, Unit [][] e ) {
     for (int i = 0; i < j.length; i ++) {
@@ -16,170 +17,86 @@ public class Artificial {
         eary[p][a] = e[p][a];
       }
     }
+    setupAI(s);
+    fillChoices();
+    for (int k = 0; k < choices.length; k ++){
+      println(choices[k]);
+    }
   }
-
-  /*
-  public int [] viewField() {
-   int [] lane = new int [8];
-   for (int i = 0; i < ary.length; i ++) {
-   for (int k = 0; k < ary[i].length; k ++) {
-   if (ary[i][k] instanceof Unit) {
-   lane[i] += 1;
-   }
-   }
-   }
-   
-   for (int f = 0; f < lane.length - 1; f ++) {
-   if (lane [f] == 0) {
-   lane[7] = f;
-   }
-   }
-   
-   return lane;
-   }
-   
-   public int retMaxLane(int [] name) {
-   int m = name[0];
-   int lane = 0;
-   for (int i = 0; i < name.length -1; i ++) {
-   if (name[i] >= m) {
-   lane = i;
-   m = name[i];
-   }
-   }
-   return lane;
-   }
-   
-   public boolean isEmpty(){
-   int ctr = 0;
-   for (int i = 0; i < ary.length; i++){
-   for (int k = 0; k < ary[i].length; k ++){
-   if (ary[i][k] == null){
-   ctr ++;}
-   }
-   }
-   return ctr == (ary.length * ary[0].length);
-   }
-   
-   
-   
-   
-   public int decide() {
-   int [] name  = viewField(); 
-   int lane = retMaxLane(viewField());
-   int fin = 0;
-   if (Math.random() * 100 <= 80) {
-   fin = lane;
-   } else {
-   fin = (int) (Math.random() * 8);
-   }
-   return fin;
-   }
-   
-   public Unit[] maxUnit(Unit [][] data, int lane) { // error here. know that it is in loop but can't find issue
-   Unit[][]jacob=data;
-   Unit[]ans = new Unit[2];
-   Unit max = null;
-   float maxx =0;
-   //println(jacob.length);
-   for (int w=0; w<jacob[lane].length; w ++) {
-   //println(lane);
-   //println(w);
-   if (jacob[lane][w] != null){
-   max = jacob[lane][w];
-   maxx = jacob[lane][w].getXcor();
-   if (jacob[lane][w].getXcor() > maxx) {
-   max = jacob[lane][w];
-   maxx = jacob[lane][w].getXcor();
-   } 
-   }
-   }
-   ans[0]= max;
-   return ans;
-   }
-   
-   
-   public int [] betterDecide(Unit [][] elane) {
-   int sum = 1;
-   int [] fin = new int[2];
-   ArrayList<Integer> empty = new ArrayList<Integer>();
-   for (int i = 0; i < elane.length; i ++) {
-   if (sum == 0) {
-   empty.add(i - 1);
-   }
-   sum = 0;
-   for (int k = 0; k < elane[i].length; k++) {
-   if (elane[i][k] != null) {
-   sum ++;
-   }
-   
-   }
-   }
-   
-   
-   int choser = (int)(Math.random() * empty.size());
-   int srow = empty.get(choser);
-   if (Math.random() * 100 < 90){ 
-   Unit[] c = this.maxUnit(ary, srow);
-   if (Math.random() * 100 <= 80) {
-   fin[0] = srow;
-   } else {
-   fin[0] = (int)(Math.random() * 8) ;
-   }
-   println(c[0]);
-   if (c[0] instanceof Melee) {
-   fin[1] = 0;
-   }
-   if (c[0] instanceof Range) {
-   fin[1] = 2;
-   } else {
-   fin[1]= 1;
-   }
-   }
-   else{fin[0] = (int)(Math.random() * 7);
-   fin[1] = (int) (Math.random() * 3);
-   }
-   
-   
-   return fin;
-   }
-   
-   
-   
-   public int pickClass() {
-   int n = decide();
-   int mel = 0;
-   int range = 0;
-   for (int i = 0; i < ary[n].length; i ++) {
-   if (ary[n][i] instanceof Melee) {
-   mel ++;
-   }
-   if (ary[n][i] instanceof Range) {
-   range ++;
-   }
-   }
-   if (Math.random() * 100 < 15 || (mel == 0 && range == 0) ){
-   int k = (int)(Math.random() * 3);
-   println(k);
-   return k;
-   }
-   println(mel);
-   println(range);
-   if (mel > range) {
-   return 0;
-   }
-   if (mel < range) {
-   return 2;
-   } else {
-   return 1;
-   }
-   
-   
-   }
-   
-   
-   
-   */
+  
+  
+  public void setupAI(Data n){
+     if (n.getUnits() < 8) {
+          n.setName("Mage");
+          n.setSpeed(3);
+          n.setArmour(10);
+          n.setRange(100);
+          n.setDamages(125);
+          n.setIsMelee(false);
+          n.setSpawnTime(300);
+          n.setUnits(n.getUnits()+1);
+          n.setName("Mounted Spearman");
+          n.setSpeed(6);
+          n.setArmour(100);
+          n.setRange(130);
+          n.setDamages(20);
+          n.setIsMelee(true);
+          n.setSpawnTime(500);
+          n.setUnits(n.getUnits()+1);
+          n.setName("Halberdier");
+          n.setSpeed(2);
+          n.setArmour(40);
+          n.setRange(125);
+          n.setDamages(40);
+          n.setIsMelee(true);
+          n.setSpawnTime(180);
+          n.setUnits(n.getUnits()+1);
+          n.setName("Mounted Halberdier");
+          n.setSpeed(8);
+          n.setArmour(45);
+          n.setRange(130);
+          n.setDamages(40);
+          n.setIsMelee(true);
+          n.setSpawnTime(450);
+          n.setUnits(n.getUnits()+1);
+          n.setName("Longswordsman");
+          n.setSpeed(3);
+          n.setArmour(100);
+          n.setRange(100);
+          n.setDamages(60);
+          n.setIsMelee(true);
+          n.setSpawnTime(380);
+          n.setUnits(n.getUnits()+1);
+          n.setName("Axeman");
+          n.setSpeed(5);
+          n.setArmour(80);
+          n.setRange(110);
+          n.setDamages(45);
+          n.setIsMelee(true);
+          n.setSpawnTime(250);
+          n.setUnits(n.getUnits()+1);
+          n.setName("Scout");
+          n.setSpeed(10);
+          n.setArmour(10);
+          n.setRange(60);
+          n.setDamages(10);
+          n.setIsMelee(true);
+          n.setSpawnTime(170);
+          n.setUnits(n.getUnits()+1);
+     }
+  }
+  
+  public void fillChoices(){
+    for (int d = 0; d < 10; d ++){
+    if (s.getIsMelee(d)) {
+      choices[d] = new Melee(700, 420, s.getSpeed(d), s.getArmour(d), 
+        s.getRange(d), s.getDamage(d), s.getRace(), s.getName(d), false, 0);
+    } else {
+      choices[d] = new Range(700, 420, s.getSpeed(d), s.getArmour(d), 
+        s.getRange(d), s.getDamage(d), s.getRace(), s.getName(d), false, 0);
+      }
+    }
+  }
 
 
   public int evalStrLane(int i, Unit [][] array) {
@@ -391,7 +308,7 @@ public class Artificial {
     } else {
       //if ((int)(Math.random() * 100) < 50){
       Unit [] dat = minLane(lane);
-      println(dat[0]);
+      //println(dat[0]);
       if (dat[0] instanceof Range) {
         if (Math.random() * 100 < 66) {
           return (int) (Math.random() * 2);
