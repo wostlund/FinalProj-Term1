@@ -225,7 +225,7 @@ public void playerSpawn() {
     Unit soldier = new Melee();
     if (timer>= unitTraits.getSpawnTime(choice)) {
       if (unitTraits.getIsMelee(choice)) {
-        println("dsfgh");
+        //println("dsfgh");
         soldier = new Melee(40, 420, unitTraits.getSpeed(choice), unitTraits.getArmour(choice), 
           unitTraits.getRange(choice), unitTraits.getDamage(choice), unitTraits.getRace(), unitTraits.getName(choice), true, 0);
       } else {
@@ -296,7 +296,7 @@ public void enemySpawn() {
       soldier = new Melee(700, 420, eunitTraits.getSpeed(d), eunitTraits.getArmour(d), 
         eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
     } else {
-      soldier = new Range(700, 420, unitTraits.getSpeed(d), eunitTraits.getArmour(d), 
+      soldier = new Range(700, 420, eunitTraits.getSpeed(d), eunitTraits.getArmour(d), 
         eunitTraits.getRange(d), eunitTraits.getDamage(d), eunitTraits.getRace(), eunitTraits.getName(d), false, 0);
     }
     einit = true;
