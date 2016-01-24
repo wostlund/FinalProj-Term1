@@ -270,8 +270,8 @@ public class Artificial {
   }
 
   public int chooseLane() {
-    if (Math.random() * 100 < 15) {
-      if (evalNumbLane(minUnit(), eary) > 0) {
+    if (Math.random() * 100 < 33) {
+      if (evalNumbLane(minUnit(), eary) < 1 && minLane(minUnit())[0] != null) {
         return minUnit();
       }
     }
@@ -315,8 +315,10 @@ public class Artificial {
   
   public boolean isFar(){
     Unit [] dat = minLane(chooseLane());
+    if(dat[0] instanceof Unit){
     if (dat[0].getXcor() < 650){
       return true;
+    }
     }
     return false;
   }
@@ -325,7 +327,7 @@ public class Artificial {
   public int maxRngChoice() {
     int ret = 0;
     int max = 0;
-    for (int n = 0; n < choices.length; n ++) {
+    for (int n = 1; n < choices.length; n ++) {
       if (choices[n].getRange() > max ) {
         max = choices[n].getRange();
         ret = n;
@@ -365,7 +367,6 @@ public class Artificial {
   
   public int choose1(){
      Unit [] dat = minLane(chooseLane());
-     println(dat[0]);
      if(dat[0] != null){
      if(dat[0].getName().equals("Spearman")){
        return 0;
@@ -417,18 +418,54 @@ public class Artificial {
   
   
   public int choose3(){
-    println(maxStrChoice());
     if (evalStrLane(chooseLane(), ary) / 5   < evalSpdLane(chooseLane(), ary)){
       return maxSpdChoice();
     }
      return (int)(Math.random() * 7);
     
   }
+  
+   public int choose4(){
+    if (evalHealthLane(chooseLane(), ary) > 200){
+      return maxHpChoice();
+    }
+     return (int)(Math.random() * 8);
+    
+  }
 
   
+   public int choose5(){
+     println(maxRngChoice());
+    if (isFar()){
+      return maxRngChoice();
+    }
+     return (int)(Math.random() * 8);
+    
+  }
+
+
   
-  
-  
+ public int selClass(){
+   int dec = (int)(Math.random() * 100);
+   if (dec < 60){
+     return choose1();
+   }
+   if (dec >= 60 && dec < 70){
+     return choose2();
+   }
+   if (dec >= 70 && dec < 80){
+     return choose3();
+   }
+   if (dec >= 80 && dec < 90){
+     return choose4();
+   }
+   if (dec >= 90){
+     return choose5();
+   }
+   return (int)(Math.random() * 8);
+ }
+   
+     
   
   
   
@@ -447,7 +484,7 @@ public class Artificial {
 
 
 
-  public int selClass() {
+  /*public int selClass() {
     int lane = chooseLane();
     if ((int) (Math.random() * 100) < 33) {
       return (int) (Math.random() * 3);
@@ -487,5 +524,5 @@ public class Artificial {
     //}
     return (int)(Math.random() * 3);
     
-  }
+  }*/
 }

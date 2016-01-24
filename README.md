@@ -1,6 +1,19 @@
 # FinalProj-Term1
 Final Project for my first term of APCS
 
+
+1-Project Description
+2-Directions to compile/run
+3-Directions to use it.
+
+CHEAT CODES:
+The 'i' key wins the game for you.
+The 'o' key will lose the game for you.
+The 'p; key will increase your score.
+The 'l' key will decrease your code.
+The Konami Code will find you cleaning bathrooms for the company as it stops game development in favor of pachinko 
+machines. Just kidding, it doesn't do anything.  
+
 Log: 
 
 1/19/16
@@ -33,3 +46,13 @@ Jackson Morgan:
 	- NEW BUG: quit game is broken, breaks everytime pause and resume gets fixed
 	- Made it so when you lose the game you can go back to the main menu.
 	- Made it so that you can proceed to a new game once you win a game. 
+
+1/23/16 
+Jackson Morgan:
+	-Made AI work for all soldier types instead of just three.
+        -Implemented necessarry helper functions
+	-implemented how A.I. would be chosen
+        -created cheat codes
+	-made balancing fixes that were in place due to bad logic.
+
+

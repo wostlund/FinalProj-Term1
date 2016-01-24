@@ -290,7 +290,7 @@ public void enemySpawn() {
   w.setupAI(eunitTraits);
   int [] dec = new int [2];
   dec[0] = w.chooseLane();
-  dec[1] = w.choose3();
+  dec[1] = w.selClass();
   int d = dec[1];
   if (etimer>= eunitTraits.getSpawnTime(d)) {
     if (eunitTraits.getIsMelee(d)) {
@@ -355,7 +355,7 @@ public void enemySpawn() {
  
  case 0:
  if (etimer >= 210) {
- //  x,    y, spd,arm,rng, dmg, race, name,        id, lane
+ //  x,    y,                 spd,arm,rng, dmg, race, name,        id, lane
  soldier = new Melee(700, 420, 5, 40, 130, 20, "Men", "Spearman", false, 0);
  einit = true;
  etimer=0;
