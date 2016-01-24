@@ -1,9 +1,9 @@
 // add use ranged to attack slower enemies
 public class Artificial {
-  Unit [][] ary = new Unit [8][100];
-  Unit [][] eary = new Unit [8][100];
-  Unit [] choices = new Unit [10]; 
-  Data s = new Data();
+  private Unit [][] ary = new Unit [8][100];
+  private Unit [][] eary = new Unit [8][100];
+  private Unit [] choices = new Unit [10]; 
+  private Data s = new Data();
   
   public void setBoard(Unit[][]n){
     ary =  n;
