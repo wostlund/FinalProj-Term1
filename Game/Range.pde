@@ -43,9 +43,29 @@ public class Range extends Unit {
   public void setColor() {
     switch(this.getRace()) {
     case "Men":
-      if (this.getPlayer()){ 
-      avatar.setFill(color(0, 0, 256));}
-      else {avatar.setFill(color(256, 0, 0));}
+      avatar.setFill(color(0, 0, 256));
+      break;
+    case "Orcs of the North":
+      avatar.setFill(color(256, 0, 0));
+      break;
+    case "Orcs of the South":
+      avatar.setFill(color(#8E6D6D));
+      break;
+    case "Mountain Trolls":
+      avatar.setFill(color(#E535DA));
+      break;
+    case "Forest Elves":
+      avatar.setFill(color(#34934E));
+      break;
+    case "Men of the West":
+      avatar.setFill(color(#ECF511));
+      break;
+    case "Night Elves":
+      avatar.setFill(color(#9014B7));
+      break;
+    default:
+      avatar.setFill(color(0));
+      break;
     }
   }
 
