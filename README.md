@@ -2,17 +2,17 @@
 Final Project for my first term of APCS
 
 
-1-Project Description <b>
-2-Directions to compile/run<b>
-3-Directions to use it.</b>
+1-Project Description <br>
+2-Directions to compile/run<br>
+3-Directions to use it.<br>
 
 CHEAT CODES: <b>
-The 'i' key wins the game for you. </b>
-The 'o' key will lose the game for you.</b>
-The 'p' key will increase your score.</b>
-The 'l' key will decrease your code.</b>
-The Konami Code will find you cleaning bathrooms for the company as it stops game development in favor of pachinko </b>
-machines. Just kidding, it doesn't do anything. </b> 
+The 'i' key wins the game for you. <br>
+The 'o' key will lose the game for you.<br>
+The 'p' key will increase your score.<br>
+The 'l' key will decrease your code.<br>
+The Konami Code will find you cleaning bathrooms for the company as it stops game development in favor of pachinko <br>
+machines. Just kidding, it doesn't do anything. <br> 
 
 <style="font-size:200%;">Log:</style>
 
