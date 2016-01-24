@@ -329,7 +329,7 @@ public class Shop {
         n.setName("Mounted Spearman");
         n.setSpeed(6 + n.getSpeedUpgrade());
         n.setArmour(100 + (n.getArmourUpgrade() * 10));
-        n.setRange(150);
+        n.setRange(175);
         n.setDamages(20 + n.getSpearUpgrade() * 5);
         n.setIsMelee(true);
         n.setSpawnTime(500);
@@ -341,7 +341,7 @@ public class Shop {
         n.setName("Halberdier");
         n.setSpeed(2 + n.getSpeedUpgrade());
         n.setArmour(40 + (n.getArmourUpgrade() * 10));
-        n.setRange(125);
+        n.setRange(120);
         n.setDamages(40 + n.getHalberdUpgrade() * 5);
         n.setIsMelee(true);
         n.setSpawnTime(180);
@@ -353,7 +353,7 @@ public class Shop {
         n.setName("Mounted Halberdier");
         n.setSpeed(8 + n.getSpeedUpgrade());
         n.setArmour(45 + (n.getArmourUpgrade() * 10));
-        n.setRange(150);
+        n.setRange(130);
         n.setDamages(40 + n.getHalberdUpgrade()*5);
         n.setIsMelee(true);
         n.setSpawnTime(450);
