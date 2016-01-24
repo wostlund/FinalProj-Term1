@@ -85,7 +85,9 @@ public class Melee extends Unit {
   public void setColor() {
     switch(this.getRace()) {
     case "Men":
-      avatar.setFill(color(0, 0, 256));
+    if (this.getPlayer()){ 
+      avatar.setFill(color(0, 0, 256));}
+      else {avatar.setFill(color(256, 0, 0));}
       break;
     default:
       break;
