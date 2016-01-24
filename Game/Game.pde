@@ -695,11 +695,13 @@ public void colorIndicator() {
       w.winGame();
       if ((mouseX  > 650 && mouseX< 890) && (mouseY  > 15  && mouseY < 100  ) && mousePressed) {
         choice = 0;
+        level = 0;
         echoice = 0;
         timer = 0;
         etimer = 0;
         init = false;
         einit = false;
+        unitTraits = new Data(0);
         board = new Unit[8][10];
         eboard = new Unit[8][10];
         playerScore = 25;
@@ -712,7 +714,7 @@ public void colorIndicator() {
         paused = false;
         mode = 2;
         playing = false;
-        level = 0;
+
       
     }
     }
