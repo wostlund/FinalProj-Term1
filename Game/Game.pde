@@ -466,7 +466,6 @@ public void colorIndicator() {
       if(level == 6){
         mode = 15;}
       else{
-      unitTraits = new Data(0);
       eunitTraits = new Data(level);
       w = new Artificial(board, eboard, level);
       w.setupAI(eunitTraits);
