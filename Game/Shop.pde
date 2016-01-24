@@ -4,10 +4,11 @@ public class Shop {
 
   private PFont a, b, c, d, e, f, g, speed, armour, range, spear, sword, halberd, axe;
   private PShape choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
-
   private boolean filled1, filled2, filled3, filled4, filled5, filled6, filled7, filled8;
-
+  private boolean[]show;
   private int speedTimer, armourTimer, rangeTimer, spearTimer, swordTimer, halberdTimer, axeTimer;
+
+  Unit[] choices;
 
   public void mouseReleased() {
     speedTimer = 19;
@@ -19,7 +20,10 @@ public class Shop {
     axeTimer = 19;
   }
 
-  public Shop() {
+  //float xcor, float ycor, int speed, int armour, int range, int damage, String race, String name, boolean id, int lane
+  public Shop(Data n) {
+    show = new boolean[8];
+    choices = new Unit[8];
     filled1 = false;
     filled2 = false;
     filled3 = false;
@@ -35,6 +39,17 @@ public class Shop {
     swordTimer = 19;
     halberdTimer = 19;
     axeTimer = 19;
+    choices[0] = new Range(70, 340, 5, 10, 4, 4, n.getRace(), "Mage", true, 3);
+    choices[1] = new Melee(152.5, 340, 5, 10, 4, 4, n.getRace(), "Mounted Spearman", true, 3);
+    choices[2] = new Melee(240.0, 200.0, 5, 2, 4, 4, n.getRace(), "Halberdier", true, 3);
+    choices[3] = new Melee(340.0, 200.0, 5, 2, 4, 4, n.getRace(), "Mounted Halberdier", true, 3);
+    choices[4] = new Melee(440.0, 200.0, 5, 2, 4, 4, n.getRace(), "Longswordsman", true, 3);
+    choices[5] = new Melee(540.0, 200.0, 5, 2, 4, 4, n.getRace(), "Scout", true, 3);
+    choices[6] = new Melee(640.0, 200.0, 5, 2, 4, 4, n.getRace(), "Axeman", true, 3);
+    for (int i = 0; i<7; i++) {
+      choices[i].setupDisplay(); 
+      show[i] = true;
+    }
   }
 
   public void shopSetup() {
@@ -124,44 +139,44 @@ public class Shop {
 
   public void shopDraw(Data n) {
     background(color(#5D5A5A));
-    if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 || filled1){
+    if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 || filled1) {
       choice1.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice1.setFill(color(#AD2E1F));
     }
-    if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 || filled2){
+    if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 || filled2) {
       choice2.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice2.setFill(color(#AD2E1F));
     }
-    if (mouseX<= 550 && mouseX>= 390 && mouseY <=760 && mouseY>=600 || filled3){
+    if (mouseX<= 550 && mouseX>= 390 && mouseY <=760 && mouseY>=600 || filled3) {
       choice3.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice3.setFill(color(#AD2E1F));
     }
-    if (mouseX<= 715 && mouseX>= 555 && mouseY <=760 && mouseY>=600 || filled4){
+    if (mouseX<= 715 && mouseX>= 555 && mouseY <=760 && mouseY>=600 || filled4) {
       choice4.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice4.setFill(color(#AD2E1F));
     }
-    if (mouseX<= 880 && mouseX>= 720 && mouseY <=760 && mouseY>=600 || filled5){
+    if (mouseX<= 880 && mouseX>= 720 && mouseY <=760 && mouseY>=600 || filled5) {
       choice5.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice5.setFill(color(#AD2E1F));
     }
-    if (mouseX<= 1045 && mouseX>= 885 && mouseY <=760 && mouseY>=600 || filled6){
+    if (mouseX<= 1045 && mouseX>= 885 && mouseY <=760 && mouseY>=600 || filled6) {
       choice6.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice6.setFill(color(#AD2E1F));
     }
-    if (mouseX<= 1210 && mouseX>= 1050 && mouseY <=760 && mouseY>=600 || filled7){
+    if (mouseX<= 1210 && mouseX>= 1050 && mouseY <=760 && mouseY>=600 || filled7) {
       choice7.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice7.setFill(color(#AD2E1F));
     }
-    if (mouseX<= 1375 && mouseX>= 1215 && mouseY <=760 && mouseY>=600 || filled8){
+    if (mouseX<= 1375 && mouseX>= 1215 && mouseY <=760 && mouseY>=600 || filled8) {
       choice8.setFill(color(#A21A1A));
-    }else{
+    } else {
       choice8.setFill(color(#AD2E1F));
     }
     shape(choice1);
@@ -287,11 +302,17 @@ public class Shop {
       text("Buy", 1250, 490);
     }
     fill(color(255));
+    for (int i = 0; i<7; i++) {
+      if (show[i]) {
+        choices[i].display();
+      }
+    }
   }
 
   public int mouseClicked(Data n) {
     if (n.getUnits() < 8) {
       if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 && filled1==false && n.getMoney() >= 900) {
+        show[0]=false;
         filled1=true;
         n.setName("Mage");
         n.setSpeed(3 + n.getSpeedUpgrade());
@@ -303,6 +324,7 @@ public class Shop {
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 900);
       } else if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 && filled2==false && n.getMoney() >= 1400) {
+        show[1] = false;
         filled2=true;
         n.setName("Mounted Spearman");
         n.setSpeed(6 + n.getSpeedUpgrade());
@@ -314,6 +336,7 @@ public class Shop {
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 1400);
       } else if (mouseX<= 550 && mouseX >= 390 && mouseY <= 760 && mouseY>= 600 && filled3 == false && n.getMoney() >= 400) {
+        show[2] = false;
         filled3=true;
         n.setName("Halberdier");
         n.setSpeed(2 + n.getSpeedUpgrade());
@@ -325,6 +348,7 @@ public class Shop {
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 400);
       } else if (mouseX <= 715 && mouseX >= 555  && mouseY <= 760 && mouseY>= 600 && filled4 == false && n.getMoney() >= 1100) {
+        show[3] = false;
         filled4=true;
         n.setName("Mounted Halberdier");
         n.setSpeed(8 + n.getSpeedUpgrade());
@@ -336,6 +360,7 @@ public class Shop {
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 1100);
       } else if (mouseX <= 1045 && mouseX >= 885  && mouseY <= 760 && mouseY>= 600 && filled6 == false && n.getMoney() >= 1000) {
+        show[4] = false;
         filled6=true;
         n.setName("Longswordsman");
         n.setSpeed(3 + n.getSpeedUpgrade());
@@ -347,6 +372,7 @@ public class Shop {
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 1000);
       } else if (mouseX <= 1210 && mouseX >= 1050  && mouseY <= 760 && mouseY>= 600 && filled7 == false  && n.getMoney() >= 500) {
+        show[6] = false;
         filled7=true;
         n.setName("Axeman");
         n.setSpeed(5 + n.getSpeedUpgrade());
@@ -358,6 +384,7 @@ public class Shop {
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 500);
       } else if (mouseX <= 880 && mouseX >= 720  && mouseY <= 760 && mouseY>= 600 && filled5 == false && n.getMoney() >= 450) {
+        show[5] = false;
         filled5=true;
         n.setName("Scout");
         n.setSpeed(10 + n.getSpeedUpgrade());

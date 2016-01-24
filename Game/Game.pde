@@ -68,7 +68,7 @@ void setup() {
   eattacked = false;
   unitTraits = new Data();
   eunitTraits = new Data();
-  shop = new Shop();
+  shop = new Shop(unitTraits);
   paused = false;
   fillScore();
   echoice1 = createShape(ELLIPSE, 1400, 70, 60, 60);
@@ -508,7 +508,7 @@ public void mouseClicked() {
     em = new AttackChoice(board);
     eattacked = false;
     unitTraits = new Data();
-    shop = new Shop();
+    shop = new Shop(unitTraits);
     paused = false;
     mode = 2;
     playing = false;
@@ -601,7 +601,7 @@ void draw() { //player colors are now controllable
       em = new AttackChoice(board);
       eattacked = false;
       unitTraits = new Data();
-      shop = new Shop();
+      shop = new Shop(unitTraits);
       paused = false;
       mode = 2;
       playing = false;
@@ -628,7 +628,7 @@ void draw() { //player colors are now controllable
       em = new AttackChoice(board);
       eattacked = false;
       unitTraits = new Data();
-      shop = new Shop();
+      shop = new Shop(unitTraits);
       paused = false;
       mode = 0;
       playing = false;
