@@ -35,37 +35,37 @@ public class Shop {
     choices[5] = new Melee(482.5, 340.0, 5, 2, 4, 4, n.getRace(), "Longswordsman", true, 3);
     choices[4] = new Melee(400, 340.0, 5, 2, 4, 4, n.getRace(), "Scout", true, 3);
     choices[6] = new Melee(565.0, 340.0, 5, 2, 4, 4, n.getRace(), "Axeman", true, 3);
-    switch(n.getRace()){
-      case "Men":
-        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "King's Gaurd", true, 3);
-        break;
-      case "Men of the West":
-        choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Javelin Thrower", true, 3);
-        break;
-      case "Mountain Trolls":
-        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Giant Troll", true, 3);
-        break;
-      case "Orcs of the South":
-        choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Axe Thrower", true, 3);
-        break;
-      case "Orcs of the North":
-        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Battle Axeman", true, 3);
-        break;
-      case "Night Elves":
-        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Whirler", true, 3);
-        break;
-      case "Forest Elves":
-        choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Range", true, 3);
-        break;
-      case "The Undead":
-        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Flailer", true, 3);
-        break;
-      default:
-        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Spearmaster", true, 3);
-        break;
+    switch(n.getRace()) {
+    case "Men":
+      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "King's Gaurd", true, 3);
+      break;
+    case "Men of the West":
+      choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Javelin Thrower", true, 3);
+      break;
+    case "Mountain Trolls":
+      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Giant Troll", true, 3);
+      break;
+    case "Orcs of the South":
+      choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Axe Thrower", true, 3);
+      break;
+    case "Orcs of the North":
+      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Battle Axeman", true, 3);
+      break;
+    case "Night Elves":
+      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Whirler", true, 3);
+      break;
+    case "Forest Elves":
+      choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Range", true, 3);
+      break;
+    case "The Undead":
+      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Flailer", true, 3);
+      break;
+    default:
+      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Spearmaster", true, 3);
+      break;
     }
     for (int i = 0; i<8; i++) {
-      choices[i].setupDisplay(); 
+      choices[i].setupDisplay();
     }
   }
 
@@ -405,6 +405,135 @@ public class Shop {
         n.setSpawnTime(170);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 450);
+      } else if (mouseX <= 1375 && mouseX >= 1215  && mouseY <= 760 && mouseY>= 600 && n.getShow(7)) {
+        switch(n.getRace()) {
+        case "Men":
+          if (n.getMoney()>=1600) {
+            n.setShow(7);
+            n.setName("King's Gaurd");
+            n.setSpeed(4 + n.getSpeedUpgrade());
+            n.setArmour(120 + (n.getArmourUpgrade() * 10));
+            n.setRange(130);
+            n.setDamages(90);
+            n.setIsMelee(true);
+            n.setSpawnTime(300);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 1600);
+          }
+          break;
+        case "Men of the West":
+          if (n.getMoney()>=800) {
+            n.setShow(7);
+            n.setName("Javelin Thrower");
+            n.setSpeed(4 + n.getSpeedUpgrade());
+            n.setArmour(50 + (n.getArmourUpgrade() * 10));
+            n.setRange(750);
+            n.setDamages(25);
+            n.setIsMelee(false);
+            n.setSpawnTime(225);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 800);
+          }
+          break;
+        case "Mountain Trolls":
+          if (n.getMoney()>=3200) {
+            n.setShow(7);
+            n.setName("Giant Troll");
+            n.setSpeed(5 + n.getSpeedUpgrade());
+            n.setArmour(220 + (n.getArmourUpgrade() * 10));
+            n.setRange(250);
+            n.setDamages(500);
+            n.setIsMelee(true);
+            n.setSpawnTime(500);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 3200);
+          }
+          break;
+        case "The Undead":
+          if (n.getMoney()>=1300) {
+            n.setShow(7);
+            n.setName("Flailer");
+            n.setSpeed(3 + n.getSpeedUpgrade());
+            n.setArmour(100 + (n.getArmourUpgrade() * 10));
+            n.setRange(165);
+            n.setDamages(100);
+            n.setIsMelee(true);
+            n.setSpawnTime(260);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 1300);
+          }
+          break;
+        case "Night Elves":
+          if (n.getMoney()>=1600) {
+            n.setShow(7);
+            n.setName("Whirler");
+            n.setSpeed(5 + n.getSpeedUpgrade());
+            n.setArmour(100 + (n.getArmourUpgrade() * 10));
+            n.setRange(160);
+            n.setDamages(95);
+            n.setIsMelee(true);
+            n.setSpawnTime(250);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 1600);
+          }
+          break;
+        case "Orcs of the North":
+          if (n.getMoney()>=900) {
+            n.setShow(7);
+            n.setName("Battle Axeman");
+            n.setSpeed(3 + n.getSpeedUpgrade());
+            n.setArmour(40 + (n.getArmourUpgrade() * 10));
+            n.setRange(100);
+            n.setDamages(60);
+            n.setIsMelee(true);
+            n.setSpawnTime(200);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 900);
+          }
+          break;
+        case "Orcs of the South":
+          if (n.getMoney()>=600) {
+            n.setShow(7);
+            n.setName("Axe Thrower");
+            n.setSpeed(3 + n.getSpeedUpgrade());
+            n.setArmour(40 + (n.getArmourUpgrade() * 10));
+            n.setRange(750);
+            n.setDamages(20);
+            n.setIsMelee(false);
+            n.setSpawnTime(170);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 600);
+          }
+          break;
+        case "Forest Elves":
+          if (n.getMoney()>=1300) {
+            n.setShow(7);
+            n.setName("Range");
+            n.setSpeed(2 + n.getSpeedUpgrade());
+            n.setArmour(50 + (n.getArmourUpgrade() * 10));
+            n.setRange(1700);
+            n.setDamages(10);
+            n.setIsMelee(false);
+            n.setSpawnTime(220);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 1300);
+          }
+          break;
+        case "Demons":
+          if (n.getMoney()>=1300) {
+            n.setShow(7);
+            n.setName("Spearmaster");
+            n.setSpeed(6 + n.getSpeedUpgrade());
+            n.setArmour(130 + (n.getArmourUpgrade() * 10));
+            n.setRange(135);
+            n.setDamages(45);
+            n.setIsMelee(true);
+            n.setSpawnTime(190);
+            n.setUnits(n.getUnits()+1);
+            n.setMoney(n.getMoney() - 1300);
+          }
+          break;
+        }
       }
     }
     if (n.getMoney() >= n.getSpeedUpgrade() * 600 + 600 && mouseX>= 1250 && mouseX<= 1325 && mouseY>= 220 && mouseY <= 255) {

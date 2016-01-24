@@ -30,6 +30,28 @@ public class Range extends Unit {
     case "Mage":
       avatar = createShape(TRIANGLE, this.getXcor(), this.getYcor()-20, this.getXcor()+20, this.getYcor()+20, this.getXcor()-20, this.getYcor()+20);
       break;
+    case "Javelin Thrower":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() + 20 * sin(PI/4), this.getYcor() - 15 * cos( PI/4));
+      avatar.vertex(this.getXcor(), this.getYcor() - 20);
+      avatar.vertex(this.getXcor() - 20 * sin(PI/4), this.getYcor() - 15 * cos( PI/4));
+      avatar.vertex(this.getXcor() - 20 * sin(PI/4), this.getYcor() + 15 * cos( PI/4));
+      avatar.vertex(this.getXcor(), this.getYcor() + 20);
+      avatar.vertex(this.getXcor() + 20 * sin(PI/4), this.getYcor() + 15 * cos( PI/4));
+      avatar.endShape();
+      break;
+    case "Range":
+      avatar = createShape(TRIANGLE, this.getXcor(), this.getYcor()+25, this.getXcor()-25, this.getYcor()-25, this.getXcor()+25, this.getYcor()-25);
+      break;
+    case "Axe Thrower":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() + 30, this.getYcor());
+      avatar.vertex(this.getXcor(), this.getYcor() + 20);
+      avatar.vertex(this.getXcor() - 30, this.getYcor());
+      avatar.vertex(this.getXcor(), this.getYcor() - 20);
+      avatar.endShape();
     default:
       triangle(this.getXcor(), this.getYcor()+20, this.getXcor()-20, this.getYcor()-20, this.getXcor()+20, this.getYcor()-20);
     }
