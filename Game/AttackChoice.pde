@@ -1,5 +1,5 @@
 public class AttackChoice {
-
+ private int kill = 0;
   private Unit[][]data;
 
   public void setData(Unit[][]x) {
@@ -20,9 +20,18 @@ public class AttackChoice {
       for (int k=0; k<george[i].length; k++) {
         if (george[i][k] != null && george[i][k].getArmour()<=0) {
           george[i][k] = null;
+          kill ++;
         }
       }
     }
+  }
+  
+  public void setKill(int dfh){
+    kill = dfh;
+  }
+  
+  public int getKill(){
+    return kill;
   }
 
   public float[] findMax() {

@@ -23,6 +23,7 @@ Shop shop;
 Cheats ch = new Cheats();
 Artificial w; 
 private int level = 0;
+int test = 0;
 //int decide;
 //int [] dec;
 /*
@@ -321,6 +322,25 @@ public void colorIndicator() {
       ent = 0;
     }
   }
+  
+  public void special(){
+    if (m.getKill() >= 20){
+      Melee soldier = new Melee(40, 420, unitTraits.getSpeed(0), unitTraits.getArmour(0), unitTraits.getRange(0), unitTraits.getDamage(0), unitTraits.getRace(), unitTraits.getName(0), true, 0);
+      //int k = 0;
+      m.setKill(0);
+      for (int w =0; w < 8; w ++){
+        int k = 0;
+        for (int i = 0; i < board[w].length; i++) {
+          if (board[w][i] == null && k == 0) {
+            board[w][i] = (soldier);
+            k += 1;
+          }
+        }
+      }
+    }
+  }
+        
+      
 
 
   public void enemySpawn() {  
@@ -626,6 +646,7 @@ public void colorIndicator() {
       changeY();
       fillScore();
       setChooserColor();
+      special();
       timer ++;
       etimer ++;
       showPShapes();
@@ -648,6 +669,8 @@ public void colorIndicator() {
         score = new int[50];
         m = new AttackChoice(eboard);
         em = new AttackChoice(board);
+        m.setKill(0);
+        em.setKill(0);
         eattacked = false;
         unitTraits = new Data(0);
         shop = new Shop(unitTraits);
@@ -675,6 +698,8 @@ public void colorIndicator() {
         score = new int[50];
         m = new AttackChoice(eboard);
         em = new AttackChoice(board);
+         m.setKill(0);
+        em.setKill(0);
         eattacked = false;
         shop = new Shop(unitTraits);
         paused = false;
@@ -704,6 +729,8 @@ public void colorIndicator() {
         unitTraits = new Data(0);
         board = new Unit[8][10];
         eboard = new Unit[8][10];
+         m.setKill(0);
+        em.setKill(0);
         playerScore = 25;
         enemyScore = 25;
         score = new int[50];
@@ -714,6 +741,7 @@ public void colorIndicator() {
         paused = false;
         mode = 2;
         playing = false;
+        
 
       
     }
