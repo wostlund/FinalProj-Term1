@@ -290,7 +290,7 @@ public void enemySpawn() {
   w.setupAI(eunitTraits);
   int [] dec = new int [2];
   dec[0] = w.chooseLane();
-  dec[1] = w.selClass();
+  dec[1] = w.choose1();
   int d = dec[1];
   if (etimer>= eunitTraits.getSpawnTime(d)) {
     if (eunitTraits.getIsMelee(d)) {

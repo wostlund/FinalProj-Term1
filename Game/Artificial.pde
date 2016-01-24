@@ -19,9 +19,9 @@ public class Artificial {
     }
     setupAI(s);
     fillChoices();
-    for (int k = 0; k < choices.length; k ++){
-      println(choices[k]);
-    }
+    //for (int k = 0; k < choices.length; k ++){
+     // println(choices[k]);
+    //}
   }
   
   
@@ -363,6 +363,45 @@ public class Artificial {
   
   
   
+  public int choose1(){
+     Unit [] dat = minLane(chooseLane());
+     println(dat[0]);
+     if(dat[0] != null){
+     if(dat[0].getName().equals("Spearman")){
+       return 0;
+     }
+     if(dat[0].getName().equals("Swordsman")){
+       return 1;
+     }
+     if(dat[0].getName().equals("Archer")){
+       return 2;
+     }
+     if(dat[0].getName().equals("Mage")){
+       return 3;
+     }
+     if(dat[0].getName().equals("Mounted Spearman")){
+       return 4;
+     }
+     if(dat[0].getName().equals("Halberdier")){
+       return 5;
+     }
+     if(dat[0].getName().equals("Mounted Halberdier")){
+       return 6;
+     }
+     if(dat[0].getName().equals("Longswordsman")){
+       return 7;
+     }
+     if(dat[0].getName().equals("Axeman")){
+       return 8;
+     }
+     if(dat[0].getName().equals("Scout")){
+       return 9;
+     }
+     }
+     return (int)(Math.random() * 10);
+     
+  }
+
   
   
   
