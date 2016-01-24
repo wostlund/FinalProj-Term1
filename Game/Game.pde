@@ -287,6 +287,7 @@ public void playerSpawn() {
 public void enemySpawn() {
   Artificial w = new Artificial(board, eboard);    
   Unit soldier = new Melee();
+  w.setupAI(eunitTraits);
   int [] dec = new int [2];
   dec[0] = w.chooseLane();
   dec[1] = w.selClass();
@@ -563,7 +564,7 @@ void draw() { //player colors are now controllable
     fill(255);
     text("Pause", 680, 80);
     playerSpawn();
-    if (etimer == 210 ||etimer == 250 || etimer == 290) {
+    if (etimer == 210 ||etimer == 250 || etimer == 290 || etimer == 300 || etimer == 500 || etimer == 180 || etimer == 450 || etimer == 380 || etimer == 250 || etimer == 170) {
       enemySpawn();
     }
     displaySoldier();
