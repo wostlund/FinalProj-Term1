@@ -527,7 +527,6 @@ public void colorIndicator() {
         text("Play", 685, 70);
         textFont(g, 36);
         fill(255);
-        text("Quit", 685, 600);
       }
 
 
