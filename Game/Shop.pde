@@ -41,11 +41,11 @@ public class Shop {
     axeTimer = 19;
     choices[0] = new Range(70, 340, 5, 10, 4, 4, n.getRace(), "Mage", true, 3);
     choices[1] = new Melee(152.5, 340, 5, 10, 4, 4, n.getRace(), "Mounted Spearman", true, 3);
-    choices[2] = new Melee(240.0, 200.0, 5, 2, 4, 4, n.getRace(), "Halberdier", true, 3);
-    choices[3] = new Melee(340.0, 200.0, 5, 2, 4, 4, n.getRace(), "Mounted Halberdier", true, 3);
-    choices[4] = new Melee(440.0, 200.0, 5, 2, 4, 4, n.getRace(), "Longswordsman", true, 3);
-    choices[5] = new Melee(540.0, 200.0, 5, 2, 4, 4, n.getRace(), "Scout", true, 3);
-    choices[6] = new Melee(640.0, 200.0, 5, 2, 4, 4, n.getRace(), "Axeman", true, 3);
+    choices[2] = new Melee(235.0, 340.0, 5, 2, 4, 4, n.getRace(), "Halberdier", true, 3);
+    choices[3] = new Melee(317.5, 340.0, 5, 2, 4, 4, n.getRace(), "Mounted Halberdier", true, 3);
+    choices[4] = new Melee(400.0, 340.0, 5, 2, 4, 4, n.getRace(), "Longswordsman", true, 3);
+    choices[5] = new Melee(482.5, 340.0, 5, 2, 4, 4, n.getRace(), "Scout", true, 3);
+    choices[6] = new Melee(565.0, 340.0, 5, 2, 4, 4, n.getRace(), "Axeman", true, 3);
     for (int i = 0; i<7; i++) {
       choices[i].setupDisplay(); 
       show[i] = true;
