@@ -26,6 +26,7 @@ The 'i' key wins the game for you. <br>
 The 'o' key will lose the game for you.<br>
 The 'p' key will increase your score.<br>
 The 'l' key will decrease your code.<br>
+The 'k' key will set your kills to 20 so that you can use a special move.(one time use)<br>
 The Konami Code will find you cleaning bathrooms for the company as it stops game development in favor of pachinko <br>
 machines. Just kidding, it doesn't do anything. <br> 
 

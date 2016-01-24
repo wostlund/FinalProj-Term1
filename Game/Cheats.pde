@@ -36,4 +36,12 @@ public class Cheats{
     
   }
   
+  public boolean makeSpecial(){
+    if (keyPressed && key == 'k'){
+      return true;
+    }
+    return false;
+    
+  }
+  
 }

@@ -626,6 +626,11 @@ public void colorIndicator() {
       playerScore -= 1;
       enemyScore += 1;
     }
+    if(ch.makeSpecial() && test== 0){
+      m.setKill(20);
+      test ++;
+    }
+      
   }
 
 
