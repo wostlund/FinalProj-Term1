@@ -1,7 +1,7 @@
 public class Data {
 private String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountain Trolls", "Forest Elves", "Men of the West", "Night Elves"}; 
-  public Data() {
-    race = ra[(int)(Math.random() * ra.length)]; 
+  public Data(int k) {
+    race = ra[k]; 
     units = 3;
     names.add("Spearman");
     names.add("Swordsman");

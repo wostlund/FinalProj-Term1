@@ -68,8 +68,8 @@ void setup() {
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
   eattacked = false;
-  unitTraits = new Data();
-  eunitTraits = new Data();
+  unitTraits = new Data(0);
+  eunitTraits = new Data(level);
   shop = new Shop(unitTraits);
   paused = false;
   fillScore();
@@ -115,7 +115,7 @@ void setup() {
   s = createFont("Arial", 16, true);
   p = createFont("Arial", 16, true);
   g = createFont("Arial", 16, true);
-  w = new Artificial(board, eboard);
+  w = new Artificial(board, eboard, level);
   w.setupAI(eunitTraits);
 }
 
@@ -466,6 +466,10 @@ public void colorIndicator() {
       if(level == 6){
         mode = 15;}
       else{
+      unitTraits = new Data(0);
+      eunitTraits = new Data(level);
+      w = new Artificial(board, eboard, level);
+      w.setupAI(eunitTraits);
       mode = 5;}
       
     }
@@ -552,7 +556,7 @@ public void colorIndicator() {
       m = new AttackChoice(eboard);
       em = new AttackChoice(board);
       eattacked = false;
-      unitTraits = new Data();
+      unitTraits = new Data(0);
       shop = new Shop(unitTraits);
       paused = false;
       mode = 2;
@@ -647,7 +651,7 @@ public void colorIndicator() {
         m = new AttackChoice(eboard);
         em = new AttackChoice(board);
         eattacked = false;
-        unitTraits = new Data();
+        unitTraits = new Data(0);
         shop = new Shop(unitTraits);
         paused = false;
         mode = 2;

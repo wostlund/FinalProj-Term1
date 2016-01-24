@@ -3,7 +3,7 @@ public class Artificial {
   private Unit [][] ary = new Unit [8][100];
   private Unit [][] eary = new Unit [8][100];
   private Unit [] choices = new Unit [10]; 
-  private Data s = new Data();
+  private Data s; 
   
   public void setBoard(Unit[][]n){
     ary =  n;
@@ -13,7 +13,7 @@ public class Artificial {
   }
 
 
-  Artificial(Unit [][] j, Unit [][] e ) {
+  Artificial(Unit [][] j, Unit [][] e, int hgf ) {
     for (int i = 0; i < j.length; i ++) {
       for (int k = 0; k < j[i].length; k ++) {
         ary[i][k] = j[i][k];
@@ -25,6 +25,7 @@ public class Artificial {
         eary[p][a] = e[p][a];
       }
     }
+    s = new Data(hgf);
     setupAI(s);
     fillChoices();
     //for (int k = 0; k < choices.length; k ++){
