@@ -15,6 +15,8 @@ You use the mouse to pick options like start game or buy units.<br>
 When it the game you use the wasd keys and the enter key. The a and d keys allow you to cycle through your unit types.<br>
 The w and s keys allow you to cycle through your lanes. <br>
 The enter key spawns the selected unit in the selected lane. <br>
+You can only spawn the units if your box turns blue of if the selected circle turns blue.
+This indicates that you are past the spawn time required to spawn you soldiers.<br>
 
 There are also cheat codes if you, like us, cannot win. <br>
 
