@@ -14,7 +14,7 @@ The 'l' key will decrease your code.
 The Konami Code will find you cleaning bathrooms for the company as it stops game development in favor of pachinko 
 machines. Just kidding, it doesn't do anything.  
 
-Log: 
+<style="font-size:200%;">Log:</style>
 
 <b>1/19/16</b>
 Jackson Morgan:
@@ -24,7 +24,7 @@ Jackson Morgan:
  	-- NEW BUG -- enemies used to respond to what you spawned spawing in your lane and spawning one of a few soldier types. Now the same enemy keeps being spawned in seemingly random places.
 	-- New AI idea -- tally the range, strength, and speed of the incoming row. Deploy unit that responds best to variable with max value.
 
-1/20/16
+<b>1/20/16</b>
 Will Ostlund:
 	-- Created the basic layout for the shop, so far it doesn't do anything, I'll implement that later
 	-- NO BUGS were made in the process
@@ -37,7 +37,7 @@ Jackson Morgan:
 	- NO NEW BUGS were created
 
 
-1/21/16 
+<b>1/21/16</b>
 Jackson Morgan: 
 	- completed lane spawn parts of A.I.
 	-Made new class chose functions (2/3)  way done
@@ -49,7 +49,7 @@ Will Ostlund:
 	-NEW BUG: a null pointer exception shows up when trying to select the new unit
 	-BUG FIXED: Increased the size of the array that shows the unit choices
 
-1/22/16 
+<b>1/22/16</b> 
 Jackson Morgan:
 	-Fixed issue where A.I. spawned one type of enemy much more often than other types.
         - made the game pause and resume again, but in doing so:
@@ -64,7 +64,7 @@ Will Ostlund:
 	-NO BUGS were made in the process
 	-Set a series of booleans that prevent the purchase of one unit multiple times
 
-1/23/16 
+<b>1/23/16</b>
 Jackson Morgan:
 	-Made AI work for all soldier types instead of just three.
         -Implemented necessarry helper functions
