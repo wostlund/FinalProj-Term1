@@ -29,6 +29,10 @@ public class AttackChoice {
   public void setKill(int dfh){
     kill = dfh;
   }
+  
+  public int getKill(){
+    return kill;
+  }
 
   public float[] findMax() {
     Unit[][]jacob=data;

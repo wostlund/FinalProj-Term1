@@ -23,6 +23,7 @@ Shop shop;
 Cheats ch = new Cheats();
 Artificial w; 
 private int level = 0;
+int test = 0;
 //int decide;
 //int [] dec;
 /*
@@ -321,6 +322,25 @@ public void colorIndicator() {
       ent = 0;
     }
   }
+  
+  public void special(){
+    if (m.getKill() >= 20){
+      Melee soldier = new Melee(40, 420, unitTraits.getSpeed(0), unitTraits.getArmour(0), unitTraits.getRange(0), unitTraits.getDamage(0), unitTraits.getRace(), unitTraits.getName(0), true, 0);
+      //int k = 0;
+      m.setKill(0);
+      for (int w =0; w < 8; w ++){
+        int k = 0;
+        for (int i = 0; i < board[w].length; i++) {
+          if (board[w][i] == null && k == 0) {
+            board[w][i] = (soldier);
+            k += 1;
+          }
+        }
+      }
+    }
+  }
+        
+      
 
 
   public void enemySpawn() {  
@@ -626,6 +646,7 @@ public void colorIndicator() {
       changeY();
       fillScore();
       setChooserColor();
+      special();
       timer ++;
       etimer ++;
       showPShapes();
