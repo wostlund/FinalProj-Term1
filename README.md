@@ -7,7 +7,8 @@ Our project is a strategy game based off warlords call to arms. In the beginning
 of each round you can buy and upgrade units. Then start the battle. Each soldier type has different stats and spawn time.
 This is where the strategy comes in. There are two main types of enemies, ranged and melee. Ranged enemies are slower
 but can attack from afar. Melee enemies are faster, but have to attack up close. The goal is to get your soldiers to the other end.
-When you do your score goes up one, and the enemy score decreases by one. Whoever gets to 50 first wins. <br>
+When you do your score goes up one, and the enemy score decreases by one. Whoever gets to 50 first wins. If you get
+20 kills ou will get a bonus attack where you spawn one unit in each lane<br>
 2-Directions to compile/run<br>
 This is very simple. You open processing and click play. <br>
 3-Directions to use it.<br>

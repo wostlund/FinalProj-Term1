@@ -339,6 +339,24 @@ public void colorIndicator() {
       }
     }
   }
+  
+  
+   public void eSpecial(){
+    if (em.getKill() >= 20){
+      Melee soldier = new Melee(700, 420, eunitTraits.getSpeed(0), eunitTraits.getArmour(0), eunitTraits.getRange(0), eunitTraits.getDamage(0), eunitTraits.getRace(), eunitTraits.getName(0), false, 0);
+      //int k = 0;
+      em.setKill(0);
+      for (int w =0; w < 8; w ++){
+        int k = 0;
+        for (int i = 0; i < eboard[w].length; i++) {
+          if (eboard[w][i] == null && k == 0) {
+            eboard[w][i] = (soldier);
+            k += 1;
+          }
+        }
+      }
+    }
+  }
         
       
 
@@ -647,6 +665,7 @@ public void colorIndicator() {
       fillScore();
       setChooserColor();
       special();
+      eSpecial();
       timer ++;
       etimer ++;
       showPShapes();
