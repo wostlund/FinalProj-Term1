@@ -298,6 +298,90 @@ public class Artificial {
     }
     return sum == 7;
   }
+  
+
+  
+  public int maxStrChoice() {
+    int ret = 0;
+    int max = 0;
+    for (int n = 0; n < choices.length; n ++) {
+      if (choices[n].getDamage() > max ) {
+        max = choices[n].getDamage();
+        ret = n;
+      }
+    }
+    return ret;
+  }
+  
+  public boolean isFar(){
+    Unit [] dat = minLane(chooseLane());
+    if (dat[0].getXcor() < 650){
+      return true;
+    }
+    return false;
+  }
+  
+
+  public int maxRngChoice() {
+    int ret = 0;
+    int max = 0;
+    for (int n = 0; n < choices.length; n ++) {
+      if (choices[n].getRange() > max ) {
+        max = choices[n].getRange();
+        ret = n;
+      }
+    }
+    return ret;
+  }
+
+   public int maxHpChoice() {
+    int ret = 0;
+    int max = 0;
+    for (int n = 0; n < choices.length; n ++) {
+      if (choices[n].getArmour() > max ) {
+        max = choices[n].getArmour();
+        ret = n;
+      }
+    }
+    return ret;
+  }
+
+   public int maxSpdChoice() {
+    int ret = 0;
+    int max = 0;
+    for (int n = 0; n < choices.length; n ++) {
+      if (choices[n].getSpeed() > max ) {
+        max = choices[n].getSpeed();
+        ret = n;
+      }
+    }
+    return ret;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 
@@ -340,6 +424,6 @@ public class Artificial {
     }
     //}
     return (int)(Math.random() * 3);
-    /// will add evaluation based on langes overall speed dmg etc later
+    
   }
 }
