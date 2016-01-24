@@ -3,8 +3,20 @@ Final Project for my first term of APCS
 
 
 1-Project Description <br>
+Our project is a strategy game based off warlords call to arms. In the beginning 
+of each round you can buy and upgrade units. Then start the battle. Each soldier type has different stats and spawn time.
+This is where the strategy comes in. There are two main types of enemies, ranged and melee. Ranged enemies are slower
+but can attack from afar. Melee enemies are faster, but have to attack up close. The goal is to get your soldiers to the other end.
+When you do your score goes up one, and the enemy score decreases by one. Whoever gets to 50 first wins. <br>
 2-Directions to compile/run<br>
+This is very simple. You open processing and click play. <br>
 3-Directions to use it.<br>
+You use the mouse to pick options like start game or buy units.<br>
+When it the game you use the wasd keys and the enter key. The a and d keys allow you to cycle through your unit types.<br>
+The w and s keys allow you to cycle through your lanes. <br>
+The enter key spawns the selected unit in the selected lane. <br>
+
+There are also cheat codes if you, like us, cannot win. <br>
 
 CHEAT CODES: <br>
 The 'i' key wins the game for you. <br>
