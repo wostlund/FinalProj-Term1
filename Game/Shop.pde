@@ -35,7 +35,36 @@ public class Shop {
     choices[5] = new Melee(482.5, 340.0, 5, 2, 4, 4, n.getRace(), "Longswordsman", true, 3);
     choices[4] = new Melee(400, 340.0, 5, 2, 4, 4, n.getRace(), "Scout", true, 3);
     choices[6] = new Melee(565.0, 340.0, 5, 2, 4, 4, n.getRace(), "Axeman", true, 3);
-    for (int i = 0; i<7; i++) {
+    switch(n.getRace()){
+      case "Men":
+        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "King's Gaurd", true, 3);
+        break;
+      case "Men of the West":
+        choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Javelin Thrower", true, 3);
+        break;
+      case "Mountain Trolls":
+        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Giant Troll", true, 3);
+        break;
+      case "Orcs of the South":
+        choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Axe Thrower", true, 3);
+        break;
+      case "Orcs of the North":
+        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Battle Axeman", true, 3);
+        break;
+      case "Night Elves":
+        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Whirler", true, 3);
+        break;
+      case "Forest Elves":
+        choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Range", true, 3);
+        break;
+      case "The Undead":
+        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Flailer", true, 3);
+        break;
+      default:
+        choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Spearmaster", true, 3);
+        break;
+    }
+    for (int i = 0; i<8; i++) {
       choices[i].setupDisplay(); 
     }
   }
@@ -290,7 +319,7 @@ public class Shop {
       text("Buy", 1250, 490);
     }
     fill(color(255));
-    for (int i = 0; i<7; i++) {
+    for (int i = 0; i<8; i++) {
       if (n.getShow(i)) {
         choices[i].display();
       }
