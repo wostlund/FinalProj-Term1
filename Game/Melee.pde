@@ -77,6 +77,63 @@ public class Melee extends Unit {
       avatar.vertex(this.getXcor() + 20, this.getYcor());
       avatar.endShape(CLOSE);
       break;    
+    case "Giant Troll":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor(), this.getYcor() - 40);
+      avatar.vertex(this.getXcor() - sin((2*PI)/5)*40, this.getYcor() - cos((2*PI)/5)*40);
+      avatar.vertex(this.getXcor() - sin((4*PI)/5)*40, this.getYcor() + cos((PI)/5)*40);
+      avatar.vertex(this.getXcor() + sin((4*PI)/5)*40, this.getYcor() + cos((PI)/5)*40);
+      avatar.vertex(this.getXcor() + sin((2*PI)/5)*40, this.getYcor() - cos((2*PI)/5)*40);
+      avatar.endShape();
+      break;
+    case "King's Gaurd":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() - 20, this.getYcor() - 25);
+      avatar.vertex(this.getXcor() + 20, this.getYcor() - 25);
+      avatar.vertex(this.getXcor() + 20, this.getYcor() + 15);
+      avatar.vertex(this.getXcor(), this.getYcor() + 25);
+      avatar.vertex(this.getXcor() - 20, this.getYcor() + 15);
+      avatar.endShape();
+      break;
+    case "Flailer":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor() + 8, this.getYcor() + 18);
+      avatar.vertex(this.getXcor() - 8, this.getYcor() + 18);
+      avatar.vertex(this.getXcor() - 18, this.getYcor() + 8);
+      avatar.vertex(this.getXcor() - 18, this.getYcor() - 8);
+      avatar.vertex(this.getXcor() - 8, this.getYcor() - 18);
+      avatar.vertex(this.getXcor() + 8, this.getYcor() - 18);
+      avatar.vertex(this.getXcor() + 18, this.getYcor() - 8);
+      avatar.vertex(this.getXcor() + 18, this.getYcor() + 8);
+      avatar.endShape();
+      break;
+    case "Battle Axeman":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor(), this.getYcor()+30);
+      avatar.vertex(this.getXcor()+20, this.getYcor());
+      avatar.vertex(this.getXcor(), this.getYcor()-30);
+      avatar.vertex(this.getXcor()-20, this.getYcor());
+      avatar.endShape();
+    case "Whirler":
+      avatar = createShape();
+      avatar.beginShape();
+      avatar.vertex(this.getXcor()+20, this.getYcor());
+      avatar.vertex(this.getXcor()+5, this.getYcor()+5);
+      avatar.vertex(this.getXcor(), this.getYcor()+20);
+      avatar.vertex(this.getXcor()-5, this.getYcor()+5);
+      avatar.vertex(this.getXcor()-20, this.getYcor());
+      avatar.vertex(this.getXcor()-5, this.getYcor()-5);
+      avatar.vertex(this.getXcor(), this.getYcor()-20);
+      avatar.vertex(this.getXcor()+5, this.getYcor()-5);
+      avatar.endShape();
+      break;
+    case "Spearmaster":
+      avatar = createShape(ELLIPSE, this.getXcor(), this.getYcor(), 60, 40);
+      
     default:
       break;
     }
@@ -104,6 +161,9 @@ public class Melee extends Unit {
       break;
     case "Night Elves":
       avatar.setFill(color(#9014B7));
+      break;
+    case "The Undead":
+      avatar.setFill(color(#DBFFE9));
       break;
     default:
       avatar.setFill(color(0));
