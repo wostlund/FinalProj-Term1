@@ -16,7 +16,7 @@ machines. Just kidding, it doesn't do anything.
 
 Log: 
 
-1/19/16
+<b>1/19/16</b>
 Jackson Morgan:
  	-- Sorta fixed error where same enemy would always spawn when you had not spawned a enemy
  	-- made quit game bring you back to title screen so that you could start a new game 
