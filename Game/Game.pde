@@ -648,6 +648,8 @@ public void colorIndicator() {
         score = new int[50];
         m = new AttackChoice(eboard);
         em = new AttackChoice(board);
+        m.setKill(0);
+        em.setKill(0);
         eattacked = false;
         unitTraits = new Data(0);
         shop = new Shop(unitTraits);
@@ -675,6 +677,8 @@ public void colorIndicator() {
         score = new int[50];
         m = new AttackChoice(eboard);
         em = new AttackChoice(board);
+         m.setKill(0);
+        em.setKill(0);
         eattacked = false;
         shop = new Shop(unitTraits);
         paused = false;
@@ -704,6 +708,8 @@ public void colorIndicator() {
         unitTraits = new Data(0);
         board = new Unit[8][10];
         eboard = new Unit[8][10];
+         m.setKill(0);
+        em.setKill(0);
         playerScore = 25;
         enemyScore = 25;
         score = new int[50];
@@ -714,6 +720,7 @@ public void colorIndicator() {
         paused = false;
         mode = 2;
         playing = false;
+        
 
       
     }
