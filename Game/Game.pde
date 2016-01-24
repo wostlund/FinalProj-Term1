@@ -7,8 +7,8 @@ int choiceR, choiceL;
 Unit[][] board;
 Unit[][] eboard;
 PShape choice1, chooser, play, choice2, choice3, choice4, choice5, choice6, choice7, choice8; //we'll add more if we implement the shop
+PShape echoice1, echoice2, echoice3, echoice4, echoice5, echoice6, echoice7, echoice8;
 ArrayList<PShape> choices = new ArrayList<PShape>();
-PShape echoice1, echoice2, echoice3;
 ArrayList<PShape> echoices = new ArrayList<PShape>();
 int playerScore, enemyScore;
 int [] score;
@@ -21,6 +21,7 @@ Data unitTraits;
 Data eunitTraits;
 Shop shop;
 Cheats ch = new Cheats();
+Artificial w;    
 //int decide;
 //int [] dec;
 /*
@@ -74,6 +75,11 @@ void setup() {
   echoice1 = createShape(ELLIPSE, 1400, 70, 60, 60);
   echoice2 = createShape(ELLIPSE, 1330, 70, 60, 60);
   echoice3 = createShape(ELLIPSE, 1260, 70, 60, 60);
+  echoice4 = createShape(ELLIPSE, 1190, 70, 60, 60);
+  echoice5 = createShape(ELLIPSE, 1120, 70, 60, 60);
+  echoice6 = createShape(ELLIPSE, 1050, 70, 60, 60);
+  echoice7 = createShape(ELLIPSE, 980, 70, 60, 60);
+  echoice8 = createShape(ELLIPSE, 910, 70, 60, 60);
   echoices.add(echoice1);
   echoices.add(echoice2);
   echoices.add(echoice3);
@@ -102,6 +108,8 @@ void setup() {
   s = createFont("Arial", 16, true);
   p = createFont("Arial", 16, true);
   g = createFont("Arial", 16, true);
+  w = new Artificial(board, eboard);
+  w.setupAI(eunitTraits);
 }
 
 /*void fillArray(){
@@ -137,6 +145,21 @@ public void showPShapes() {
   }
   if (unitTraits.getUnits()>7) {
     shape(choice8);
+  }
+  if (eunitTraits.getUnits()>3) {
+    shape(echoice4);
+  }
+  if (eunitTraits.getUnits()>4) {
+    shape(echoice5);
+  }
+  if (eunitTraits.getUnits()>5) {
+    shape(echoice6);
+  }
+  if (eunitTraits.getUnits()>6) {
+    shape(echoice7);
+  }
+  if (eunitTraits.getUnits()>7) {
+    shape(echoice8);
   }
 }
 
@@ -284,10 +307,8 @@ public void playerSpawn() {
 }
 
 
-public void enemySpawn() {
-  Artificial w = new Artificial(board, eboard);    
+public void enemySpawn() {  
   Unit soldier = new Melee();
-  w.setupAI(eunitTraits);
   int [] dec = new int [2];
   dec[0] = w.chooseLane();
   dec[1] = w.selClass();
@@ -547,6 +568,8 @@ public void doCheats(){
 
 void draw() { //player colors are now controllable
   if (mode == 4) {
+    w.setBoard(board);
+    w.seteBoard(eboard);
     playing = true;
     m.setData(eboard);
     em.setData(board);

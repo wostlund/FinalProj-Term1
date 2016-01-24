@@ -4,6 +4,14 @@ public class Artificial {
   Unit [][] eary = new Unit [8][100];
   Unit [] choices = new Unit [10]; 
   Data s = new Data();
+  
+  public void setBoard(Unit[][]n){
+    ary =  n;
+  }
+  public void seteBoard(Unit[][]n){
+    eary =  n;
+  }
+
 
   Artificial(Unit [][] j, Unit [][] e ) {
     for (int i = 0; i < j.length; i ++) {
