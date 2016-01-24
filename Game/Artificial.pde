@@ -405,7 +405,6 @@ public class Artificial {
   
   
   public int choose2(){
-    println(maxStrChoice());
     if (evalStrLane(chooseLane(), ary) / 5   > evalSpdLane(chooseLane(), ary)){
       return maxStrChoice();
     }
@@ -413,6 +412,16 @@ public class Artificial {
      return (int)(Math.random() * 3);
    }
    else{return (int)(Math.random() * 4) + 4;}
+    
+  }
+  
+  
+  public int choose3(){
+    println(maxStrChoice());
+    if (evalStrLane(chooseLane(), ary) / 5   < evalSpdLane(chooseLane(), ary)){
+      return maxSpdChoice();
+    }
+     return (int)(Math.random() * 7);
     
   }
 
