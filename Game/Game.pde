@@ -24,6 +24,7 @@ Cheats ch = new Cheats();
 Artificial w; 
 private int level = 0;
 int test = 0;
+int r = 0;
 //int decide;
 //int [] dec;
 /*
@@ -735,6 +736,10 @@ public void colorIndicator() {
       playing = false;
       Home d = new Home();
       d.displayMenu();
+      if(keyPressed){
+        r = d.selClass();
+      }
+      println(r);
       mode = d.mouseClicked();
     }
 
