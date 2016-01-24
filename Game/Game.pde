@@ -21,7 +21,8 @@ Data unitTraits;
 Data eunitTraits;
 Shop shop;
 Cheats ch = new Cheats();
-Artificial w;    
+Artificial w; 
+private int level = 0;
 //int decide;
 //int [] dec;
 /*
@@ -461,7 +462,12 @@ public void colorIndicator() {
     if (playerScore >= 50) {
       playing = false;
       timer = 0;
-      mode = 5;
+      level ++;
+      if(level == 6){
+        mode = 15;}
+      else{
+      mode = 5;}
+      
     }
   }
 
@@ -485,6 +491,7 @@ public void colorIndicator() {
     }
     if (enemyScore >= 50) {
       mode =1;
+      level = 0;
       playing = false;
     }
   }
@@ -645,6 +652,7 @@ public void colorIndicator() {
         paused = false;
         mode = 2;
         playing = false;
+        level = 0;
       }
     }
 
@@ -680,11 +688,31 @@ public void colorIndicator() {
     }
 
 
-    if (mode == 2) {
-      playing = false;
-      Home d = new Home();
-      d.displayMenu();
-      mode = d.mouseClicked();
+    if (mode == 15) {
+      Complete w = new Complete();
+      w.winGame();
+      if ((mouseX  > 650 && mouseX< 890) && (mouseY  > 15  && mouseY < 100  ) && mousePressed) {
+        choice = 0;
+        echoice = 0;
+        timer = 0;
+        etimer = 0;
+        init = false;
+        einit = false;
+        board = new Unit[8][10];
+        eboard = new Unit[8][10];
+        playerScore = 25;
+        enemyScore = 25;
+        score = new int[50];
+        m = new AttackChoice(eboard);
+        em = new AttackChoice(board);
+        eattacked = false;
+        shop = new Shop(unitTraits);
+        paused = false;
+        mode = 2;
+        playing = false;
+        level = 0;
+      
+    }
     }
 
     boolean k = true;
