@@ -71,8 +71,6 @@ public abstract class Unit {
     AttackChoice m = new AttackChoice(k);
     if (player) {
       if (m.inLane(this.getLane()) && this.xcor + this.range/3  >= m.findMin()[lane]) {
-        println(m.findMin()[lane]);
-        println();
         float[]x = m.findMin();
         attack(m.minUnit(x)[lane]);
       } else {

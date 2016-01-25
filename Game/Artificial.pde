@@ -444,7 +444,6 @@ public class Artificial {
 
   
    public int choose5(){
-     println(maxRngChoice());
     if (isFar()){
       return maxRngChoice();
     }

@@ -5,11 +5,7 @@ public class Home {
     g = createFont("Arial", 16, true);
     m = createFont("Arial", 16, true);
     i = createFont("Arial", 16, true);
-<<<<<<< HEAD
-    j = createFont("Arial", 16, true);
-=======
-    
->>>>>>> 366aef5d1671f6f6dc9b26fb7e4bdda61e6a00b9
+    //j = createFont("Arial", 16, true);
   }
 
   public void displayMenu() {
