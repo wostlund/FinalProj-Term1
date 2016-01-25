@@ -2,7 +2,7 @@ public class Shop {
 
   //This is self explanitory
 
-  private PFont a, b, c, d, e, f, g, speed, armour, range, spear, sword, halberd, axe;
+  private PFont a, b, c, d, e, f, g, speed, armour, range, spear, sword, halberd, axe, money, description;
   private PShape choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
   private int speedTimer, armourTimer, rangeTimer, spearTimer, swordTimer, halberdTimer, axeTimer;
 
@@ -70,6 +70,7 @@ public class Shop {
   }
 
   public void shopSetup() {
+    description = createFont("Ariel", 32);
     choice1 = createShape(RECT, 60, 600, 160, 160);
     choice1.setFill(color(#AD2E1F));
     choice2 = createShape(RECT, 225, 600, 160, 160);
@@ -93,6 +94,7 @@ public class Shop {
     e = createFont("Ariel", 72);
     f = createFont("Ariel", 72);
     g = createFont("Ariel", 72);
+    money = createFont("Areil", 32);
     speed = createFont("Ariel", 72);
     armour = createFont("Ariel", 72); 
     range = createFont("Ariel", 72); 
@@ -158,36 +160,79 @@ public class Shop {
     background(color(#5D5A5A));
     if (mouseX<= 220 && mouseX>= 60 && mouseY <=760 && mouseY>=600 || !n.getShow(0)) {
       choice1.setFill(color(#A21A1A));
+      if (n.getShow(0)) {
+        textFont(description);
+        textSize(24);
+        text("Mage: Powerful ranged attack, but with very low armour.", 60, 800);
+        text("Price: 900, Speed: 3, Armour: 10, Range: 1000, Max Damage: 50", 60, 830);
+      }
     } else {
       choice1.setFill(color(#AD2E1F));
     }
     if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 || !n.getShow(1)) {
       choice2.setFill(color(#A21A1A));
+      if (n.getShow(1)) {
+        textFont(description);
+        textSize(24);
+        text("Mounted Spearman: Fast, tough, powerful unit. Good for dealing with powerful short-ranged units.", 60, 800);
+        text("Price: 1400, Speed: 6, Armour: 100, Range: 200, Max Damage: 20", 60, 830);
+      }
     } else {
       choice2.setFill(color(#AD2E1F));
     }
     if (mouseX<= 550 && mouseX>= 390 && mouseY <=760 && mouseY>=600 || !n.getShow(2)) {
       choice3.setFill(color(#A21A1A));
+      if (n.getShow(2)) {
+        textFont(description);
+        textSize(24);
+        text("Halberdier: Strong, long reaching attack but with very low armour. Excellent in numbers", 60, 800);
+        text("against mounted units. Vulnerable to ranged attacks.", 60, 830);
+        text("Price: 400, Speed: 2, Armour: 40, Range: 130, Max Damage: 40", 60, 860);
+      }
     } else {
       choice3.setFill(color(#AD2E1F));
     }
     if (mouseX<= 715 && mouseX>= 555 && mouseY <=760 && mouseY>=600 || !n.getShow(3)) {
       choice4.setFill(color(#A21A1A));
+      if (n.getShow(3)) {
+        textFont(description);
+        textSize(24);
+        text("Mounted Halberdier: Very fast with a long ranged attack.", 60, 800);
+        text("Price: 1100, Speed: 8, Armour: 60, Range: 200, Max Damage: 45", 60, 830);
+      }
     } else {
       choice4.setFill(color(#AD2E1F));
     }
     if (mouseX<= 880 && mouseX>= 720 && mouseY <=760 && mouseY>=600 || !n.getShow(4)) {
       choice5.setFill(color(#A21A1A));
+      if (n.getShow(4)) {
+        textFont(description);
+        textSize(24);
+        text("Scout: Very fast, but very weak unit. Useful for charging through gaps in the enemy's defense", 60, 800);
+        text("Price: 450, Speed: 3, Armour: 10, Range: 60, Max Damage: 10", 60, 830);
+      }
     } else {
       choice5.setFill(color(#AD2E1F));
     }
     if (mouseX<= 1045 && mouseX>= 885 && mouseY <=760 && mouseY>=600 || !n.getShow(5)) {
       choice6.setFill(color(#A21A1A));
+      if (n.getShow(5)) {
+        textFont(description);
+        textSize(24);
+        text("Longswordsman: Extra tough swordsman with a long reaching sword.", 60, 800);
+        text("Price: 1000, Speed: 3, Armour: 100, Range: 100, Max Damage: 60", 60, 830);
+      }
     } else {
       choice6.setFill(color(#AD2E1F));
     }
     if (mouseX<= 1210 && mouseX>= 1050 && mouseY <=760 && mouseY>=600 || !n.getShow(6)) {
       choice7.setFill(color(#A21A1A));
+      if (n.getShow(6)) {
+        textFont(description);
+        textSize(24);
+        text("Axeman: Attacks while charging forward. Useful against long reaching weapons", 60, 800);
+        text("Price: 500, Speed: 5, Armour: 80, Range: 110, Max Damage: 45", 60, 830);
+      }
     } else {
       choice7.setFill(color(#AD2E1F));
     }
@@ -207,6 +252,9 @@ public class Shop {
     textFont(a);
     textSize(72);
     text("Money", 50, 200);
+    textFont(money);
+    textSize(64);
+    text(n.getMoney(), 50, 300);
     textFont(b);
     textSize(36);
     text("Your Army's Units", 50, 570);

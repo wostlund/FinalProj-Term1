@@ -24,7 +24,7 @@ private String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountai
     damages.add(20);
     damages.add(35);
     damages.add(10);
-    money = 3600;
+    money = 500;
     spearUpgrade = 0;
     swordUpgrade = 0;
     speedUpgrade = 0;

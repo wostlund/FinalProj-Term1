@@ -504,7 +504,9 @@ public void displaySoldier() {
     playing = false;
     timer = 0;
     level ++;
-    if (level == 6) {
+    unitTraits.setMoney(unitTraits.getMoney()+m.getKill()*10);
+    m.setKill(0);
+    if (level == 7) {
       mode = 15;
     } else {
       eunitTraits = new Data(level);
