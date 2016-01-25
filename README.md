@@ -7,8 +7,7 @@ Our project is a strategy game based off warlords call to arms. In the beginning
 of each round you can buy and upgrade units. Then start the battle. Each soldier type has different stats and spawn time.
 This is where the strategy comes in. There are two main types of enemies, ranged and melee. Ranged enemies are slower
 but can attack from afar. Melee enemies are faster, but have to attack up close. The goal is to get your soldiers to the other end.
-When you do your score goes up one, and the enemy score decreases by one. Whoever gets to 50 first wins. If you get
-20 kills ou will get a bonus attack where you spawn one unit in each lane<br>
+When you do your score goes up one, and the enemy score decreases by one. Whoever gets to 50 first wins.<br>
 2-Directions to compile/run<br>
 This is very simple. You open processing and click play. <br>
 3-Directions to use it.<br>
@@ -26,7 +25,6 @@ The 'i' key wins the game for you. <br>
 The 'o' key will lose the game for you.<br>
 The 'p' key will increase your score.<br>
 The 'l' key will decrease your code.<br>
-The 'k' key will set your kills to 20 so that you can use a special move.(one time use)<br>
 The Konami Code will find you cleaning bathrooms for the company as it stops game development in favor of pachinko <br>
 machines. Just kidding, it doesn't do anything. <br> 
 
@@ -101,7 +99,6 @@ Will Ostlund:<br><br>
 <b>1/24/16</b>
 Jackson Morgan:<br>
 	-Added Cheat Codes<br>
-	-Made special attack that occurs after 20 kills.<br>
 	-Created different levels in the game <br>
 	-Made the player and enemy able to be different races<br>
 	-Added the ability to chose a race to the homescreen<br>
