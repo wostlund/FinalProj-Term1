@@ -6,6 +6,7 @@ public class Home {
     g = createFont("Arial", 16, true);
     m = createFont("Arial", 16, true);
     i = createFont("Arial", 16, true);
+    j = createFont("Arial", 16, true);
   }
 
   public void displayMenu() {
