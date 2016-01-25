@@ -70,7 +70,7 @@ void setup() {
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
   eattacked = false;
-  unitTraits = new Data(0);
+  unitTraits = new Data(r);
   eunitTraits = new Data(level);
   shop = new Shop(unitTraits);
   paused = false;
@@ -593,7 +593,7 @@ public void colorIndicator() {
       m = new AttackChoice(eboard);
       em = new AttackChoice(board);
       eattacked = false;
-      unitTraits = new Data(0);
+      unitTraits = new Data(r);
       shop = new Shop(unitTraits);
       paused = false;
       mode = 2;
@@ -632,6 +632,31 @@ public void colorIndicator() {
       test ++;
     }
       
+  }
+  
+    public int selClass(){
+    if (keyPressed && key == '0'){
+      return 0;
+    }
+     if (keyPressed && key == '1'){
+      return 1;
+    }
+     if (keyPressed && key == '2'){
+      return 2;
+    }
+     if (keyPressed && key == '3'){
+      return 3;
+    }
+     if (keyPressed && key == '4'){
+      return 4;
+    }
+     if (keyPressed && key == '5'){
+      return 5;
+    }
+     if (keyPressed && key == '6'){
+      return 6;
+    }
+    return 0;
   }
 
 
@@ -697,7 +722,7 @@ public void colorIndicator() {
         m.setKill(0);
         em.setKill(0);
         eattacked = false;
-        unitTraits = new Data(0);
+        unitTraits = new Data(r);
         shop = new Shop(unitTraits);
         paused = false;
         mode = 2;
@@ -733,13 +758,21 @@ public void colorIndicator() {
       }
     }
     if (mode == 2) {
+      String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountain Trolls", "Forest Elves", "Men of the West", "Night Elves"};
       playing = false;
-      Home d = new Home();
-      d.displayMenu();
+       Home d = new Home();
       if(keyPressed){
-        r = d.selClass();
-      }
+        r = selClass();
+      }     
+      d.displayMenu();
+      String s = "You have currently selected " + ra[r];
+      PFont j;
+      j = createFont("Arial", 16, true);     
+     textFont(j, 36);
+     fill(255);
+     text(s, 500, 800);
       println(r);
+      unitTraits = new Data(r);
       mode = d.mouseClicked();
     }
 
@@ -755,7 +788,7 @@ public void colorIndicator() {
         etimer = 0;
         init = false;
         einit = false;
-        unitTraits = new Data(0);
+        unitTraits = new Data(r);
         board = new Unit[8][10];
         eboard = new Unit[8][10];
          m.setKill(0);
