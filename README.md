@@ -98,4 +98,15 @@ Will Ostlund:<br><br>
 	-Made minor upgrades to balance the game play between units<br>
 	-NO BUGS were created in the process<br>
 
+<b>1/24/16</b>
+Jackson Morgan:<br>
+	-Added Cheat Codes<br>
+	-Made special attack that occurs after 20 kills.<br>
+	-Created different levels in the game <br>
+	-Made the player and enemy able to be different races<br>
+	-Added the ability to chose a race to the homescreen<br>
+	-Made it so you faced different race types in each level <br>
+	-Made it so once you beat all the levels you could start over<br>
+	-Made new screen for when you beat all levels.<br>
+
 
