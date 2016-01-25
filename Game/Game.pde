@@ -26,6 +26,7 @@ private int level = 0;
 int test = 0;
 int r = 0;
 PFont playerUnit;
+String x;
 //int decide;
 //int [] dec;
 /*
@@ -49,6 +50,7 @@ Our code got very cluttered so I'm going to make this glossary to make it easier
 
 //ArrayList[][] board = new ArrayList[8][100];  
 void setup() {
+  x = new String();
   playerUnit = createFont("Ariel", 32);
   playing = false;
   mode = 2;
@@ -72,7 +74,7 @@ void setup() {
   m = new AttackChoice(eboard);
   em = new AttackChoice(board);
   eattacked = false;
-  unitTraits = new Data(r);
+  unitTraits = new Data(0);
   eunitTraits = new Data(level);
   shop = new Shop(unitTraits);
   paused = false;
@@ -659,6 +661,12 @@ public int selClass() {
   if (keyPressed && key == '6') {
     return 6;
   }
+  if ((keyPressed && key == '7') {
+    return 7;
+  }
+  (keyPressed && key == '8') {
+    return 8;
+  }
   return 0;
 }
 
@@ -767,21 +775,24 @@ void draw() { //player colors are now controllable
     }
   }
   if (mode == 2) {
-    String [] ra = {"Men", "Orcs of the North", "Orcs of the South", "Mountain Trolls", "Forest Elves", "Men of the West", "Night Elves"};
+    String [] ra = {"Men", "Orcs of the North", "Orcs of the South", "Mountain Trolls", "Forest Elves", "Men of the West", "Night Elves", "The Undead"};
     playing = false;
     Home d = new Home();
     if (keyPressed) {
       r = selClass();
     }     
     d.displayMenu();
-    String s = "You have currently selected " + ra[r];
+    String s = "You have currently selected ";
     PFont j;
     j = createFont("Arial", 16, true);     
     textFont(j, 36);
     fill(255);
-    text(s, 500, 800);
-    unitTraits = new Data(r);
-    mode = d.mouseClicked();
+    text(s, 500, 650);
+    textSize(64);
+    text(ra[r], 460, 720);
+    unitTraits.setRace(ra[r]);
+    shop= new Shop(unitTraits);
+    mode = d.mouseClicked(ra[r], unitTraits);
   }
 
 

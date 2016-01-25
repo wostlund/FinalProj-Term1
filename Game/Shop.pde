@@ -37,7 +37,7 @@ public class Shop {
     choices[6] = new Melee(565.0, 340.0, 5, 2, 4, 4, n.getRace(), "Axeman", true, 3);
     switch(n.getRace()) {
     case "Men":
-      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "King's Gaurd", true, 3);
+      choices[7] = new Melee(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "King's Guard", true, 3);
       break;
     case "Men of the West":
       choices[7] = new Range(647.5, 340.0, 5, 2, 4, 4, n.getRace(), "Javelin Thrower", true, 3);
@@ -238,6 +238,65 @@ public class Shop {
     }
     if (mouseX<= 1375 && mouseX>= 1215 && mouseY <=760 && mouseY>=600 || !n.getShow(7)) {
       choice8.setFill(color(#A21A1A));
+      if (n.getShow(7)) {
+        switch(n.getRace()) {
+          case "Men":
+            textFont(description);
+            textSize(24);
+            text("King's Guard: Heavily armoured elite swordsman", 60, 800);
+            text("Price: 1600, Speed: 4, Armour: 120, Range: 10, Max Damage: 45", 60, 830);
+            break;
+          case "Men of the West":
+            textFont(description);
+            textSize(24);
+            text("Javelin Thrower: Medium-short ranged projectile attacks. Useful against halberdiers and", 60, 800);
+            text("Battle Axemen", 60, 830);
+            text("Price: 800, Speed: 4, Armour: 50, Range: 750, Max Damage: 25", 60, 860);
+            break;
+          case "Mountain Trolls":
+            textFont(description);
+            textSize(24);
+            text("Giant Troll: Very tough unit with very dangerous attack. Takes a long time to produce.", 60, 800);
+            text("Price: 3200, Speed: 5, Armour: 220, Range: 250, Max Damage: 500", 60, 830);
+            break;
+          case "The Undead":
+            textFont(description);
+            textSize(24);
+            text("Flailer: Tough unit with very dangerous attack.", 60, 800);
+            text("Price: 1300, Speed: 3, Armour: 100, Range: 165, Max Damage: 100", 60, 830);
+            break;
+          case "Night Elves":
+            textFont(description);
+            textSize(24);
+            text("Whirler: Dangerous rapid attacks. Very useful against lone units.", 60, 800);
+            text("Price: 1600, Speed: 5, Armour: 100, Range: 160, Max Damage: 35", 60, 830);
+            break;
+          case "Forest Elves":
+            textFont(description);
+            textSize(24);
+            text("Ranger: Skilled archer. Can fire arrows more rapidly and farther than the standard archer.", 60, 800);
+            text("Price: 1300, Speed: 2, Armour: 50, Range: 1700, Max Damage: 10", 60, 830);
+            break;
+          case "Orcs of the North":
+            textFont(description);
+            textSize(24);
+            text("Battle Axeman: Very high damage attack, but is slow to use it and has weak armour.", 60, 800);
+            text("Price: 900, Speed: 3, Armour: 40, Range: 100, Max Damage: 60", 60, 830);
+            break;
+          case "Orcs of the South":
+            textFont(description);
+            textSize(24);
+            text("Axe Thrower: Medium ranged, medium damage attacks.", 60, 800);
+            text("Price: 600, Speed: 3, Armour: 40, Range: 750, Max Damage: 20", 60, 830);
+            break;
+          case "Demons":
+            textFont(description);
+            textSize(24);
+            text("Spearmaster: Highly skilled spearman.", 60, 800);
+            text("Price: 1200, Speed: 6, Armour: 130, Range: 130, Max Damage: 45", 60, 830);
+            break;
+        }
+      }
     } else {
       choice8.setFill(color(#AD2E1F));
     }
@@ -458,7 +517,7 @@ public class Shop {
         case "Men":
           if (n.getMoney()>=1600) {
             n.setShow(7);
-            n.setName("King's Gaurd");
+            n.setName("King's Guard");
             n.setSpeed(4 + n.getSpeedUpgrade());
             n.setArmour(120 + (n.getArmourUpgrade() * 10));
             n.setRange(130);
@@ -475,8 +534,8 @@ public class Shop {
             n.setName("Javelin Thrower");
             n.setSpeed(4 + n.getSpeedUpgrade());
             n.setArmour(50 + (n.getArmourUpgrade() * 10));
-            n.setRange(750);
-            n.setDamages(25);
+            n.setRange(250);
+            n.setDamages(75);
             n.setIsMelee(false);
             n.setSpawnTime(225);
             n.setUnits(n.getUnits()+1);

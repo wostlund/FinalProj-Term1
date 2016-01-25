@@ -87,7 +87,7 @@ public class Melee extends Unit {
       avatar.vertex(this.getXcor() + sin((2*PI)/5)*40, this.getYcor() - cos((2*PI)/5)*40);
       avatar.endShape();
       break;
-    case "King's Gaurd":
+    case "King's Guard":
       avatar = createShape();
       avatar.beginShape();
       avatar.vertex(this.getXcor() - 20, this.getYcor() - 25);

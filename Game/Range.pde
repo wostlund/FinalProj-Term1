@@ -52,6 +52,7 @@ public class Range extends Unit {
       avatar.vertex(this.getXcor() - 30, this.getYcor());
       avatar.vertex(this.getXcor(), this.getYcor() - 20);
       avatar.endShape();
+      break;
     default:
       triangle(this.getXcor(), this.getYcor()+20, this.getXcor()-20, this.getYcor()-20, this.getXcor()+20, this.getYcor()-20);
     }

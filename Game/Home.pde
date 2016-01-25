@@ -9,7 +9,7 @@ public class Home {
   }
 
   public void displayMenu() {
-    background(0, 0, 256);
+    background(color(#5D5A5A));
     textFont(g, 36);
     fill(255);
     text("Start Game", 650, 490);
@@ -18,11 +18,12 @@ public class Home {
     text("Warlords: Call to Prosthetic Limbs", 250, 70);
     textFont(i, 36);
     fill(255);
-    text("Pick a race by pressing numbers 0-6", 500, 700);
+    text("Pick a race by pressing numbers 0-6", 450, 600);
   }
 
-  public int mouseClicked() {
+  public int mouseClicked(String s, Data n) {
     if ((mouseX  > 650 && mouseX< 830) && (mouseY  > 470 && mouseY < 510  ) && mousePressed) {
+      n.setRace(s);
       return 0;
     } else {
       return 2;
