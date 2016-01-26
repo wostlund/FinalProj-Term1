@@ -18,7 +18,7 @@ public class Home {
     text("Warlords: Call to Prosthetic Limbs", 250, 70);
     textFont(i, 36);
     fill(255);
-    text("Pick a race by pressing numbers 0-6", 450, 600);
+    text("Pick a race by pressing numbers 0-9", 450, 600);
   }
 
   public int mouseClicked(String s, Data n) {
