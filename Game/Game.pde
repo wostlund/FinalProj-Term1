@@ -661,10 +661,10 @@ public int selClass() {
   if (keyPressed && key == '6') {
     return 6;
   }
-  if ((keyPressed && key == '7') {
+  if (keyPressed && key == '7') {
     return 7;
   }
-  (keyPressed && key == '8') {
+  if (keyPressed && key == '8'){
     return 8;
   }
   return 0;
