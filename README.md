@@ -77,6 +77,7 @@ Will Ostlund:<br>
 	-Created attributes for all of the new units<br>
 	-NO BUGS were made in the process<br>
 	-Set a series of booleans that prevent the purchase of one unit multiple times<br>
+	GOAL: To make shapes to represent each unit
 
 <b>1/23/16</b>
 Jackson Morgan:<br>
@@ -117,4 +118,11 @@ Will Ostlund: <br>
 	-BUG FIXED: Text is now displayed when showing the user's choice on the screen when he is choosing a unit to spawn <br>
 	GOAL FOR TOMORROW: Make a few minor aesthetic changes completely finishing the game
 
-
+<b>1/25/16</b>
+Will Ostlund <br>
+	-Created descriptions for every unit<br>
+	-Fixed colors so that they for each race<br>
+	-BUG: When the user picks the race, it does not immediately convert the shapes to accomodate this choice<br>
+	-BUG FIXED: The shop had already set its shapes by the time the choice was made<br>
+	-Made tweaks to the unit attributes
+	-Finished our project
