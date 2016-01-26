@@ -25,7 +25,7 @@ private int kills;
     damages.add(20);
     damages.add(35);
     damages.add(10);
-    money = 600;
+    money = 6000;
     spearUpgrade = 0;
     swordUpgrade = 0;
     speedUpgrade = 0;

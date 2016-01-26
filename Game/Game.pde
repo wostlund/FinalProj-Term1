@@ -680,7 +680,6 @@ void showUnitName() {
 
 void draw() { //player colors are now controllable
   if (mode == 4) {
-    println(eunitTraits.getSpeed(1));
     w.setBoard(board);
     w.seteBoard(eboard);
     playing = true;
