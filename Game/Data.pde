@@ -9,9 +9,9 @@ private String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountai
     isMelee.add(true);
     isMelee.add(true);
     isMelee.add(false);
-    spawnTimes.add(160);
-    spawnTimes.add(240);
-    spawnTimes.add(200);    
+    spawnTimes.add(130);
+    spawnTimes.add(190);
+    spawnTimes.add(175);    
     speeds.add(5);
     speeds.add(3);
     speeds.add(3);
@@ -24,7 +24,7 @@ private String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountai
     damages.add(20);
     damages.add(35);
     damages.add(10);
-    money = 500;
+    money = 600;
     spearUpgrade = 0;
     swordUpgrade = 0;
     speedUpgrade = 0;
@@ -93,6 +93,9 @@ private String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountai
   }
   public void setSpearUpgrade(int n) {
     this.spearUpgrade = n;
+  }
+  public void setSpawnTime(int n, int choice){
+    this.spawnTimes.set(choice,n);
   }
   public void setSwordUpgrade(int n) {
     this.swordUpgrade = n;

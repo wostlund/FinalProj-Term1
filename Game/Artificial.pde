@@ -3,7 +3,7 @@ public class Artificial {
   private Unit [][] ary = new Unit [8][100];
   private Unit [][] eary = new Unit [8][100];
   private Unit [] choices = new Unit [10]; 
-  private Data s; 
+  private Data s;
   
   public void setBoard(Unit[][]n){
     ary =  n;
@@ -42,15 +42,15 @@ public class Artificial {
           n.setRange(100);
           n.setDamages(125);
           n.setIsMelee(false);
-          n.setSpawnTime(300);
+          n.setSpawnTime(220);
           n.setUnits(n.getUnits()+1);
           n.setName("Mounted Spearman");
           n.setSpeed(6);
           n.setArmour(100);
-          n.setRange(130);
+          n.setRange(170);
           n.setDamages(20);
           n.setIsMelee(true);
-          n.setSpawnTime(500);
+          n.setSpawnTime(280);
           n.setUnits(n.getUnits()+1);
           n.setName("Halberdier");
           n.setSpeed(2);
@@ -58,7 +58,7 @@ public class Artificial {
           n.setRange(125);
           n.setDamages(40);
           n.setIsMelee(true);
-          n.setSpawnTime(180);
+          n.setSpawnTime(175);
           n.setUnits(n.getUnits()+1);
           n.setName("Mounted Halberdier");
           n.setSpeed(8);
@@ -66,7 +66,7 @@ public class Artificial {
           n.setRange(130);
           n.setDamages(40);
           n.setIsMelee(true);
-          n.setSpawnTime(450);
+          n.setSpawnTime(260);
           n.setUnits(n.getUnits()+1);
           n.setName("Longswordsman");
           n.setSpeed(3);
@@ -74,7 +74,7 @@ public class Artificial {
           n.setRange(100);
           n.setDamages(60);
           n.setIsMelee(true);
-          n.setSpawnTime(380);
+          n.setSpawnTime(225);
           n.setUnits(n.getUnits()+1);
           n.setName("Axeman");
           n.setSpeed(5);
@@ -82,7 +82,7 @@ public class Artificial {
           n.setRange(110);
           n.setDamages(45);
           n.setIsMelee(true);
-          n.setSpawnTime(250);
+          n.setSpawnTime(190);
           n.setUnits(n.getUnits()+1);
           n.setName("Scout");
           n.setSpeed(10);
@@ -90,7 +90,7 @@ public class Artificial {
           n.setRange(60);
           n.setDamages(10);
           n.setIsMelee(true);
-          n.setSpawnTime(170);
+          n.setSpawnTime(160);
           n.setUnits(n.getUnits()+1);
      }
   }
@@ -412,7 +412,9 @@ public class Artificial {
      
   }
   
-  
+  public void setData(Data n){
+     s = n; 
+  }
   
   public int choose2(){
     if (evalStrLane(chooseLane(), ary) / 5   > evalSpdLane(chooseLane(), ary)){
@@ -442,6 +444,9 @@ public class Artificial {
     
   }
 
+  public Data getData(){
+    return s; 
+  }
   
    public int choose5(){
     if (isFar()){
@@ -472,7 +477,7 @@ public class Artificial {
    }
    return (int)(Math.random() * 8);
  }
-   
+  
      
   
   

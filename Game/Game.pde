@@ -219,7 +219,7 @@ public void ecolorIndicator() {
     echoices.get(i).setFill(color(255));
   }
   if (etimer >= unitTraits.getSpawnTime(echoice)) {
-    fillColor(echoices.get(echoice));
+    fillColor(echoices.get(echoice), eunitTraits);
   } else {
     echoices.get(echoice).setFill(color(190, 90, 0));
   }
@@ -520,6 +520,7 @@ public void displaySoldier() {
 }
 
 
+
 public void displayEnemy() {
   for (int i = 0; i < eboard.length; i++) {
     for (int k = 0; k < eboard[i].length; k ++) { //
@@ -661,10 +662,10 @@ public int selClass() {
   if (keyPressed && key == '6') {
     return 6;
   }
-  if ((keyPressed && key == '7') {
+  if (keyPressed && key == '7') {
     return 7;
   }
-  (keyPressed && key == '8') {
+  if (keyPressed && key == '8'){
     return 8;
   }
   return 0;
@@ -678,7 +679,7 @@ void showUnitName() {
 
 void draw() { //player colors are now controllable
   if (mode == 4) {
-    println(echoice);
+    println(eunitTraits.getSpeed(1));
     w.setBoard(board);
     w.seteBoard(eboard);
     playing = true;
@@ -775,7 +776,7 @@ void draw() { //player colors are now controllable
     }
   }
   if (mode == 2) {
-    String [] ra = {"Men", "Orcs of the North", "Orcs of the South", "Mountain Trolls", "Forest Elves", "Men of the West", "Night Elves", "The Undead"};
+    String [] ra = {"Men", "Demons", "Orcs of the North", "Orcs of the South", "Mountain Trolls", "Forest Elves", "Men of the West", "Night Elves", "The Undead"};
     playing = false;
     Home d = new Home();
     if (keyPressed) {
@@ -838,7 +839,7 @@ void draw() { //player colors are now controllable
 
 public void setChooserColor() {
   if (timer >= unitTraits.getSpawnTime(choice)) {
-    chooser.setFill(color(0, 0, 256));
+    fillColor(chooser);
   } else {
     chooser.setFill(color(255));
   }
@@ -846,6 +847,35 @@ public void setChooserColor() {
 
 public void fillColor(PShape avatar) {
   switch(unitTraits.getRace()) {
+  case "Men":
+    avatar.setFill(color(0, 0, 256));
+    break;
+  case "Orcs of the North":
+    avatar.setFill(color(256, 0, 0));
+    break;
+  case "Orcs of the South":
+    avatar.setFill(color(#8E6D6D));
+    break;
+  case "Mountain Trolls":
+    avatar.setFill(color(#E535DA));
+    break;
+  case "Forest Elves":
+    avatar.setFill(color(#34934E));
+    break;
+  case "Men of the West":
+    avatar.setFill(color(#ECF511));
+    break;
+  case "Night Elves":
+    avatar.setFill(color(#9014B7));
+    break;
+  default:
+    avatar.setFill(color(0));
+    break;
+  }
+}
+  
+public void fillColor(PShape avatar, Data n) {
+  switch(n.getRace()) {
   case "Men":
     avatar.setFill(color(0, 0, 256));
     break;

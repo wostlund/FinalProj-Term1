@@ -86,6 +86,9 @@ public class Range extends Unit {
     case "Night Elves":
       avatar.setFill(color(#9014B7));
       break;
+    case "The Undead":
+      avatar.setFill(color(#DBFFE9));
+      break;
     default:
       avatar.setFill(color(0));
       break;

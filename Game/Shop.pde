@@ -443,7 +443,7 @@ public class Shop {
         n.setRange(100);
         n.setDamages(125);
         n.setIsMelee(false);
-        n.setSpawnTime(300);
+        n.setSpawnTime(220);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 900);
       } else if (mouseX<= 385 && mouseX>= 225 && mouseY <=760 && mouseY>=600 && n.getShow(1) && n.getMoney() >= 1400) {
@@ -454,7 +454,7 @@ public class Shop {
         n.setRange(175);
         n.setDamages(20 + n.getSpearUpgrade() * 5);
         n.setIsMelee(true);
-        n.setSpawnTime(500);
+        n.setSpawnTime(280);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 1400);
       } else if (mouseX<= 550 && mouseX >= 390 && mouseY <= 760 && mouseY>= 600 && n.getShow(2) && n.getMoney() >= 400) {
@@ -465,7 +465,7 @@ public class Shop {
         n.setRange(120);
         n.setDamages(40 + n.getHalberdUpgrade() * 5);
         n.setIsMelee(true);
-        n.setSpawnTime(180);
+        n.setSpawnTime(175);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 400);
       } else if (mouseX <= 715 && mouseX >= 555  && mouseY <= 760 && mouseY>= 600 && n.getShow(3) && n.getMoney() >= 1100) {
@@ -476,7 +476,7 @@ public class Shop {
         n.setRange(130);
         n.setDamages(40 + n.getHalberdUpgrade()*5);
         n.setIsMelee(true);
-        n.setSpawnTime(450);
+        n.setSpawnTime(260);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 1100);
       } else if (mouseX <= 1045 && mouseX >= 885  && mouseY <= 760 && mouseY>= 600 && n.getShow(5) && n.getMoney() >= 1000) {
@@ -487,7 +487,7 @@ public class Shop {
         n.setRange(100);
         n.setDamages(60 + n.getSwordUpgrade() * 5);
         n.setIsMelee(true);
-        n.setSpawnTime(380);
+        n.setSpawnTime(225);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 1000);
       } else if (mouseX <= 1210 && mouseX >= 1050  && mouseY <= 760 && mouseY>= 600 && n.getShow(6)  && n.getMoney() >= 500) {
@@ -498,7 +498,7 @@ public class Shop {
         n.setRange(110);
         n.setDamages(45 + n.getAxeUpgrade() * 5);
         n.setIsMelee(true);
-        n.setSpawnTime(250);
+        n.setSpawnTime(190);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 500);
       } else if (mouseX <= 880 && mouseX >= 720  && mouseY <= 760 && mouseY>= 600 && n.getShow(4) && n.getMoney() >= 450) {
@@ -509,7 +509,7 @@ public class Shop {
         n.setRange(60);
         n.setDamages(10);
         n.setIsMelee(true);
-        n.setSpawnTime(170);
+        n.setSpawnTime(160);
         n.setUnits(n.getUnits()+1);
         n.setMoney(n.getMoney() - 450);
       } else if (mouseX <= 1375 && mouseX >= 1215  && mouseY <= 760 && mouseY>= 600 && n.getShow(7)) {
@@ -534,7 +534,7 @@ public class Shop {
             n.setName("Javelin Thrower");
             n.setSpeed(4 + n.getSpeedUpgrade());
             n.setArmour(50 + (n.getArmourUpgrade() * 10));
-            n.setRange(250);
+            n.setRange(200);
             n.setDamages(75);
             n.setIsMelee(false);
             n.setSpawnTime(225);
@@ -546,12 +546,12 @@ public class Shop {
           if (n.getMoney()>=3200) {
             n.setShow(7);
             n.setName("Giant Troll");
-            n.setSpeed(5 + n.getSpeedUpgrade());
+            n.setSpeed(3 + n.getSpeedUpgrade());
             n.setArmour(220 + (n.getArmourUpgrade() * 10));
             n.setRange(250);
             n.setDamages(500);
             n.setIsMelee(true);
-            n.setSpawnTime(500);
+            n.setSpawnTime(750);
             n.setUnits(n.getUnits()+1);
             n.setMoney(n.getMoney() - 3200);
           }
@@ -604,8 +604,8 @@ public class Shop {
             n.setName("Axe Thrower");
             n.setSpeed(3 + n.getSpeedUpgrade());
             n.setArmour(40 + (n.getArmourUpgrade() * 10));
-            n.setRange(750);
-            n.setDamages(20);
+            n.setRange(250);
+            n.setDamages(80);
             n.setIsMelee(false);
             n.setSpawnTime(170);
             n.setUnits(n.getUnits()+1);
@@ -618,8 +618,8 @@ public class Shop {
             n.setName("Range");
             n.setSpeed(2 + n.getSpeedUpgrade());
             n.setArmour(50 + (n.getArmourUpgrade() * 10));
-            n.setRange(1700);
-            n.setDamages(10);
+            n.setRange(300);
+            n.setDamages(70);
             n.setIsMelee(false);
             n.setSpawnTime(220);
             n.setUnits(n.getUnits()+1);
