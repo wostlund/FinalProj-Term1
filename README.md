@@ -119,7 +119,7 @@ Will Ostlund: <br>
 	GOAL FOR TOMORROW: Make a few minor aesthetic changes completely finishing the game
 
 <b>1/25/16</b>
-Will Ostlund <br>
+Will Ostlund: <br>
 	-Created descriptions for every unit<br>
 	-Fixed colors so that they for each race<br>
 	-BUG: When the user picks the race, it does not immediately convert the shapes to accomodate this choice<br>
