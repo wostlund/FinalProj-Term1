@@ -868,6 +868,9 @@ public void fillColor(PShape avatar) {
   case "Night Elves":
     avatar.setFill(color(#9014B7));
     break;
+    case "The Undead":
+      avatar.setFill(color(#DBFFE9));
+      break;
   default:
     avatar.setFill(color(0));
     break;
@@ -897,6 +900,9 @@ public void fillColor(PShape avatar, Data n) {
   case "Night Elves":
     avatar.setFill(color(#9014B7));
     break;
+    case "The Undead":
+      avatar.setFill(color(#DBFFE9));
+      break;
   default:
     avatar.setFill(color(0));
     break;
