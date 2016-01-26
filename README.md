@@ -105,5 +105,14 @@ Jackson Morgan:<br>
 	-Made it so you faced different race types in each level <br>
 	-Made it so once you beat all the levels you could start over<br>
 	-Made new screen for when you beat all levels.<br>
+Wil Ostlund: <br>
+    	-Created new units for each individual races<br>
+	-Each one of these units have different attributes and can only be spawned by its indivodual race<br>
+	-Players can now buy these units at the shop<br>
+	-Created a Shape for each unit<br>
+	-BUG: When playing there is no indicator of the unit type at the shop other than its shape<br>
+	-BUG: When spawning units there is no way for the user to tell what unit is selected <br>
+	-BUG FIXED: Added descriptions to regular units will do this for the special ones <br>
+	-BUG FIXED: Text is now displayed when showing the user's choice on the screen when he is choosing a unit to spawn <br>
 
 
