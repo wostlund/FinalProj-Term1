@@ -506,6 +506,7 @@ public void displaySoldier() {
     playing = false;
     timer = 0;
     level ++;
+    unitTraits.setKills(m.getKill());
     unitTraits.setMoney(unitTraits.getMoney()+m.getKill()*10);
     m.setKill(0);
     if (level == 7) {

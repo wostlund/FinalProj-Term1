@@ -1,5 +1,6 @@
 public class Data {
 private String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountain Trolls", "Forest Elves", "Men of the West", "Night Elves"}; 
+private int kills;  
   public Data(int k) {
     race = ra[k]; 
     units = 3;
@@ -57,6 +58,14 @@ private String [] ra = {"Men","Orcs of the North", "Orcs of the South", "Mountai
   
   public boolean getShow(int i){
     return show[i];
+  }
+  
+  public void setKills(int x){
+    this.kills+=x; 
+  }
+  
+  public int getKills(){
+    return this.kills; 
   }
   
   public void setShow(int i){

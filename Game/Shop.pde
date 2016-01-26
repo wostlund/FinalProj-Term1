@@ -319,7 +319,7 @@ public class Shop {
     text("Your Army's Units", 50, 570);
     textFont(c);
     textSize(24);
-    text("Kills", 50, 400);
+    text("Kills: " + n.getKills(), 50, 400);    
     textFont(d);
     fill(color(#D6E531));
     textSize(42);
